@@ -40,6 +40,14 @@
   background: #f2f9f5;
   color: #0b281d;
 }
+.porto-large-img {
+  height: 380px !important;
+}
+
+p { word-spacing: -0.5px; }
+.text-justify { text-align: justify; }
+
+.list-check li::marker { content: "✔ "; color: #1E4B33; font-weight: bold; }
 
 html { scroll-behavior: smooth; }
 
@@ -57,10 +65,9 @@ html { scroll-behavior: smooth; }
 
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2">
-        <img src="Images/Logo.png" class="h-9 w-auto object-contain brightness-110">
+        <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
         <div class="leading-tight">
-          <p class="font-semibold text-[var(--sage-border)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-          <p class="text-[11px] text-[var(--sage-border)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
+<p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
         </div>
       </a>
 
@@ -121,58 +128,79 @@ html { scroll-behavior: smooth; }
 
 <div class="h-[60px]"></div>
 
-<!-- ==================== HERO ==================== -->
-<section class="bg-[var(--sage-light)] pt-16 pb-14 text-center">
-  <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">PORTOFOLIO</p>
-  <h1 class="text-3xl sm:text-4xl font-bold text-[var(--forest)]">
-    Proyek Pengolahan Air & Lingkungan
-  </h1>
-  <p class="max-w-2xl mx-auto mt-4 text-sm text-slate-600">
-    Implementasi teknologi pengolahan air, limbah, serta sistem lingkungan berkelanjutan.
-  </p>
-</section>
-
 <!-- ==================== LIST PORTOFOLIO ==================== -->
-<section class="max-w-6xl mx-auto px-6 py-16">
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+<section class="max-w-4xl mx-auto px-6 py-16">
 
-    <!-- CARD -->
-    <div class="bg-white rounded-xl shadow-md border border-[var(--sage-border)] card-hover overflow-hidden">
-      <img src="Images/porto1.jpg" class="h-48 w-full object-cover">
-      <div class="p-4">
-        <p class="text-xs font-semibold text-[var(--forest)]">INDUSTRI</p>
-        <h3 class="font-semibold text-lg mt-1">Instalasi RO 5000 L/H</h3>
-        <p class="text-sm text-slate-600 mt-2 line-clamp-2">Sistem reverse osmosis kapasitas 5000 liter/jam dengan automasi panel SCADA.</p>
-      </div>
+  <div class="max-w-6xl mx-auto px-4 py-10 lg:py-16 grid gap-10">
+
+  <!-- ======= CARD 1 ======= -->
+  <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] overflow-hidden hover:shadow-lg transition shadow-sm duration-300 card-hover">
+    <div class="h-[300px] md:h-[380px] w-full overflow-hidden">
+      <img src="Images/porto mesin.jpeg" class="w-full h-full object-cover hover:scale-105 duration-700">
     </div>
+    <div class="p-6">
+      <p class="text-xs uppercase font-semibold tracking-widest text-[var(--forest)]/80 mb-2">Mesin</p>
+      <h3 class="text-xl font-semibold text-[var(--forest)] mb-3">Instalasi SWRO </h3>
+      <p class="text-[14px] text-gray-700 leading-relaxed text-justify">
+  Instalasi <strong>Sea Water Reverse Osmosis (SWRO)</strong> berfungsi menghilangkan pengotor kimia terlarut dari air payau atau air laut menggunakan proses pemisahan melalui membran bertekanan tinggi. Sistem ini dirancang untuk menghasilkan air murni secara efisien melalui metode filtrasi aliran silang (cross-flow), dengan kualitas air yang stabil dan terkontrol.
+  <br><br>
+  Unit SWRO yang diproduksi Octa dirancang untuk kebutuhan industri dan komersial, dengan bahan berkualitas tinggi, kontrol otomatis berbasis mikroprosesor, serta pemasangan yang cepat dan mudah. Kapasitas dapat disesuaikan, mulai dari skala kecil hingga 100 m³/jam, menggunakan membran semi 4 inci dan 8 inci sesuai kebutuhan aplikasi.
+  <br><br>
+  Air hasil pemurnian disebut <strong>produk</strong>, sedangkan sisa air buangan disebut <strong>konsentrat</strong>. Tingkat pemulihan air bergantung pada kualitas air umpan, jenis membran, suhu, tekanan, serta desain sistem secara keseluruhan.
+</p>
 
-    <div class="bg-white rounded-xl shadow-md border border-[var(--sage-border)] card-hover overflow-hidden">
-      <img src="Images/porto2.jpg" class="h-48 w-full object-cover">
-      <div class="p-4">
-        <p class="text-xs font-semibold text-[var(--forest)]">PERMUKIMAN</p>
-        <h3 class="font-semibold text-lg mt-1">IPAL Komunal Perumahan</h3>
-        <p class="text-sm text-slate-600 mt-2 line-clamp-2">Pengolahan limbah domestik teknologi MBBR ramah biaya pemeliharaan.</p>
-      </div>
+<div class="mt-6 bg-[var(--sage-light)] border border-[var(--sage-border)] rounded-xl p-5">
+  <h4 class="text-base font-semibold text-[var(--forest)] mb-3">Keuntungan Instalasi SWRO</h4>
+  <ul class="text-[14px] text-gray-700 leading-relaxed pl-4 space-y-1 list-disc">
+    <li>Kontrol otomatis berbasis program yang mudah digunakan.</li>
+    <li>Komponen berkualitas tinggi untuk pengoperasian berkelanjutan.</li>
+    <li>Koneksi rapi di lokasi pemasangan untuk memaksimalkan ketersediaan sistem.</li>
+    <li>Pemasangan cepat dan mudah dioperasikan.</li>
+    <li>Menghasilkan air murni dengan kualitas tinggi.</li>
+    <li>Tersedia berbagai model standar yang hemat biaya.</li>
+  </ul>
+</div>
+
     </div>
-
-    <div class="bg-white rounded-xl shadow-md border border-[var(--sage-border)] card-hover overflow-hidden">
-      <img src="Images/porto3.jpg" class="h-48 w-full object-cover">
-      <div class="p-4">
-        <p class="text-xs font-semibold text-[var(--forest)]">PABRIK</p>
-        <h3 class="font-semibold text-lg mt-1">Desalinasi Air Laut 10m³/h</h3>
-        <p class="text-sm text-slate-600 mt-2 line-clamp-2">Teknologi seawater RO untuk industri pesisir efisiensi energi tinggi.</p>
-      </div>
-    </div>
-
   </div>
+
+  <!-- ======= CARD 2 ======= -->
+  <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] overflow-hidden hover:shadow-lg transition shadow-sm duration-300 card-hover">
+    <div class="h-[300px] md:h-[380px] w-full overflow-hidden">
+      <img src="Images/porto 3 mesin.jpeg" class="w-full h-full object-cover hover:scale-105 duration-700">
+    </div>
+<div class="mt-6 bg-white border border-[var(--sage-border)] rounded-xl p-5 shadow-md">
+  <h4 class="text-base font-semibold text-[var(--forest)] mb-3">Process</h4>
+  <ul class="text-[14px] text-gray-700 leading-relaxed pl-4 space-y-1 list-decimal">
+    <li>Seawater Intake (Pengambilan Air Laut)</li>
+    <li>Dissolved Air Flotation (DAF) yaitu proses pemisahan padatan tersuspensi (seperti lumpur, alga, partikel organik) dengan cara mengapungkan partikel, bisa ditambahkan sistem flokulasi dan koagulasi</li>
+    <li>Dual Media Filter & Pressurized Media Filter yaitu untuk menyaring partikel yang lebih kecil</li>
+    <li>Antiscalant & SBS (Sodium Bisulfite) Injection</li>
+    <li>Cartridge Filter</li>
+    <li>Filter cartridge berfungsi sebagai penyaring akhir untuk melindungi membran RO dari partikel yang sangat halus</li>
+    <li>RO 1 (Reverse Osmosis Tahap 1)</li>
+    <li>Mixed Bed Ion Exchanger,</li>
+    <li>RO 2 (Reverse Osmosis Tahap 2) untuk dijadikan air baku boiler</li>
+    <li>Disinfection (Desinfeksi Akhir) - UV Light (sinar ultraviolet) digunakan untuk desinfeksi non-kimia guna membunuh mikroorganisme untuk air layak minum</li>
+  </ul>
+
+  <p class="text-[13px] text-gray-600 mt-3">
+    Untuk Air Payau (sungai/Air Tanah), proses sama tinggal sistem RO nya menggunakan BWRO
+  </p>
+</div>
+
+
+</div>
+
 </section>
+
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
 
     <div>
-      <img src="Images/Logo.png" class="w-28 mb-4 brightness-110">
+      <img src="Images/logo white.png" class="w-28 mb-4 brightness-110">
       <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
         Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.
       </p>
