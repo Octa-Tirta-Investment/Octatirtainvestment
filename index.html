@@ -3,855 +3,409 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Water Treatment Plant & Water Waste Treatment Company</title>
-  <meta name="description" content="Perusahaan pengolahan air bersih,.">
-  <!-- Tailwind CDN -->
+  <title>PT. Octa Tirta Investment | Water Engineering & Environmental Solution</title>
+
+  <!-- FONT PREMIUM -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
+<style>
+  * { font-family: 'Poppins', sans-serif !important; }
+  html { scroll-behavior: smooth; }
 
-/* ===================== */
-/* 🌊 NAVBAR CLICK RIPPLE EFFECT */
-/* ===================== */
-
-/* Posisi ripple mengikuti posisi klik (x,y) */
-header.navbar-glass nav a::after,
-header.navbar-glass .btn-cta::after {
-  left: var(--x);
-  top: var(--y);
-}
-
-/* Elemen yang bisa ditekan */
-header.navbar-glass nav a,
-header.navbar-glass .btn-cta {
-  position: relative;
-  overflow: hidden;
-  transform: scale(1);
-  transition: transform 0.15s ease;
-}
-
-/* Animasi mengecil saat ditekan */
-header.navbar-glass nav a:active,
-header.navbar-glass .btn-cta:active {
-  transform: scale(0.94);
-}
-
-/* Ripple circle */
-header.navbar-glass nav a::after,
-header.navbar-glass .btn-cta::after {
-  content: "";
-  position: absolute;
-  background: rgba(167, 208, 140, 0.3); /* hijau pastel transparan */
-  border-radius: 50%;
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  pointer-events: none;
-  transition: width 0.3s ease, height 0.3s ease, opacity 0.4s ease;
-}
-
-/* Saat ditekan width ripple membesar */
-header.navbar-glass nav a:active::after,
-header.navbar-glass .btn-cta:active::after {
-  width: 180px;
-  height: 180px;
-  opacity: 1;
-}
-
-
-/* ===================== */
-/* 🌿 NAVBAR GLASS STYLE */
-/* ===================== */
-
-/* Default navbar transparan di HERO (posisi atas) */
-header.navbar-glass {
-  background: rgba(0, 29, 48, 0);
-  transition: background 0.35s ease, backdrop-filter 0.35s ease, color 0.35s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.0);
-  backdrop-filter: none;
-}
-
-/* Navbar hijau solid saat awal pertama halaman */
-header.navbar-glass.top-hero {
-  background-color: var(--green-forest) !important;
-  backdrop-filter: none !important;
-  border-bottom: none !important;
-}
-
-/* Saat discroll -> efek kaca gelap */
-header.navbar-glass.scrolled {
-  background: rgba(0, 29, 48, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* WARNA TEKS NAVBAR */
-header.navbar-glass a,
-header.navbar-glass p {
-  color: #ffffff !important;
-  transition: color 0.3s ease;
-}
-
-/* Hover warna elegan saat discroll */
-header.navbar-glass.scrolled a:hover {
-  color: #A7D08C !important;
-}
-
-/* Active page */
-header.navbar-glass nav a.active {
-  color: #A7D08C !important;
-  font-weight: 600;
-}
-
-header.navbar-glass .btn-cta:hover {
-  background-color: rgba(167, 208, 140, 1);
-}
-
-/* Saat top-hero => tombol menyesuaikan warna branding */
-header.navbar-glass.top-hero .btn-cta {
-  background-color: #A7D08C !important;
-  color: #0D2B12 !important;
-}
-
-
-/* ===================== */
-/* 🌍 OTHER UI ELEMENTS */
-/* ===================== */
-
-html { scroll-behavior: smooth; }
-
-:root {
-  --green-forest: #335833;
-  --green-deep:   #2A4729;
-  --green-mint:   #EAF5E1;
-  --green-border: #8EBB75;
-}
-
-/* HERO SLIDER */
-.hero-slider {
-  position: relative;
-  overflow: hidden;
-  height: 420px;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.hero-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(51, 88, 51, 0.9),
-    rgba(51, 88, 51, 0.7),
-    rgba(51, 88, 51, 0.4)
-  );
-}
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-/* PARALLAX */
-.parallax-section {
-  background-image: url("https://images.pexels.com/photos/989959/pexels-photo-989959.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.parallax-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(51, 88, 51, 0.85),
-    rgba(51, 88, 51, 0.65)
-  );
-}
-
-/* FLOAT CARD */
-.float-card {
-  animation: floatCard 6s ease-in-out infinite;
-}
-
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-slider {
-    height: 520px;
+  :root {
+    --sage-dark: #082A20;        /* Navbar + Footer */
+    --sage-border: #9DD4B0;      /* Accent Border & CTA Button */
+    --sage-text: #C8E3D1;        /* Footer Soft Text */
+    --sage-light: #E9F5EB;       /* Mint Soft Background */
+    --forest: #1E4B33;           /* Dark Green Title */
   }
-}
 
+  /* HERO SLIDER */
+  .hero-slider { position: relative; overflow: hidden; height: 480px; }
+  .hero-slide { position: absolute; inset: 0;
+                background-size: cover; background-position: center;
+                opacity: 0; transition: opacity 1s ease-in-out; }
+  .hero-slide.active { opacity: 1; }
+  .hero-slide::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+
+  /* PARALLAX */
+  .parallax-section {
+    background-attachment: fixed; background-size: cover; background-position:center;
+  }
+  .parallax-overlay { position:absolute; inset:0;
+    background:linear-gradient(to right, rgba(30,75,51,0.93), rgba(30,75,51,0.6)); }
+
+  /* CARD HOVER */
+  .card-hover:hover { transform:scale(1.045); transition:.3s ease; box-shadow:0 6px 15px rgba(0,0,0,0.20); }
+
+  /* LOGO MITRA */
+  .mitra-logo img { height:65px; transition:.3s; opacity:.95; }
+  .mitra-logo img:hover { transform:scale(1.07); opacity:1; }
 </style>
-
 </head>
-<script>
-  const navbar = document.querySelector("header.navbar-glass");
 
-  function checkScroll() {
-    if (window.scrollY <= 5) {
-      navbar.classList.add("top-hero");
-      navbar.classList.remove("scrolled");
-    } else {
-      navbar.classList.remove("top-hero");
-      navbar.classList.add("scrolled");
-    }
-  }
+<body class="bg-[var(--sage-light)] text-slate-800">
 
-  window.addEventListener("scroll", checkScroll);
-  window.addEventListener("load", checkScroll);
-</script>
-
-<script>
-  // ripple navbar click effect
-  document.querySelectorAll("header.navbar-glass nav a, header.navbar-glass .btn-cta")
-    .forEach(el => {
-      el.addEventListener("click", function(e){
-        const rect = this.getBoundingClientRect();
-        this.style.setProperty("--x", (e.clientX - rect.left) + "px");
-        this.style.setProperty("--y", (e.clientY - rect.top) + "px");
-      });
-    });
-</script>
-
-<script>
-  const btnManaMob = document.getElementById("btn-mana-mobile");
-  const subManaMob = document.getElementById("sub-mana-mobile");
-  const iconMana = document.getElementById("icon-mana");
-
-  btnManaMob.addEventListener("click", () => {
-    const isOpen = subManaMob.style.maxHeight && subManaMob.style.maxHeight !== "0px";
-    if (isOpen) {
-      subManaMob.style.maxHeight = "0px";
-      iconMana.style.transform = "rotate(0deg)";
-    } else {
-      subManaMob.style.maxHeight = subManaMob.scrollHeight + "px";
-      iconMana.style.transform = "rotate(180deg)";
-    }
-  });
-</script>
-
-
-<body class="bg-[var(--green-mint)] text-slate-800">
-
-  <!-- NAVBAR -->
-<header class="fixed top-0 inset-x-0 bg-[var(--green-pastel)] backdrop-blur border-b border-[var(--green-border)] z-40">
+<!-- ==================== NAVBAR ==================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+    <div class="flex items-center justify-between h-[60px] text-white">
 
       <!-- Logo -->
-      <a href="#beranda" class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-full bg-[var(--green-forest)] flex items-center justify-center text-white font-bold text-lg">
-          OT
-        </div>
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="Images/Logo.png" class="h-9 w-auto object-contain brightness-110">
         <div class="leading-tight">
-          <p class="font-semibold text-[var(--green-forest)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-          <p class="text-xs text-[var(--green-forest)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
+          <p class="font-semibold text-[var(--sage-border)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+          <p class="text-[11px] text-[var(--sage-border)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
         </div>
       </a>
 
-      <!-- Menu desktop -->
+      <!-- Menu Desktop -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
+        <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-        <a href="#beranda" class="hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">Beranda</a>
-        <a href="#tentang-kami" class="hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">Tentang Kami</a>
-
-        <!-- Dropdown Manajemen -->
+        <!-- Dropdown Desktop -->
         <div class="group relative">
-          <button class="flex items-center gap-1 hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">
+          <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
             Manajemen
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-
-          <div class="invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all absolute top-full w-52 bg-white text-slate-700 border border-slate-200 rounded-lg shadow-md">
+          <div class="invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52
+                      bg-white/10 border border-white/20 rounded-lg shadow-md backdrop-blur text-white transition-all">
             <ul class="py-2 text-[13px]">
-              <li><a href="#dirut" class="block px-4 py-1.5 hover:bg-slate-100">Direktur Utama</a></li>
-              <li><a href="#dirtek" class="block px-4 py-1.5 hover:bg-slate-100">Direktur Teknik</a></li>
-              <li><a href="#dirop" class="block px-4 py-1.5 hover:bg-slate-100">Direktur Operasional</a></li>
-              <li><a href="#qc" class="block px-4 py-1.5 hover:bg-slate-100">Quality & Compliance</a></li>
-              <li><a href="#keu" class="block px-4 py-1.5 hover:bg-slate-100">Keuangan & Administrasi</a></li>
+              <li><a href="Manajemen.html" class="block px-4 py-1.5 hover:bg-white/10">Manajemen</a></li>
+              <li><a href="tim_ahli.html" class="block px-4 py-1.5 hover:bg-white/10">Tim Ahli</a></li>
             </ul>
           </div>
         </div>
 
-        <a href="#produk" class="hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">Produk</a>
-        <a href="#portofolio" class="hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">Portofolio</a>
-        <a href="#berita" class="hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">Berita</a>
-        <a href="#hubungi-kami" class="hover:text-[var(--green-forest)] text-[var(--green-forest)]/85 font-medium">Hubungi Kami</a>
-
+        <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
+        <a href="blog.html" class="hover:text-[var(--sage-border)]">Blog & Artikel</a>
+        <a href="#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
       </nav>
 
-
-        <button id="btn-mobile" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-[var(--green-border)]">
-          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+        <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
-
     </div>
   </div>
 
-  <!-- Mobile menu -->
-<div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-white border-t border-[var(--green-border)] shadow-lg z-50 relative">
-  <div id="overlay-menu" class="fixed inset-0 bg-black/40 hidden z-40"></div>
-  <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-[var(--green-forest)]">
+  <!-- Mobile Menu -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+    <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
+      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
+      <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-    <a href="#beranda" class="py-1">Beranda</a>
-    <a href="#tentang-kami" class="py-1">Tentang Kami</a>
+      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
+        Manajemen
+        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
+        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
+      </div>
 
-    <!-- Dropdown Manajemen (Mobile) -->
-    <button id="btn-mana-mobile" class="py-1 flex items-center justify-between">
-      Manajemen
-      <svg id="icon-mana" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-      </svg>
-    </button>
-
-    <div id="sub-mana-mobile" class="max-h-0 overflow-hidden flex flex-col text-[13px] transition-all duration-300 pl-3">
-      <a href="#dirut" class="py-1.5">• Direktur Utama</a>
-      <a href="#dirtek" class="py-1.5">• Direktur Teknik</a>
-      <a href="#dirop" class="py-1.5">• Direktur Operasional</a>
-      <a href="#qc" class="py-1.5">• Quality & Compliance</a>
-      <a href="#keu" class="py-1.5">• Keuangan & Administrasi</a>
-    </div>
-
-    <a href="#produk" class="py-1">Produk</a>
-    <a href="#portofolio" class="py-1">Portofolio</a>
-    <a href="#berita" class="py-1">Berita</a>
-    <a href="#hubungi-kami" class="py-1">Hubungi Kami</a>
-
-  </nav>
-</div>
+      <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]">Portofolio</a>
+      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
+      <a href="#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
+    </nav>
+  </div>
 </header>
 
-  <!-- spacer navbar -->
-  <div class="h-16"></div>
+<!-- Spacer -->
+<div class="h-[60px]"></div>
 
-  <!-- HERO: BACKGROUND SLIDER -->
+<!-- ==================== HERO SLIDER ==================== -->
 <section id="beranda" class="relative">
   <div class="hero-slider">
-    <!-- slide 1 -->
-    <div class="hero-slide active" style="background-image:url('https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
-    <!-- slide 2 -->
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1542228262-3d663b306a36?auto=format&fit=crop&w=1600&q=70');"></div>
-    <!-- slide 3 -->
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?auto=format&fit=crop&w=1600&q=70');"></div>
 
-    <!-- konten di atas slide -->
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-      <div class="max-w-xl text-white">
-        <p class="uppercase tracking-[0.25em] text-xs mb-3 text-green-100">SOLUSI AIR & LIMBAH TERPADU</p>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight mb-4">
-          Mitra Terpercaya Pengolahan Air & Limbah yang Berkelanjutan
+    <!-- Slide 1 (Gambar) -->
+    <div class="hero-slide active" style="background-image:url('Images/bg1.jpeg');"></div>
+
+    <!-- Slide 2 (Gambar) -->
+    <div class="hero-slide" style="background-image:url('Images/bg2.jpg');"></div>
+
+    <!-- Slide 3 (VIDEO 1) -->
+    <div class="hero-slide relative overflow-hidden">
+      <video class="absolute inset-0 w-full h-full object-cover"
+        src="Images/bg.mp4"
+        autoplay muted loop playsinline></video>
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <!-- Slide 4 (VIDEO 2) -->
+    <div class="hero-slide relative overflow-hidden">
+      <video class="absolute inset-0 w-full h-full object-cover"
+        src="Images/bg2.mp4"
+        autoplay muted loop playsinline></video>
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <!-- ===== TEXT CONTENT ===== -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center text-white">
+      <div class="max-w-xl">
+        <p class="uppercase tracking-[0.25em] text-xs mb-3 text-white/90">SOLUSI AIR & LIMBAH TERPADU</p>
+        <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-4">
+          Cakrawala Masa Depan Solusi Air & Limbah Berkelanjutan
         </h1>
-        <p class="text-sm sm:text-base text-green-100/90 mb-6">
-          Rekayasa, instalasi, dan perawatan sistem WTP & IPAL untuk industri, komersial, maupun fasilitas publik di seluruh Indonesia.
+        <p class="text-gray-200 mb-6">
+          WTP, WWTP, IPAL, Rekayasa Sistem, Instalasi, & Maintenance untuk Industri dan Fasilitas Publik.
         </p>
         <div class="flex flex-wrap gap-3">
-          <a href="#produk" class="inline-flex items-center px-5 py-2.5 rounded-full bg-white text-[var(--green-forest)] text-sm font-medium shadow-md hover:bg-green-50">
-            Lihat Produk & Layanan
+          <a href="#produk"
+            class="px-5 py-2.5 rounded-full bg-white text-[var(--sage-dark)] text-sm font-medium shadow-md hover:bg-[var(--sage-border)]">
+            Lihat Layanan
           </a>
-          <a href="#hubungi-kami" class="inline-flex items-center px-4 py-2 rounded-full border border-green-100 text-green-50 text-sm font-medium hover:bg-white/10">
+          <a href="#hubungi-kami"
+            class="px-4 py-2 rounded-full border border-white text-white text-sm font-medium hover:bg-white/10">
             Hubungi Kami
           </a>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-
-  <!-- PARALLAX: WHY TRUST US -->
-  <section class="parallax-section py-14 lg:py-20 mt-[-1px]">
-    <div class="parallax-overlay"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold tracking-[0.25em] text-green-100 uppercase mb-2">100% SATISFACTION</p>
-        <h2 class="text-2xl sm:text-3xl font-semibold text-white">MENGAPA MEMILIH KAMI?</h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white">
-        <div class="float-card bg-white/5 border border-white/20 rounded-2xl p-5 backdrop-blur-sm">
-          <p class="text-lg mb-2">✔</p>
-          <h3 class="font-semibold mb-1 text-sm">Quality Assurance</h3>
-          <p class="text-xs text-green-50/90">
-            Setiap proyek dirancang dan diuji mengikuti standar teknis dan regulasi lingkungan yang berlaku.
-          </p>
-        </div>
-        <div class="float-card bg-white/5 border border-white/20 rounded-2xl p-5 backdrop-blur-sm [animation-delay:0.8s]">
-          <p class="text-lg mb-2">⚙</p>
-          <h3 class="font-semibold mb-1 text-sm">Teknologi Tepat Guna</h3>
-          <p class="text-xs text-green-50/90">
-            Kombinasi teknologi biologis, kimia, dan mekanis untuk hasil pengolahan yang stabil dan efisien.
-          </p>
-        </div>
-        <div class="float-card bg-white/5 border border-white/20 rounded-2xl p-5 backdrop-blur-sm [animation-delay:1.6s]">
-          <p class="text-lg mb-2">🧩</p>
-          <h3 class="font-semibold mb-1 text-sm">Support Teknis</h3>
-          <p class="text-xs text-green-50/90">
-            Tim teknis siap mendampingi mulai dari desain, instalasi, hingga pelatihan operator di lapangan.
-          </p>
-        </div>
-        <div class="float-card bg-white/5 border border-white/20 rounded-2xl p-5 backdrop-blur-sm [animation-delay:2.4s]">
-          <p class="text-lg mb-2">🌏</p>
-          <h3 class="font-semibold mb-1 text-sm">Jaringan Layanan</h3>
-          <p class="text-xs text-green-50/90">
-            Kemitraan dengan berbagai industri, hotel, rumah sakit, dan kawasan komersial di berbagai kota.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-
-  <section id="tentang-kami" class="parallax-section py-14 lg:py-20 relative text-white">
-  <div class="parallax-overlay"></div>
-  <div class="relative max-w-4xl mx-auto px-4 text-center">
-
-    <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-2 text-green-100">
-      TENTANG KAMI
-    </p>
-
-    <h2 class="text-2xl sm:text-3xl font-semibold mb-4">
-      PT. Octa Tirta Investment
-    </h2>
-
-    <p class="text-sm sm:text-base text-white/90 leading-relaxed mb-6 text-justify">
-      PT. OCTA TIRTA INVESTMENT adalah Perusahaan Bergerak Di Bidang Pengolahan air, Pengolahan Limbah Dan Penyedia Peralatan Reverse Osmosis (RO)  Pemurnian Air  Dengan Pengalaman Luas Dalam Fabrikasi Sistem. Kami Berfokus Pada Segmentasi Komersial Perkotaan, Industri, Residence,  Memproduksi Peralatan Efisien Yang Sederhana Dan Mudah Dioperasikan Serta Dirawat Dengan Material Berkualitas Tinggi Dengan Harga Terbaik Di Industri.
-    </p>
-
-    <!-- VISI, MISI, NILAI, SEKTOR -->
-    <div class="mt-10 space-y-10 text-left max-w-3xl mx-auto">
-
-      <!-- VISI, MISI, NILAI, SEKTOR -->
-      <div class="mt-10 space-y-10 max-w-3xl mx-auto">
-
-        <!-- VISI -->
-        <div class="text-center">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-1 text-green-100">MANAJEMEN</p>
-          <p class="text-sm sm:text-base text-white/90 leading-relaxed text-left text-justify">
-            Kami senantiasa berinvestasi Bersama Tim Yang Solid, Peralatan Keselamatan Mutakhir, Dan Protokol Keselamatan Yang Ketat Untuk Menjamin Kesejahteraan Manajemen, Karyawan Dan Integritas Operasional Manajemen. Kami Menerapkan Standar Dan Sistem Manajemen Keselamatan Terakreditasi Serta Melakukan Audit Keselamatan Internal Dan Eksternal. Dengan Membangun Budaya Peduli Dan Beretika.
-Kami bekerja di lingkungan yang menghargai keterampilan, kekuatan, dan perspektif yang dibawa oleh karyawan kami ke dalam tim. Membina kerja sama tim, kolaborasi, inisiatif, dan akuntabilitas adalah inti dari kami. Kami mendorong pembelajaran dan menghargai kinerja yang unggul.
-          </p>
-        </div>
-
-        <!-- MISI -->
-        <div class="text-center">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-1 text-green-100">MISI</p>
-          <p class="text-sm sm:text-base text-white/90 leading-relaxed text-left text-justify">
-            Menjadi pemimpin Kancah Nasional dalam peralatan pengolahan air berkelanjutan, serta pengolahan limbah yang inovatif.
-            Kami berfokus pada optimalisasi penggunaan sumber daya alam dan menyediakan sistem yang efisien bagi pelanggan kami
-            dengan bahan berkualitas tinggi yang sederhana dan mudah dioperasikan serta dirawat.
-          </p>
-        </div>
-
-        <!-- ETIKA KERJA -->
-        <div class="text-center">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-1 text-green-100">ETIKA KERJA</p>
-          <p class="text-sm sm:text-base text-white/90 leading-relaxed text-left text-justify">
-            Kejujuran dan etika. Kami berupaya mencapai standar transparansi dan akuntabilitas tertinggi dalam semua tindakan kami.
-          </p>
-        </div>
-
-        <!-- SEKTOR LAYANAN -->
-        <div class="text-center">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-1 text-green-100">INNOVASI BERKELANJUTAN</p>
-          <ul class="text-sm sm:text-base text-white/90 list-disc list-inside space-y-1 marker:text-green-100 text-left inline-block text-justify">
-            <p class="text-justify">
-             Terima saran untuk belajar dan berkembang. Melalui riset dan inovasi, Menyediakan sistem yang terbaik bagi pemangku kepentingan.
-Portofolio Inovasi keberlanjutan adalah elemen kunci dari strategic manajemen. Solusi Kami Mendukung Beragam keluhan pemangku kepentingan yang bermanfaat menciptakan dampak positif yang berkelanjutan bersama. Kami membantu mengatasi masalah kehilangan air dalam jaringan distribusi, meningkatkan efisiensi energi dengan solusi, meningkatkan kualitas air dengan portofolio optimalisasi, dan memastikan keselamatan operasional kinerja tinggi. Kami menjalankan beberapa proyek percontohan yang mendorong ekonomi sirkular dan memastikan inovasi berkelanjutan.
-            </p>
-          </ul>
-        </div>
-         <div class="text-center">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-1 text-green-100">KEBERLANJUTAN LINGKUNGAN</p>
-          <p class="text-sm sm:text-base text-white/90 leading-relaxed text-left text-justify">
-            Kami melindungi lingkungan melalui solusi berkelanjutan dan mendukung masyarakat sekitar.
-          </p>
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
 
 
 
-  <!-- MANAJEMEN -->
-  <section id="manajemen" class="py-12 lg:py-16 bg-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <p class="text-xs font-semibold tracking-[0.25em] text-[var(--green-forest)] uppercase mb-2">
-            MANAJEMEN
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900">
-            Struktur Manajemen
-          </h2>
-          <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl">
-            Dipimpin oleh profesional dengan latar belakang teknik lingkungan, kimia, dan manajemen proyek.
-          </p>
-        </div>
-      </div>
+<!-- ==================== DEWAN TEKNIS ==================== -->
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 text-center mb-12">
+    <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">DEWAN TEKNIS & KONSULTAN</p>
+    <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Profesional Bersertifikasi & Berpengalaman</h3>
+  </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-          <div class="h-40 bg-slate-200 flex items-center justify-center text-slate-400 text-xs">
-            Foto Direktur Utama
-          </div>
-          <div class="p-4">
-            <p class="text-sm font-semibold text-slate-900">Nama Direktur Utama</p>
-            <p class="text-xs text-[var(--green-forest)] mb-2">Direktur Utama</p>
-            <p class="text-xs text-slate-600">
-              Berpengalaman lebih dari 15 tahun dalam perencanaan dan pengelolaan sistem air bersih & limbah.
-            </p>
-          </div>
-        </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center mx-auto max-w-3xl">
 
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-          <div class="h-40 bg-slate-200 flex items-center justify-center text-slate-400 text-xs">
-            Foto Direktur Teknik
-          </div>
-          <div class="p-4">
-            <p class="text-sm font-semibold text-slate-900">Nama Direktur Teknik</p>
-            <p class="text-xs text-[var(--green-forest)] mb-2">Direktur Teknik</p>
-            <p class="text-xs text-slate-600">
-              Memimpin tim engineering dalam desain dan implementasi WTP, WWTP, dan sistem reuse.
-            </p>
-          </div>
-        </div>
+    <!-- CARD 1 -->
+    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
+     card-hover cursor-pointer" onclick="openModal('Images/Card/t3.png')">
+  <img src="Images/Card/t3.png" class="w-full h-40 object-cover rounded-xl mb-3">
+  <p class="text-[14px] font-semibold text-center">Muhammad Khaliq Mantiri</p>
+  <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">FOUNDER</p>
+</div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-          <div class="h-40 bg-slate-200 flex items-center justify-center text-slate-400 text-xs">
-            Foto Direktur Operasional
-          </div>
-          <div class="p-4">
-            <p class="text-sm font-semibold text-slate-900">Nama Direktur Operasional</p>
-            <p class="text-xs text-[var(--green-forest)] mb-2">Direktur Operasional</p>
-            <p class="text-xs text-slate-600">
-              Mengelola pelaksanaan proyek di lapangan serta layanan purna jual dan pelatihan operator.
-            </p>
-          </div>
-        </div>
-      </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] card-hover cursor-pointer"
+         onclick="openModal('Images/Card/wisnu.jpeg')">
+      <img src="Images/Card/wisnu.jpeg" class="w-full h-40 object-cover rounded-xl mb-3">
+      <p class="text-[14px] font-semibold text-center">Ir. Wisnu Salman</p>
+      <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">Konsultan Lingkungan</p>
     </div>
-  </section>
 
-  <!-- PRODUK -->
-  <section id="produk" class="py-12 lg:py-16 bg-[var(--green-mint)]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <p class="text-xs font-semibold tracking-[0.25em] text-[var(--green-forest)] uppercase mb-2">
-            PRODUK & LAYANAN
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--green-forest)]">Solusi Kami</h2>
-          <p class="text-sm sm:text-base text-slate-700 mt-2 max-w-2xl">
-            Solusi terintegrasi dari hulu ke hilir untuk pengelolaan air bersih, air limbah, dan pemanfaatan kembali air.
-          </p>
-        </div>
+    <!-- CARD 3 (2 gambar) -->
+    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
+         card-hover cursor-pointer"
+         onclick="openModal('Images/Card/1.jpeg','Images/Card/2.jpeg')">
+
+      <div class="space-y-2">
+        <img src="Images/Card/1.jpeg" class="w-full h-32 object-cover rounded-lg">
+        <img src="Images/Card/2.jpeg" class="w-full h-32 object-cover rounded-lg">
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white border border-[var(--green-border)] rounded-2xl p-5 shadow-sm flex flex-col">
-          <p class="text-sm font-semibold text-slate-900 mb-1">Water Treatment Plant (WTP)</p>
-          <p class="text-xs text-slate-600 mb-3">
-            Pengolahan air baku menjadi air bersih sesuai standar kualitas air minum maupun non-minum.
-          </p>
-          <ul class="text-xs text-slate-600 list-disc list-inside mb-4 space-y-1">
-            <li>Desain & instalasi WTP</li>
-            <li>Upgrade kapasitas & kualitas</li>
-            <li>Training operator</li>
-          </ul>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Lihat detail →
-          </button>
-        </div>
-
-        <div class="bg-white border border-[var(--green-border)] rounded-2xl p-5 shadow-sm flex flex-col">
-          <p class="text-sm font-semibold text-slate-900 mb-1">Wastewater Treatment Plant (WWTP / IPAL)</p>
-          <p class="text-xs text-slate-600 mb-3">
-            Pengolahan air limbah domestik maupun industri agar aman dibuang ke lingkungan atau di-reuse.
-          </p>
-          <ul class="text-xs text-slate-600 list-disc list-inside mb-4 space-y-1">
-            <li>IPAL industri & domestik</li>
-            <li>IPAL rumah sakit & hotel</li>
-            <li>Retrofit sistem eksisting</li>
-          </ul>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Lihat detail →
-          </button>
-        </div>
-
-        <div class="bg-white border border-[var(--green-border)] rounded-2xl p-5 shadow-sm flex flex-col">
-          <p class="text-sm font-semibold text-slate-900 mb-1">Recycle & Reuse Water</p>
-          <p class="text-xs text-slate-600 mb-3">
-            Pemanfaatan kembali air hasil olahan untuk flushing, irigasi, cooling tower, dan kebutuhan non-potable lain.
-          </p>
-          <ul class="text-xs text-slate-600 list-disc list-inside mb-4 space-y-1">
-            <li>Desain sistem reuse</li>
-            <li>Integrasi dengan IPAL/WTP</li>
-            <li>Monitoring kualitas air</li>
-          </ul>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Lihat detail →
-          </button>
-        </div>
-
-        <div class="bg-white border border-[var(--green-border)] rounded-2xl p-5 shadow-sm flex flex-col">
-          <p class="text-sm font-semibold text-slate-900 mb-1">Chemical & Media Filter</p>
-          <p class="text-xs text-slate-600 mb-3">
-            Penyediaan bahan kimia proses, media filter, membran, dan sparepart sistem pengolahan air.
-          </p>
-          <ul class="text-xs text-slate-600 list-disc list-inside mb-4 space-y-1">
-            <li>Koagulan & flokulan</li>
-            <li>Media karbon aktif, pasir silika, resin</li>
-            <li>Sparepart pompa & instrumen</li>
-          </ul>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Lihat detail →
-          </button>
-        </div>
-
-        <div class="bg-white border border-[var(--green-border)] rounded-2xl p-5 shadow-sm flex flex-col">
-          <p class="text-sm font-semibold text-slate-900 mb-1">Jasa Operation & Maintenance</p>
-          <p class="text-xs text-slate-600 mb-3">
-            Layanan pengoperasian dan perawatan sistem WTP/WWTP secara berkala maupun full O&M.
-          </p>
-          <ul class="text-xs text-slate-600 list-disc list-inside mb-4 space-y-1">
-            <li>Paket kontrak O&M</li>
-            <li>Pengecekan rutin & troubleshooting</li>
-            <li>Laporan performa sistem</li>
-          </ul>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Lihat detail →
-          </button>
-        </div>
-      </div>
+      <p class="font-semibold text-center mt-3 text-sm">SERTIFIKAT KOMPETENSI</p>
+      <p class="text-xs text-center text-[var(--forest)]">PPPA</p>
     </div>
-  </section>
 
-  <!-- PORTOFOLIO -->
-  <section id="portofolio" class="py-12 lg:py-16 bg-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <p class="text-xs font-semibold tracking-[0.25em] text-[var(--green-forest)] uppercase mb-2">
-            PORTOFOLIO
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900">Proyek Terpilih</h2>
-        </div>
-        <button class="hidden sm:inline-flex text-xs px-3 py-1.5 rounded-full border border-slate-300 text-slate-600">
-          Lihat semua proyek
-        </button>
+    <!-- CARD 4 (2 gambar) -->
+    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
+         card-hover cursor-pointer"
+         onclick="openModal('Images/Card/3.jpeg','Images/Card/4.jpeg')">
+
+      <div class="space-y-2">
+        <img src="Images/Card/3.jpeg" class="w-full h-32 object-cover rounded-lg">
+        <img src="Images/Card/4.jpeg" class="w-full h-32 object-cover rounded-lg">
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="h-32 bg-slate-200 flex items-center justify-center text-slate-400 text-xs">
-            Foto Proyek Hotel
-          </div>
-          <div class="p-4">
-            <p class="text-xs text-[var(--green-forest)] mb-1">IPAL Domestik</p>
-            <h3 class="text-sm font-semibold text-slate-900">IPAL Hotel Bintang 4 - Bandung</h3>
-            <p class="text-xs text-slate-600 mt-2">
-              Desain & instalasi IPAL domestik kapasitas 120 m³/hari dengan standar baku mutu daerah.
-            </p>
-          </div>
-        </article>
-
-        <article class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="h-32 bg-slate-200 flex items-center justify-center text-slate-400 text-xs">
-            Foto Proyek Pabrik
-          </div>
-          <div class="p-4">
-            <p class="text-xs text-[var(--green-forest)] mb-1">WWTP Industri</p>
-            <h3 class="text-sm font-semibold text-slate-900">WWTP Industri Makanan - Karawang</h3>
-            <p class="text-xs text-slate-600 mt-2">
-              Sistem pengolahan air limbah proses produksi dengan kombinasi proses biologis & kimia.
-            </p>
-          </div>
-        </article>
-
-        <article class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="h-32 bg-slate-200 flex items-center justify-center text-slate-400 text-xs">
-            Foto Proyek Rumah Sakit
-          </div>
-          <div class="p-4">
-            <p class="text-xs text-[var(--green-forest)] mb-1">IPAL Rumah Sakit</p>
-            <h3 class="text-sm font-semibold text-slate-900">IPAL RS Swasta - Jakarta</h3>
-            <p class="text-xs text-slate-600 mt-2">
-              Sistem IPAL rumah sakit sesuai Permenkes, lengkap dengan disinfeksi akhir dan pemantauan berkala.
-            </p>
-          </div>
-        </article>
-      </div>
+      <p class="font-semibold text-center mt-3 text-sm">SERTIFIKAT KOMPETENSI</p>
+      <p class="text-xs text-center text-[var(--forest)]">AMDAL</p>
     </div>
-  </section>
 
-  <!-- BERITA -->
-  <section id="berita" class="py-12 lg:py-16 bg-[var(--green-mint)]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <p class="text-xs font-semibold tracking-[0.25em] text-[var(--green-forest)] uppercase mb-2">
-            BERITA
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--green-forest)]">Berita & Artikel</h2>
-        </div>
-      </div>
+  </div>
+</section>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <article class="bg-white rounded-2xl border border-[var(--green-border)] shadow-sm p-4 flex flex-col">
-          <p class="text-[11px] text-slate-400 mb-1">12 Oktober 2025</p>
-          <h3 class="text-sm font-semibold text-slate-900 mb-2">
-            Pentingnya Pengolahan Air Limbah Sebelum Dibuang ke Lingkungan
-          </h3>
-          <p class="text-xs text-slate-600 mb-3">
-            Air limbah yang tidak diolah dapat mencemari tanah dan air permukaan serta berdampak pada kesehatan masyarakat.
-          </p>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Baca selengkapnya →
-          </button>
-        </article>
+<!-- ============ MODAL IMAGE PREVIEW ============ -->
+<!-- MODAL IMAGE PREVIEW -->
+<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999] p-4">
+  <div class="p-4 max-w-xl w-full bg-white rounded-lg relative">
 
-        <article class="bg-white rounded-2xl border border-[var(--green-border)] shadow-sm p-4 flex flex-col">
-          <p class="text-[11px] text-slate-400 mb-1">03 September 2025</p>
-          <h3 class="text-sm font-semibold text-slate-900 mb-2">
-            Teknologi Reuse Water untuk Efisiensi Konsumsi Air
-          </h3>
-          <p class="text-xs text-slate-600 mb-3">
-            Reuse water dapat menekan biaya operasional sekaligus mendukung program konservasi air bersih.
-          </p>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Baca selengkapnya →
-          </button>
-        </article>
+    <button onclick="closeModal()" 
+      class="absolute -top-3 -right-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold hover:bg-red-600">×</button>
 
-        <article class="bg-white rounded-2xl border border-[var(--green-border)] shadow-sm p-4 flex flex-col">
-          <p class="text-[11px] text-slate-400 mb-1">20 Agustus 2025</p>
-          <h3 class="text-sm font-semibold text-slate-900 mb-2">
-            Tips Merawat Sistem WTP & IPAL Agar Tetap Optimal
-          </h3>
-          <p class="text-xs text-slate-600 mb-3">
-            Perawatan berkala, pencatatan data, dan pelatihan operator adalah kunci performa sistem yang stabil.
-          </p>
-          <button class="mt-auto text-xs font-medium text-[var(--green-forest)] hover:text-[var(--green-deep)]">
-            Baca selengkapnya →
-          </button>
-        </article>
-      </div>
+    <img id="modalImage1" class="w-full max-h-[70vh] object-contain rounded-lg">
+    <img id="modalImage2" class="w-full max-h-[70vh] object-contain rounded-lg mt-3 hidden">
+
+    <div class="flex justify-center gap-4 mt-4">
+      <button id="btn-img1" onclick="showImg(1)" class="px-4 py-1 rounded bg-[var(--sage-dark)] text-white text-xs hidden">Gambar 1</button>
+      <button id="btn-img2" onclick="showImg(2)" class="px-4 py-1 rounded bg-[var(--sage-border)] text-[var(--sage-dark)] text-xs hidden">Gambar 2</button>
     </div>
-  </section>
 
-  <!-- HUBUNGI KAMI -->
-  <section id="hubungi-kami" class="py-12 lg:py-16 bg-slate-950 text-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div>
-          <p class="text-xs font-semibold tracking-[0.25em] text-[var(--green-pastel)] uppercase mb-2">
-            HUBUNGI KAMI
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Siap Membantu Proyek Anda</h2>
-          <p class="text-sm sm:text-base text-slate-200 mb-4">
-            Sampaikan kebutuhan Anda, tim kami akan menghubungi dengan solusi yang paling sesuai dan efisien.
-          </p>
-          <div class="space-y-3 text-sm">
-            <p><span class="font-semibold text-[var(--green-pastel)]">Alamat:</span> Jl. Contoh No. 123, Kota Contoh, Indonesia</p>
-            <p><span class="font-semibold text-[var(--green-pastel)]">Telepon:</span> 021 - 1234 5678</p>
-            <p><span class="font-semibold text-[var(--green-pastel)]">Email:</span> info@octatirta.co.id</p>
-            <p><span class="font-semibold text-[var(--green-pastel)]">WhatsApp:</span> +62 812-3456-7890</p>
-          </div>
-          <div class="mt-5 flex flex-wrap gap-3">
-            <a href="#" class="inline-flex items-center px-4 py-2.5 rounded-full bg-[var(--green-pastel)] hover:bg-[var(--green-border)] text-[var(--green-forest)] text-xs sm:text-sm font-medium">
-              Chat via WhatsApp
-            </a>
-            <a href="#beranda" class="inline-flex items-center px-4 py-2.5 rounded-full border border-slate-600 text-slate-100 text-xs sm:text-sm font-medium hover:bg-slate-800">
-              Kembali ke atas
-            </a>
-          </div>
-        </div>
+  </div>
+</div>
 
-       
 
-      <p class="mt-8 text-[11px] text-slate-500 text-center">
-        © 2025 PT. Octa Tirta Investment. All rights reserved.
+
+<!-- ==================== MITRA KAMI ==================== -->
+<section id="mitra" class="py-14 lg:py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">MITRA KAMI</p>
+      <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Perusahaan yang Bekerja Sama</h2>
+      <p class="text-sm text-[var(--forest)]/70 mt-2 max-w-xl mx-auto">
+        Kami dipercaya oleh berbagai mitra strategis dari sektor industri, pemerintah, hingga fasilitas publik.
       </p>
     </div>
-  </section>
 
-  <!-- JS: mobile menu + hero slider -->
-  <script>
-    // mobile menu
-    const btnMobile = document.getElementById('btn-mobile');
-    const menuMobile = document.getElementById('menu-mobile');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center mitra-logo">
+      <img src="Images/mitra/bca.png">
+      <img src="Images/mitra/al.png">
+      <img src="Images/mitra/iacpi-removebg-preview.png">
+      <img src="Images/mitra/image__4_-removebg-preview.png">
+      <img src="Images/mitra/itb.png">
+      <img src="Images/mitra/mandiri.png">
+    </div>
+  </div>
+</section>
 
-    if (btnMobile) {
-      btnMobile.addEventListener('click', () => {
-        const isOpen = menuMobile.style.maxHeight && menuMobile.style.maxHeight !== '0px';
-        if (isOpen) {
-          menuMobile.style.maxHeight = '0px';
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        } else {
-          menuMobile.style.maxHeight = menuMobile.scrollHeight + 'px';
-          iconOpen.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        }
-      });
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
 
-      document.querySelectorAll('#menu-mobile a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuMobile.style.maxHeight = '0px';
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        });
-      });
-    }
+    <!-- Logo -->
+    <div>
+      <img src="Images/Logo.png" class="w-28 mb-4 brightness-110">
+      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
+        Solusi rekayasa air & lingkungan dengan teknologi presisi dan berkelanjutan.
+      </p>
+    </div>
 
-    // hero slider
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
+    <!-- Tautan -->
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
+        <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
+        <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
+        <li><a href="#portofolio" class="hover:text-white">Portofolio</a></li>
+      </ul>
+    </div>
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
+    <!-- Layanan -->
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan & Solusi</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li>Instalasi WTP & WWTP</li>
+        <li>Sistem IPAL Industri</li>
+        <li>Maintenance & Service</li>
+        <li>Peralatan Reverse Osmosis</li>
+      </ul>
+    </div>
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
+    <!-- Kontak -->
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li>Bandung, Indonesia</li>
+        <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
+        <li><a href="https://wa.me/6281234567890" class="hover:text-white">+62 812-3456-7890</a></li>
+      </ul>
+    </div>
 
-    if (slides.length > 0) {
-      setInterval(nextSlide, 7000); // ganti background tiap 7 detik
-    }
-  </script>
+  </div>
+
+  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
+    © 2025 PT. Octa Tirta Investment • All Rights Reserved
+  </div>
+</footer>
+
+<!-- MUSIC BACKGROUND -->
+<audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
+
+<!-- ==================== SCRIPT ==================== -->
+<script>
+// Toggle mobile menu
+const btnMobile = document.getElementById("btn-mobile");
+const menuMobile = document.getElementById("menu-mobile");
+const iconOpen = document.getElementById("icon-open");
+const iconClose = document.getElementById("icon-close");
+
+btnMobile.addEventListener("click", () => {
+  const open = menuMobile.style.maxHeight !== "0px";
+  menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
+  iconOpen.classList.toggle("hidden");
+  iconClose.classList.toggle("hidden");
+});
+
+// Dropdown Mobile
+const btnManaMobile = document.getElementById("btn-mana-mobile");
+const subManaMobile = document.getElementById("sub-mana-mobile");
+const iconMana = document.getElementById("icon-mana");
+
+btnManaMobile.addEventListener("click", () => {
+  const open = subManaMobile.style.maxHeight !== "0px";
+  subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
+  iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+});
+
+// Hero Slider
+const slides=document.querySelectorAll('.hero-slide');let currentSlide=0;
+function showSlide(i){slides.forEach((s,index)=>{s.classList.toggle('active',index===i);});}
+setInterval(()=>{currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide);},7000);
+
+// Music Fix
+const bgMusic=document.getElementById("bg-music");
+window.addEventListener("load",()=>{bgMusic.volume=0.5;
+bgMusic.play().catch(()=>document.body.addEventListener("click",()=>bgMusic.play(),{once:true}));});
+</script>
+<script>
+// ===================== Image Modal Fix & Multi/Single Image Mode =====================
+function openModal(img1, img2 = null) {
+  document.getElementById("imageModal").classList.remove("hidden");
+  const modal1 = document.getElementById("modalImage1");
+  const modal2 = document.getElementById("modalImage2");
+  const btn1 = document.getElementById("btn-img1");
+  const btn2 = document.getElementById("btn-img2");
+
+  modal1.src = img1;
+  modal2.src = img2;
+
+  if (img2 === null) {
+    modal2.classList.add("hidden");
+    btn1.classList.add("hidden");
+    btn2.classList.add("hidden");
+  } else {
+    modal2.classList.add("hidden");
+    btn1.classList.remove("hidden");
+    btn2.classList.remove("hidden");
+  }
+}
+
+function closeModal() {
+  document.getElementById("imageModal").classList.add("hidden");
+}
+
+function showImg(no) {
+  const modal1 = document.getElementById("modalImage1");
+  const modal2 = document.getElementById("modalImage2");
+
+  if (no === 1) {
+    modal1.classList.remove("hidden");
+    modal2.classList.add("hidden");
+  } else {
+    modal1.classList.add("hidden");
+    modal2.classList.remove("hidden");
+  }
+}
+</script>
+
 
 </body>
 </html>

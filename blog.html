@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Artikel • PT. Octa Tirta Investment</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root { --dark-navy:#071a14; --accent-green:#8ccb9a; --green-mint:#e9f8f5; }
+</style>
+</head>
+
+<body class="bg-white text-slate-800">
+
+<div id="navbar"></div>
+<!-- ================= NAVBAR ================= -->
+<header class="navbar-fixed fixed top-0 inset-x-0 bg-[#071a14] text-white z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-[60px]">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="Images/Logo.png" class="h-9 w-auto object-contain">
+      <p class="font-semibold text-sm">PT. OCTA TIRTA INVESTMENT</p>
+    </a>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="index.html" class="hover:text-[#8ccb9a]">Beranda</a>
+      <a href="tentang.html" class="hover:text-[#8ccb9a]">Tentang Kami</a>
+      <a href="Manajemen.html" class="hover:text-[#8ccb9a]">Manajemen</a>
+      <a href="tim_ahli.html" class="hover:text-[#8ccb9a]">Tim Ahli</a>
+      <a href="portofolio.html" class="hover:text-[#8ccb9a]">Portofolio</a>
+      <a href="blog.html" class="hover:text-[#8ccb9a]">Blog & Artikel</a>
+      <a href="index.html#hubungi-kami" class="hover:text-[#8ccb9a]">Hubungi Kami</a>
+    </nav>
+
+    <!-- Mobile -->
+    <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+      <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor">
+        <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor">
+        <path stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Menu Mobile -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all bg-[#071a14] border-t border-white/10 text-sm">
+    <nav class="px-4 py-3 flex flex-col gap-2">
+      <a href="index.html">Beranda</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="Manajemen.html">Manajemen</a>
+      <a href="tim_ahli.html">Tim Ahli</a>
+      <a href="portofolio.html">Portofolio</a>
+      <a href="blog.html">Blog & Artikel</a>
+      <a href="index.html#hubungi-kami">Hubungi Kami</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer supaya tidak ketutup navbar -->
+<div class="h-[60px]"></div>
+
+<script>
+const btnMobile = document.getElementById("btn-mobile");
+const menuMobile = document.getElementById("menu-mobile");
+const iconOpen = document.getElementById("icon-open");
+const iconClose = document.getElementById("icon-close");
+
+btnMobile.addEventListener("click", () => {
+  const open = menuMobile.style.maxHeight !== "0px";
+  if (open) {
+    menuMobile.style.maxHeight = "0px";
+    iconOpen.classList.remove("hidden");
+    iconClose.classList.add("hidden");
+  } else {
+    menuMobile.style.maxHeight = menuMobile.scrollHeight + "px";
+    iconOpen.classList.add("hidden");
+    iconClose.classList.remove("hidden");
+  }
+});
+</script>
+
+
+<section class="bg-[var(--green-mint)] pt-24 pb-14 text-center">
+  <h2 class="text-sm font-semibold tracking-[0.25em] text-[var(--dark-navy)]">BLOG & ARTIKEL</h2>
+  <h1 class="text-3xl sm:text-4xl font-bold text-[var(--dark-navy)] mt-2">
+    Wawasan Teknologi Lingkungan
+  </h1>
+  <p class="max-w-2xl mx-auto mt-4 text-sm text-slate-600">
+    Edukasi, berita, dan wawasan terkini seputar teknologi air, limbah, dan lingkungan berkelanjutan.
+  </p>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+    <!-- POST -->
+    <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+      <img src="Images/blog1.jpg" class="h-48 w-full object-cover">
+      <div class="p-4">
+        <p class="text-xs font-semibold text-[var(--accent-green)]">TEKNOLOGI AIR</p>
+        <h3 class="font-semibold text-lg mt-1">Apa Itu Reverse Osmosis?</h3>
+        <p class="text-sm text-slate-600 mt-2 line-clamp-2">
+          Bagaimana teknologi pemurnian air ini bekerja dan mengapa digunakan di industri?
+        </p>
+        <a href="#" class="inline-block mt-4 text-[var(--dark-navy)] text-sm font-semibold hover:underline">
+          Baca Selengkapnya →
+        </a>
+      </div>
+    </div>
+
+    <!-- POST -->
+    <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+      <img src="Images/blog2.jpg" class="h-48 w-full object-cover">
+      <div class="p-4">
+        <p class="text-xs font-semibold text-[var(--accent-green)]">LINGKUNGAN</p>
+        <h3 class="font-semibold text-lg mt-1">Mengapa IPAL Itu Penting?</h3>
+        <p class="text-sm text-slate-600 mt-2 line-clamp-2">
+          Dampak pencemaran air dan bagaimana IPAL mengurangi kerusakan lingkungan.
+        </p>
+        <a href="#" class="inline-block mt-4 text-[var(--dark-navy)] text-sm font-semibold hover:underline">
+          Baca Selengkapnya →
+        </a>
+      </div>
+    </div>
+
+    <!-- POST -->
+    <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+      <img src="Images/blog3.jpg" class="h-48 w-full object-cover">
+      <div class="p-4">
+        <p class="text-xs font-semibold text-[var(--accent-green)]">ENERGI & INDUSTRI</p>
+        <h3 class="font-semibold text-lg mt-1">Efisiensi Energi dalam WTP</h3>
+        <p class="text-sm text-slate-600 mt-2 line-clamp-2">
+          Bagaimana sistem pengolahan air bisa hemat energi namun tetap efektif?
+        </p>
+        <a href="#" class="inline-block mt-4 text-[var(--dark-navy)] text-sm font-semibold hover:underline">
+          Baca Selengkapnya →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer class="bg-[#071a14] text-white pt-14 pb-6 border-t-2 border-[#8ccb9a] relative">
+
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12 relative z-10">
+
+    <!-- Logo -->
+    <div>
+      <img src="Images/Logo.png" class="w-28 mb-3 opacity-90">
+      <p class="text-[13px] text-gray-300 leading-relaxed">
+        Solusi pengolahan air & lingkungan berteknologi presisi untuk industri, pemerintah, dan komersial.
+      </p>
+    </div>
+
+    <!-- Tautan -->
+    <div>
+      <h3 class="font-semibold mb-3 text-[#8ccb9a]">Tautan Cepat</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
+        <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
+        <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
+        <li><a href="portofolio.html" class="hover:text-white">Portofolio</a></li>
+        <li><a href="blog.html" class="hover:text-white">Blog & Artikel</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div>
+      <h3 class="font-semibold mb-3 text-[#8ccb9a]">Hubungi Kami</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li>Bandung, Indonesia</li>
+        <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
+        <li><a href="https://wa.me/6281234567890" target="_blank" class="hover:text-white">+62 812-3456-7890</a></li>
+      </ul>
+    </div>
+
+    <!-- Sosial -->
+    <div>
+      <h3 class="font-semibold mb-3 text-[#8ccb9a]">Ikuti Kami</h3>
+      <div class="flex gap-3">
+        <a href="#"><img src="Images/ig.png" class="w-6 opacity-90 hover:opacity-100"></a>
+        <a href="#"><img src="Images/wa.png" class="w-6 opacity-90 hover:opacity-100"></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="mt-10 text-center text-[11px] text-gray-400 border-t border-white/10 pt-3">
+    © 2025 PT. Octa Tirta Investment • Water Engineering & Environmental Solution
+  </div>
+
+</footer>
+
+
+<script>
+  fetch("navbar.html").then(r=>r.text()).then(d=>document.getElementById("navbar").innerHTML=d);
+  fetch("footer.html").then(r=>r.text()).then(d=>document.getElementById("footer").innerHTML=d);
+</script>
+
+</body>
+</html>
