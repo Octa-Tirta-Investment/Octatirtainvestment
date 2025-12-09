@@ -16,32 +16,24 @@
   html { scroll-behavior: smooth; }
 
  :root {
-    --sage-dark: #7CA377;        /* Navbar + Footer */
-    --sage-border: #edf1ef;      /* Accent Border & CTA Button */
-    --sage-text: #ffffff;        /* Footer Soft Text */
-    --sage-light: #E9F5EB;       /* Mint Soft Background */
-    --forest: #1E4B33;           /* Dark Green Title */
+    --sage-dark: #7CA377;
+    --sage-border: #edf1ef;
+    --sage-text: #ffffff;
+    --sage-light: #E9F5EB;
+    --forest: #1E4B33;
   }
 
-  /* --- Dropdown Desktop Normal Elegan --- */
 .nav-dropdown {
   background: #ffffff;
   color: #0b281d;
   border: 1px solid #c9dfd1;
   box-shadow: 0 4px 18px rgba(0,0,0,0.12);
   border-radius: 10px;
-  backdrop-filter: blur(0px);
-}
-
-.nav-dropdown a {
-  color: #0b281d;
 }
 
 .nav-dropdown a:hover {
   background: #f2f9f5;
-  color: #0b281d;
 }
-
 </style>
 </head>
 
@@ -54,33 +46,36 @@
 
       <a href="index.html" class="flex items-center gap-2">
         <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
-        <div class="leading-tight">
-<p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-        </div>
+        <p class="font-semibold text-white text-sm sm:text-base" data-lang="nav-company">PT. OCTA TIRTA INVESTMENT</p>
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
-        <a href="tentang.html" class="text-[var(--sage-border)] font-semibold">Tentang Kami</a>
+        <a href="index.html" class="hover:text-[var(--sage-border)]" data-lang="nav-home">Beranda</a>
+        <a href="tentang.html" class="text-[var(--sage-border)] font-semibold" data-lang="nav-about">Tentang Kami</a>
 
         <div class="group relative">
-  <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
-    Manajemen
-    <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
-  </button>
-  <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
-    <ul class="py-2 text-[13px]">
-      <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
-      <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
-    </ul>
-  </div>
-</div>
+          <button class="flex items-center gap-1 hover:text-[var(--sage-border)]" data-lang="nav-manajemen">Manajemen
+            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+            <ul class="py-2 text-[13px]">
+              <li><a href="Manajemen.html" class="block px-4 py-1.5" data-lang="nav-mana1">Manajemen</a></li>
+              <li><a href="tim_ahli.html" class="block px-4 py-1.5" data-lang="nav-mana2">Tim Ahli</a></li>
+            </ul>
+          </div>
+        </div>
 
-
-        <a href="index.html#portofolio" class="hover:text-[var(--sage-border)]">Portofolio</a>
-        <a href="index.html#berita" class="hover:text-[var(--sage-border)]">Artikel</a>
-        <a href="index.html#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
+        <a href="index.html#portofolio" class="hover:text-[var(--sage-border)]" data-lang="nav-porto">Portofolio</a>
+        <a href="index.html#berita" class="hover:text-[var(--sage-border)]" data-lang="nav-artikel">Artikel</a>
+        <a href="index.html#hubungi-kami" class="hover:text-[var(--sage-border)]" data-lang="nav-contact">Hubungi Kami</a>
       </nav>
+
+      <!-- Language Desktop -->
+      <div class="hidden md:flex items-center gap-2 text-[13px]">
+        <button id="btn-id" class="hover:text-[var(--sage-border)] font-semibold">ID</button>
+        <span>|</span>
+        <button id="btn-en" class="hover:text-[var(--sage-border)]">EN</button>
+      </div>
 
       <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
         <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -89,126 +84,126 @@
     </div>
   </div>
 
+  <!-- Mobile Menu -->
   <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
     <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
-      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
-      <a href="tentang.html" class="py-2 text-[var(--sage-border)] font-semibold">Tentang Kami</a>
+      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]" data-lang="nav-home">Beranda</a>
+      <a href="tentang.html" class="py-2 text-[var(--sage-border)] font-semibold" data-lang="nav-about">Tentang Kami</a>
 
       <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
-        Manajemen
+        <span data-lang="nav-manajemen">Manajemen</span>
         <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
       </button>
 
       <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
-        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
-        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
+        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]" data-lang="nav-mana1">Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]" data-lang="nav-mana2">Tim Ahli</a>
       </div>
 
-      <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]">Portofolio</a>
-      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
-      <a href="index.html#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
+      <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]" data-lang="nav-porto">Portofolio</a>
+      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]" data-lang="nav-artikel">Blog & Artikel</a>
+      <a href="index.html#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]" data-lang="nav-contact">Hubungi Kami</a>
+
+      <!-- Language Mobile -->
+      <div class="flex gap-3 pt-3 text-sm text-white/90 border-t border-white/20 mt-2">
+        <button id="btn-id-m" class="hover:text-[var(--sage-border)] font-semibold">ID</button>
+        <span>|</span>
+        <button id="btn-en-m" class="hover:text-[var(--sage-border)]">EN</button>
+      </div>
     </nav>
   </div>
 </header>
 
-<!-- Spacer -->
 <div class="h-[60px]"></div>
 
-
-<!-- ==================== TENTANG KAMI ==================== -->
+<!-- ==================== TENTANG ==================== -->
 <section class="pt-14 pb-10 bg-white text-slate-700">
   <div class="max-w-5xl mx-auto px-6 text-center">
-    <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-2 text-[var(--forest)]">TENTANG KAMI</p>
-    <h1 class="text-3xl sm:text-4xl font-bold text-[var(--forest)] mb-8">PT. OCTA TIRTA INVESTMENT</h1>
-    <p class="text-base leading-relaxed text-slate-700 max-w-3xl mx-auto text-justify">
+    <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-2 text-[var(--forest)]" data-lang="about-title">TENTANG KAMI</p>
+    <h1 class="text-3xl sm:text-4xl font-bold text-[var(--forest)] mb-8" data-lang="company-name">PT. OCTA TIRTA INVESTMENT</h1>
+    <p class="text-base leading-relaxed text-slate-700 max-w-3xl mx-auto text-justify" data-lang="about-desc">
       PT. OCTA TIRTA INVESTMENT adalah perusahaan yang bergerak di bidang pengolahan air bersih, pengolahan limbah, serta penyedia peralatan Reverse Osmosis (RO) dengan pengalaman luas dalam fabrikasi sistem. Kami berfokus pada sektor komersial, industri, dan residensial dengan menghadirkan peralatan efisien yang mudah dioperasikan dan dirawat, menggunakan material berkualitas tinggi dengan harga kompetitif.
     </p>
   </div>
 </section>
 
-
-<!-- ==================== Visi, Misi & Etika ==================== -->
+<!-- ==================== Visi, Misi dsb ==================== -->
 <section class="py-16 bg-[var(--sage-light)] text-slate-700">
   <div class="max-w-5xl mx-auto px-6 space-y-14">
 
     <div>
-      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center">MANAJEMEN</h3>
-      <p class="leading-relaxed text-slate-700 text-justify">
-        Kami senantiasa berinvestasi bersama tim dengan integritas, teknologi keselamatan mutakhir, dan penerapan protokol yang ketat demi kesejahteraan karyawan serta kelancaran operasional. Kami membangun budaya kerja yang menghargai keterampilan, kolaborasi, akuntabilitas, dan etika, serta mendorong pembelajaran berkelanjutan dan penghargaan terhadap kinerja unggul.
+      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center" data-lang="j-manajemen">MANAJEMEN</h3>
+      <p class="leading-relaxed text-slate-700 text-justify" data-lang="t-manajemen">
+        Kami senantiasa berinvestasi bersama tim dengan integritas, teknologi keselamatan mutakhir, dan penerapan protokol yang ketat demi kesejahteraan karyawan serta kelancaran operasional...
       </p>
     </div>
 
     <div>
-      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center">MISI</h3>
-      <p class="leading-relaxed text-slate-700 text-justify">
-        Kami berfokus pada pengolahan air dan limbah yang berkelanjutan melalui sistem yang inovatif, efisien, sederhana dioperasikan, serta terbuat dari material berkualitas tinggi yang mudah dalam perawatan bagi seluruh pemangku kepentingan.
+      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center" data-lang="j-misi">MISI</h3>
+      <p class="leading-relaxed text-slate-700 text-justify" data-lang="t-misi">
+        Kami berfokus pada pengolahan air dan limbah yang berkelanjutan melalui sistem inovatif, efisien, sederhana dioperasikan...
       </p>
     </div>
 
     <div>
-      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center">ETIKA KERJA</h3>
-      <p class="leading-relaxed text-slate-700 text-justify">
-        Kejujuran dan etika menjadi dasar dalam setiap tindakan kami. Kami berkomitmen untuk menjunjung tinggi transparansi dan akuntabilitas dalam seluruh kegiatan operasional perusahaan.
+      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center" data-lang="j-etika">ETIKA KERJA</h3>
+      <p class="leading-relaxed text-slate-700 text-justify" data-lang="t-etika">
+        Kejujuran dan etika menjadi dasar dalam setiap tindakan kami. Kami berkomitmen untuk menjunjung tinggi transparansi...
       </p>
     </div>
 
     <div>
-      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center">INOVASI BERKELANJUTAN</h3>
-      <p class="leading-relaxed text-slate-700 text-justify">
-        Kami berinovasi melalui riset dan pengembangan berkelanjutan untuk menghadirkan sistem terbaik bagi pemangku kepentingan. Kami meningkatkan efisiensi energi, mengoptimalkan pengolahan distribusi air bersih, menangani limbah beracun, dan memastikan keselamatan operasional dengan teknologi tepat guna. Kami mendukung ekonomi sirkular melalui berbagai proyek inovatif yang berkelanjutan.
+      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center" data-lang="j-inovasi">INOVASI BERKELANJUTAN</h3>
+      <p class="leading-relaxed text-slate-700 text-justify" data-lang="t-inovasi">
+        Kami berinovasi melalui riset dan pengembangan berkelanjutan untuk menghadirkan sistem terbaik...
       </p>
     </div>
 
     <div>
-      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center">KEBERLANJUTAN LINGKUNGAN</h3>
-      <p class="leading-relaxed text-slate-700 text-justify">
-        Kami melindungi lingkungan melalui solusi pengolahan air dan limbah berkelanjutan, serta memberikan dampak positif bagi masyarakat sekitar dengan memastikan keberlangsungan akses air bersih.
+      <h3 class="text-lg font-semibold uppercase tracking-wider text-[var(--forest)] mb-4 text-center" data-lang="j-lingkungan">KEBERLANJUTAN LINGKUNGAN</h3>
+      <p class="leading-relaxed text-slate-700 text-justify" data-lang="t-lingkungan">
+        Kami melindungi lingkungan melalui solusi pengolahan air dan limbah berkelanjutan...
       </p>
     </div>
 
   </div>
 </section>
 
-
 <!-- ==================== FOOTER ==================== -->
 <footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
 
-    <!-- Logo -->
     <div>
       <img src="Images/logo white.png" class="w-28 mb-4 brightness-110">
-      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
+      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed" data-lang="f-desc">
         Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.
       </p>
     </div>
 
-    <!-- Tautan -->
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]" data-lang="f-quick">Tautan Cepat</h3>
       <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-        <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
-        <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
-        <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
-        <li><a href="#portofolio" class="hover:text-white">Portofolio</a></li>
+        <li><a href="tentang.html" class="hover:text-white" data-lang="nav-about">Tentang Kami</a></li>
+        <li><a href="Manajemen.html" class="hover:text-white" data-lang="nav-mana1">Manajemen</a></li>
+        <li><a href="tim_ahli.html" class="hover:text-white" data-lang="nav-mana2">Tim Ahli</a></li>
+        <li><a href="#portofolio" class="hover:text-white" data-lang="nav-porto">Portofolio</a></li>
       </ul>
     </div>
 
    <div>
-        <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan</h3>
-        <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-          <li>Instalasi WTP, STP,WWTP</li>
-          <li>Sistem IPAL Industri</li>
-          <li>Maintenance & Service</li>
-          <li>Peralatan Reverse Osmosis</li>
-        </ul>
-      </div>
-
-
-    <!-- Kontak -->
-    <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]" data-lang="f-layanan">Layanan</h3>
       <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-        <li>Bandung, Indonesia</li>
+        <li data-lang="lay1">Instalasi WTP, STP, WWTP</li>
+        <li data-lang="lay2">Sistem IPAL Industri</li>
+        <li data-lang="lay3">Maintenance & Service</li>
+        <li data-lang="lay4">Peralatan Reverse Osmosis</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]" data-lang="f-contact">Hubungi Kami</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li data-lang="f-city">Bandung, Indonesia</li>
         <li><a href="mailto:office@octatirta8.com" class="hover:text-white">office@octatirta8.com</a></li>
         <li><a href="https://wa.me/62" class="hover:text-white">+62 XXXX</a></li>
       </ul>
@@ -216,14 +211,14 @@
 
   </div>
 
-  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
+  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3" data-lang="copy">
     © 2025 PT. Octa Tirta Investment • All Rights Reserved
   </div>
 </footer>
 
 <audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
 
-<!-- ==================== SCRIPT ==================== -->
+<!-- ==================== SCRIPT OPEN/CLOSE MENU ==================== -->
 <script>
 const btnMobile = document.getElementById("btn-mobile");
 const menuMobile = document.getElementById("menu-mobile");
@@ -248,49 +243,107 @@ btnManaMobile.addEventListener("click", () => {
 });
 </script>
 
+<!-- ===================== TRANSLATE SCRIPT ===================== -->
 <script>
-// ===================== PERSIST MUSIK ANTAR HALAMAN =====================
+// ===================== TEXT DATA =====================
+const translateText = {
+  "nav-company": { id:"PT. OCTA TIRTA INVESTMENT", en:"PT. OCTA TIRTA INVESTMENT" },
+  "nav-home": { id:"Beranda", en:"Home" },
+  "nav-about": { id:"Tentang Kami", en:"About Us" },
+  "nav-manajemen": { id:"Manajemen", en:"Management" },
+  "nav-mana1": { id:"Manajemen", en:"Management" },
+  "nav-mana2": { id:"Tim Ahli", en:"Expert Team" },
+  "nav-porto": { id:"Portofolio", en:"Portfolio" },
+  "nav-artikel": { id:"Artikel", en:"Articles" },
+  "nav-contact": { id:"Hubungi Kami", en:"Contact Us" },
+
+  "about-title": { id:"TENTANG KAMI", en:"ABOUT US" },
+  "company-name": { id:"PT. OCTA TIRTA INVESTMENT", en:"PT. OCTA TIRTA INVESTMENT" },
+  "about-desc": {
+    id:"PT. OCTA TIRTA INVESTMENT adalah perusahaan yang bergerak di bidang pengolahan air bersih, pengolahan limbah, serta penyedia peralatan Reverse Osmosis (RO) dengan pengalaman luas dalam fabrikasi sistem. Kami berfokus pada sektor komersial, industri, dan residensial dengan menghadirkan peralatan efisien yang mudah dioperasikan dan dirawat, menggunakan material berkualitas tinggi dengan harga kompetitif.",
+    en:"PT. OCTA TIRTA INVESTMENT is a company engaged in clean water treatment, wastewater treatment, and provider of Reverse Osmosis (RO) equipment with extensive fabrication experience. We focus on commercial, industrial, and residential sectors by presenting efficient equipment that is easy to operate and maintain, made from high-quality materials at competitive prices."
+  },
+
+  "j-manajemen":{id:"MANAJEMEN",en:"MANAGEMENT"},
+  "t-manajemen":{
+    id:"Kami senantiasa berinvestasi bersama tim dengan integritas, teknologi keselamatan mutakhir, dan penerapan protokol yang ketat demi kesejahteraan karyawan serta kelancaran operasional. Kami membangun budaya kerja yang menghargai keterampilan, kolaborasi, akuntabilitas, serta etika, dan mendorong pembelajaran berkelanjutan serta penghargaan terhadap kinerja unggul.",
+    en:"We continuously invest with the team through integrity, advanced safety technology, and strict protocols to ensure employee welfare and smooth operations. We build a work culture that values skills, collaboration, accountability, and ethics, while encouraging continuous learning and appreciation for excellent performance."
+  },
+
+  "j-misi":{id:"MISI",en:"MISSION"},
+  "t-misi":{
+    id:"Kami berfokus pada pengolahan air dan limbah yang berkelanjutan melalui sistem inovatif, efisien, sederhana dioperasikan, serta terbuat dari material berkualitas tinggi yang mudah dirawat bagi seluruh pemangku kepentingan.",
+    en:"We focus on sustainable water and wastewater treatment through innovative, efficient systems that are easy to operate and maintain, built using high-quality materials for all stakeholders."
+  },
+
+  "j-etika":{id:"ETIKA KERJA",en:"WORK ETHICS"},
+  "t-etika":{
+    id:"Kejujuran dan etika menjadi dasar dalam setiap tindakan kami. Kami berkomitmen untuk menjunjung tinggi transparansi dan akuntabilitas dalam seluruh kegiatan operasional perusahaan.",
+    en:"Honesty and ethics are the foundation of our actions. We are committed to upholding transparency and accountability in all company operations."
+  },
+
+  "j-inovasi":{id:"INOVASI BERKELANJUTAN",en:"SUSTAINABLE INNOVATION"},
+  "t-inovasi":{
+    id:"Kami berinovasi melalui riset dan pengembangan berkelanjutan untuk menghadirkan sistem terbaik bagi pemangku kepentingan. Kami meningkatkan efisiensi energi, mengoptimalkan proses distribusi air bersih, menangani limbah beracun, dan memastikan keselamatan operasional dengan teknologi tepat guna. Kami mendukung ekonomi sirkular melalui berbagai proyek inovatif berkelanjutan.",
+    en:"We innovate through continuous research and development to deliver the best systems for stakeholders. We improve energy efficiency, optimize clean water distribution, treat hazardous waste, and ensure operational safety with appropriate technology. We support a circular economy through various sustainable innovative projects."
+  },
+
+  "j-lingkungan":{id:"KEBERLANJUTAN LINGKUNGAN",en:"ENVIRONMENTAL SUSTAINABILITY"},
+  "t-lingkungan":{
+    id:"Kami melindungi lingkungan melalui solusi pengolahan air dan limbah berkelanjutan, serta memberikan dampak positif bagi masyarakat sekitar dengan memastikan keberlangsungan akses air bersih.",
+    en:"We protect the environment through sustainable water and wastewater treatment solutions, and provide positive impact for surrounding communities by ensuring access to clean water availability."
+  },
+
+  "f-desc":{id:"Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.",en:"Sustainable Technology for Water & Wastewater Engineering Solutions."},
+  "f-quick":{id:"Tautan Cepat",en:"Quick Links"},
+  "f-layanan":{id:"Layanan",en:"Services"},
+  "f-contact":{id:"Hubungi Kami",en:"Contact Us"},
+  "f-city":{id:"Bandung, Indonesia",en:"Bandung, Indonesia"},
+
+  "lay1":{id:"Instalasi WTP, STP, WWTP",en:"WTP, STP, WWTP Installation"},
+  "lay2":{id:"Sistem IPAL Industri",en:"Industrial WWTP System"},
+  "lay3":{id:"Maintenance & Service",en:"Maintenance & Service"},
+  "lay4":{id:"Peralatan Reverse Osmosis",en:"Reverse Osmosis Equipment"},
+
+  "copy":{id:"© 2025 PT. Octa Tirta Investment • All Rights Reserved",en:"© 2025 PT. Octa Tirta Investment • All Rights Reserved"}
+};
+
+// ===================== APPLY TRANSLATION =====================
+function applyLang(lang) {
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    const key = el.getAttribute("data-lang");
+    if(translateText[key]) el.textContent = translateText[key][lang];
+  });
+  localStorage.setItem("lang", lang);
+}
+
+// ===================== BUTTON EVENT =====================
+document.getElementById("btn-id")?.addEventListener("click",() => applyLang("id"));
+document.getElementById("btn-en")?.addEventListener("click",() => applyLang("en"));
+document.getElementById("btn-id-m")?.addEventListener("click",() => applyLang("id"));
+document.getElementById("btn-en-m")?.addEventListener("click",() => applyLang("en"));
+
+// ===================== LOAD LAST STATE =====================
+applyLang(localStorage.getItem("lang") || "id");
+</script>
+
+<!-- ===================== MUSIC SAVE ===================== -->
+<script>
 const bgMusic = document.getElementById("bg-music");
 const MUSIC_TIME_KEY = "octa_bg_music_time";
 const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
 
-if (bgMusic) {
+if(bgMusic){
   bgMusic.volume = 0.5;
-
-  // Ambil posisi terakhir & status pause dari localStorage
   const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
   const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
-
-  if (!isNaN(savedTime) && savedTime > 0) {
-    // Set posisi lagu ke tempat terakhir
-    bgMusic.currentTime = savedTime;
-  }
-
-  function startPlay() {
-    if (!wasPaused) {
-      bgMusic.play().catch(()=>{ /* autoplay blocked */ });
-    }
-    document.body.removeEventListener("click", startPlay);
-  }
-
-  // Coba autoplay, kalau gagal tunggu klik user
-  if (!wasPaused) {
-    bgMusic.play().catch(()=>{
-      document.body.addEventListener("click", startPlay, { once:true });
-    });
-  }
-
-  // Simpan posisi lagu tiap kali waktu berubah
-  bgMusic.addEventListener("timeupdate", () => {
-    localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
-  });
-
-  // Simpan status pause / play
-  function savePausedState() {
-    localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
-  }
-  bgMusic.addEventListener("pause", savePausedState);
-  bgMusic.addEventListener("play", savePausedState);
+  if(!isNaN(savedTime) && savedTime>0){ bgMusic.currentTime = savedTime; }
+  function startPlay(){ if(!wasPaused){ bgMusic.play().catch(()=>{});} document.body.removeEventListener("click",startPlay);}
+  if(!wasPaused){ bgMusic.play().catch(()=>{document.body.addEventListener("click",startPlay,{ once:true });}); }
+  bgMusic.addEventListener("timeupdate",()=>{ localStorage.setItem(MUSIC_TIME_KEY,bgMusic.currentTime.toString());});
+  function savePausedState(){ localStorage.setItem(MUSIC_PAUSED_KEY,bgMusic.paused?"true":"false");}
+  bgMusic.addEventListener("pause",savePausedState);
+  bgMusic.addEventListener("play",savePausedState);
 }
 </script>
 

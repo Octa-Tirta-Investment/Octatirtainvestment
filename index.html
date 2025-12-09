@@ -147,82 +147,96 @@
 <body class="bg-[var(--sage-light)] text-slate-800">
 
   <!-- ==================== NAVBAR ==================== -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-[60px] text-white">
+<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-[60px] text-white">
 
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2">
-          <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
-          <div class="leading-tight">
-            <p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
+        <div class="leading-tight">
+          <p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="nav-i">Beranda</a>
+        <a href="tentang.html" class="nav-i">Tentang Kami</a>
+
+        <!-- Dropdown Manajemen -->
+        <div class="group relative">
+          <button class="flex items-center gap-1 nav-i">
+            Manajemen
+            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+            <ul class="py-2 text-[13px]">
+              <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
+              <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
+            </ul>
           </div>
-        </a>
-
-        <!-- Menu Desktop -->
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
-          <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
-
-          <div class="group relative">
-            <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
-              Manajemen
-              <svg class="w-3 h-3" fill="none" stroke="currentColor">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div
-              class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
-              <ul class="py-2 text-[13px]">
-                <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
-                <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
-              </ul>
-            </div>
-          </div>
-
-
-          <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
-          <a href="blog.html" class="hover:text-[var(--sage-border)]">Blog & Artikel</a>
-          <a href="#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
-        </nav>
-
-        <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
-          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor">
-            <path d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="menu-mobile"
-      class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
-      <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
-        <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
-        <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
-
-        <button id="btn-mana-mobile"
-          class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
-          Manajemen
-          <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
-        <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
-          <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
-          <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
         </div>
 
-        <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]">Portofolio</a>
-        <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
-        <a href="#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
+        <a href="portofolio.html" class="nav-i">Portofolio</a>
+        <a href="blog.html" class="nav-i">Blog & Artikel</a>
+        <a href="#hubungi-kami" class="nav-i">Hubungi Kami</a>
+
+        <!-- Language Desktop -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 nav-i" id="lang-btn">
+            🌐 <span id="lang-label">ID</span>
+          </button>
+          <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-24 transition-all text-center">
+            <ul class="py-2 text-[13px]">
+              <li><button class="w-full py-1.5" onclick="setLanguage('id')">Indonesia</button></li>
+              <li><button class="w-full py-1.5" onclick="setLanguage('en')">English</button></li>
+            </ul>
+          </div>
+        </div>
       </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+        <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
     </div>
-  </header>
+  </div>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+    <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
+      <a href="index.html" class="mobile-nav-i">Beranda</a>
+      <a href="tentang.html" class="mobile-nav-i">Tentang Kami</a>
+
+      <!-- Dropdown Manajemen Mobile -->
+      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 mobile-nav-i">
+        Manajemen
+        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
+        <a href="Manajemen.html" class="block py-2 text-white/80">Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80">Tim Ahli</a>
+      </div>
+
+      <a href="portofolio.html" class="mobile-nav-i">Portofolio</a>
+      <a href="blog.html" class="mobile-nav-i">Blog & Artikel</a>
+      <a href="#hubungi-kami" class="mobile-nav-i">Hubungi Kami</a>
+
+      <!-- Language Mobile -->
+      <hr class="border-white/20 my-2">
+      <button onclick="toggleMobileLang()" class="mobile-nav-i">🌐 <span id="mobile-lang-label">Pilih Bahasa</span></button>
+      <div id="mobile-lang-select" class="max-h-0 overflow-hidden transition-all duration-300 pl-4">
+        <button class="block py-1.5 text-white/80" onclick="setLanguage('id')">Indonesia</button>
+        <button class="block py-1.5 text-white/80" onclick="setLanguage('en')">English</button>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
 
   <!-- Spacer -->
   <div class="h-[60px]"></div>
@@ -415,6 +429,86 @@
 
   <!-- MUSIC BACKGROUND -->
   <audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
+
+  <script>
+// ==================== MULTILANGUAGE SYSTEM FIX ====================
+
+// Simpan text asli (Indonesia) saat halaman load
+const originalText = new Map();
+
+function saveOriginalText() {
+  document.querySelectorAll("*").forEach(el => {
+    const node = el.childNodes[0];
+    if (node && node.nodeType === 3) { // node teks
+      const text = node.nodeValue.trim();
+      if (text && !originalText.has(el)) {
+        originalText.set(el, text);
+      }
+    }
+  });
+}
+
+// Translation data
+const translations = {
+  "SOLUSI AIR & LIMBAH TERPADU": { en: "Integrated Water & Wastewater Solutions" },
+  "Cakrawala Masa Depan Solusi Air & Limbah Berkelanjutan": { en: "The Future Horizon of Sustainable Water & Waste Solutions" },
+  "WTP, STP, WWTP, IPAL, Rekayasa Sistem, Instalasi, & Maintenance untuk Industri dan Fasilitas Publik.": {
+    en: "WTP, STP, WWTP, IPAL, System Engineering, Installation & Maintenance for Industry and Public Facilities."
+  },
+  "CARD SERTIFIKAT": { en: "CERTIFICATE CARD" },
+  "Profesional Bersertifikasi & Berpengalaman": { en: "Certified & Experienced Professionals" },
+  "MITRA KAMI": { en: "OUR PARTNERS" },
+  "Perusahaan yang Bekerja Sama": { en: "Companies Collaborating With Us" },
+  "Kami dipercaya oleh berbagai mitra strategis dari sektor industri, pemerintah, hingga fasilitas publik.": {
+    en: "Trusted by strategic partners from industry, government, and public facilities."
+  },
+  "Hubungi Kami": { en: "Contact Us" },
+  "Tentang Kami": { en: "About Us" },
+  "Manajemen": { en: "Management" },
+  "Blog & Artikel": { en: "Blog & Articles" },
+  "Portofolio": { en: "Portfolio" },
+  "Beranda": { en: "Home" },
+  "Layanan": { en: "Services" }
+};
+
+// Apply translation
+function applyLanguage(lang) {
+  document.querySelectorAll("*").forEach(el => {
+    const node = el.childNodes[0];
+    if (!node || node.nodeType !== 3) return;
+
+    const original = originalText.get(el);
+    if (!original) return;
+
+    if (lang === "en" && translations[original] && translations[original].en) {
+      node.nodeValue = translations[original].en;
+    } else {
+      node.nodeValue = original;
+    }
+  });
+
+  localStorage.setItem("lang", lang);
+  document.getElementById("lang-label").textContent = lang === "en" ? "EN" : "ID";
+  document.getElementById("mobile-lang-label").textContent = lang === "en" ? "Language" : "Pilih Bahasa";
+}
+
+// Tombol set bahasa
+function setLanguage(lang) { applyLanguage(lang); }
+
+// Mobile dropdown bahasa
+function toggleMobileLang() {
+  const el = document.getElementById("mobile-lang-select");
+  el.style.maxHeight = el.style.maxHeight === "0px" ? "100px" : "0px";
+}
+
+// Load saved language
+window.addEventListener("DOMContentLoaded", () => {
+  saveOriginalText(); // simpan teks asli sebelum diterjemahkan
+  const savedLang = localStorage.getItem("lang") || "id";
+  applyLanguage(savedLang);
+});
+</script>
+
 
   <!-- ==================== SCRIPT ==================== -->
   <script>
