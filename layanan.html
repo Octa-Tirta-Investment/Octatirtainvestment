@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-lang>Layanan • PT. Octa Tirta Investment</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- TAILWIND -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+* { font-family: 'Poppins', sans-serif !important; }
+:root {
+  --sage-dark: #7CA377;
+  --sage-border: #edf1ef;
+  --sage-text: #ffffff;
+  --sage-light: #E9F5EB;
+  --forest: #1E4B33;
+}
+/* Dropdown */
+.nav-dropdown {background:#fff;border:1px solid #c9dfd1;box-shadow:0 4px 18px rgba(0,0,0,.12);border-radius:10px;}
+.nav-dropdown a:hover{background:#f2f9f5;}
+/* Card Hover */
+.card-hover:hover{transform:scale(1.045);transition:.3s;box-shadow:0 6px 15px rgba(0,0,0,.20);}
+html{scroll-behavior:smooth;}
+</style>
+</head>
+
+<body class="bg-[var(--sage-light)] text-slate-800">
+
+<!-- ==================== NAVBAR ==================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-[60px] text-white">
+
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="Images/logo white.png" class="h-9 w-auto brightness-110">
+        <p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="nav-i" data-lang>Beranda</a>
+        <a href="tentang.html" class="nav-i" data-lang>Tentang Kami</a>
+
+        <div class="group relative">
+          <button class="flex items-center gap-1 nav-i" data-lang>Manajemen</button>
+          <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+            <ul class="py-2 text-[13px]">
+              <li><a href="Manajemen.html" class="block px-4 py-1.5" data-lang>Manajemen</a></li>
+              <li><a href="tim_ahli.html" class="block px-4 py-1.5" data-lang>Tim Ahli</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="portofolio.html" class="nav-i" data-lang>Portofolio</a>
+        <a href="layanan.html" class="nav-i font-semibold text-[var(--sage-border)]" data-lang>Layanan</a>
+        <a href="blog.html" class="nav-i" data-lang>Blog & Artikel</a>
+        <a href="hubungi.html" class="nav-i" data-lang>Hubungi Kami</a>
+
+        <div class="flex items-center gap-1 text-sm">
+          <button onclick="setLanguage('id')" id="lang-id-btn">ID</button> |
+          <button onclick="setLanguage('en')" id="lang-en-btn">EN</button>
+        </div>
+      </nav>
+
+      <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+        <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+    <nav class="px-4 py-3 flex flex-col gap-2 text-white/90 text-sm">
+      <a href="index.html" class="mobile-nav-i" data-lang>Beranda</a>
+      <a href="tentang.html" class="mobile-nav-i" data-lang>Tentang Kami</a>
+
+      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 mobile-nav-i" data-lang>Manajemen
+        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all pl-3">
+        <a href="Manajemen.html" class="block py-2 text-white/80" data-lang>Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80" data-lang>Tim Ahli</a>
+      </div>
+
+      <a href="portofolio.html" class="mobile-nav-i" data-lang>Portofolio</a>
+      <a href="layanan.html" class="mobile-nav-i text-[var(--sage-border)] font-semibold" data-lang>Layanan</a>
+      <a href="blog.html" class="mobile-nav-i" data-lang>Blog & Artikel</a>
+      <a href="hubungi.html" class="mobile-nav-i" data-lang>Hubungi Kami</a>
+
+      <hr class="border-white/20 my-2">
+      <button onclick="setLanguage('id')" id="lang-id-btn-m">ID</button> | 
+      <button onclick="setLanguage('en')" id="lang-en-btn-m">EN</button>
+    </nav>
+  </div>
+</header>
+
+<div class="h-[60px]"></div>
+
+<!-- ==================== HERO ==================== -->
+<section class="bg-[var(--sage-light)] pt-20 pb-10 text-center">
+  <h1 class="text-3xl font-bold text-[var(--forest)]" data-lang>Layanan Kami</h1>
+  <p class="mt-4 max-w-2xl mx-auto text-slate-600 text-sm" data-lang>
+    Solusi Rekayasa Air & Limbah Berbasis Teknologi Berkelanjutan.
+  </p>
+</section>
+
+<!-- ==================== CONTENT ==================== -->
+<section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10">
+
+<!-- CARD: Instalasi -->
+<div class="bg-white border border-[var(--sage-border)] rounded-2xl p-8 card-hover shadow-md">
+  <h3 class="text-xl font-bold text-[var(--forest)] mb-3" data-lang>Instalasi WTP, STP, WWTP</h3>
+  <p class="text-[14px] text-gray-700 leading-relaxed text-justify" data-lang>
+    Instalasi sistem pengolahan air bersih dan limbah cair untuk area industri, pemukiman, komersial, hingga fasilitas publik.
+  </p>
+</div>
+
+<!-- CARD: IPAL -->
+<div class="bg-white border border-[var(--sage-border)] rounded-2xl p-8 card-hover shadow-md">
+  <h3 class="text-xl font-bold text-[var(--forest)] mb-3" data-lang>Sistem IPAL Industri</h3>
+  <p class="text-[14px] text-gray-700 leading-relaxed text-justify" data-lang>
+    Menyediakan sistem IPAL berstandar tinggi untuk industri, dengan proses filtrasi dan desinfeksi sesuai peraturan lingkungan.
+  </p>
+</div>
+
+<!-- CARD: Maintenance -->
+<div class="bg-white border border-[var(--sage-border)] rounded-2xl p-8 card-hover shadow-md">
+  <h3 class="text-xl font-bold text-[var(--forest)] mb-3" data-lang>Maintenance & Service</h3>
+  <p class="text-[14px] text-gray-700 leading-relaxed text-justify" data-lang>
+    Perawatan rutin, perbaikan, analisis kualitas, serta pengoptimalan kinerja mesin dan instalasi.
+  </p>
+</div>
+
+<!-- CARD: Peralatan -->
+<div class="bg-white border border-[var(--sage-border)] rounded-2xl p-8 card-hover shadow-md">
+  <h3 class="text-xl font-bold text-[var(--forest)] mb-3" data-lang>Peralatan Reverse Osmosis</h3>
+  <p class="text-[14px] text-gray-700 leading-relaxed text-justify" data-lang>
+    Menyediakan mesin RO berkualitas tinggi untuk air payau, laut, hingga air minum skala industri.
+  </p>
+</div>
+
+<!-- CARD: Perizinan -->
+<div class="bg-white border border-[var(--sage-border)] rounded-2xl p-8 card-hover shadow-md md:col-span-2">
+  <h3 class="text-xl font-bold text-[var(--forest)] mb-3" data-lang>Perizinan</h3>
+  <p class="text-[14px] text-gray-700 leading-relaxed text-justify mb-4" data-lang>
+    Kami Juga Dapat Memprovide Perizinan yang berlaku di indonesia
+  </p>
+  <ul class="text-[14px] text-gray-700 leading-relaxed list-decimal pl-6 space-y-1">
+    <li data-lang>Izin Penggunaan Air payau (sungai/Tanah) untuk kebutuhan Industrial (boiler)</li>
+    <li data-lang>Izin penggunaan air laut untuk Kebutuhan Industrial (boiler)</li>
+    <li data-lang>Persetujuan Teknis /Surat Kelayakan Operasional IPAL/Waste Water treatment Plant</li>
+  </ul>
+</div>
+
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+
+    <div>
+      <img src="Images/logo white.png" class="w-28 mb-4 brightness-110">
+      <p class="text-[13px] leading-relaxed" data-lang>Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.</p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]" data-lang>Tautan Cepat</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li><a href="tentang.html" class="hover:text-white" data-lang>Tentang Kami</a></li>
+        <li><a href="Manajemen.html" class="hover:text-white" data-lang>Manajemen</a></li>
+        <li><a href="tim_ahli.html" class="hover:text-white" data-lang>Tim Ahli</a></li>
+        <li><a href="portofolio.html" class="hover:text-white" data-lang>Portofolio</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]" data-lang>Layanan</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li data-lang>Instalasi WTP, STP,WWTP</li>
+        <li data-lang>Sistem IPAL Industri</li>
+        <li data-lang>Maintenance & Service</li>
+        <li data-lang>Peralatan Reverse Osmosis</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]" data-lang>Hubungi Kami</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li data-lang>Bandung, Indonesia</li>
+        <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
+        <li><a href="https://wa.me/62" class="hover:text-white">+62XXXX</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3" data-lang>
+    © 2025 PT. Octa Tirta Investment • All Rights Reserved
+  </div>
+</footer>
+
+<!-- ==================== AUDIO ==================== -->
+<audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
+
+<!-- =================== TRANSLATE SYSTEM =================== -->
+<script>
+const originalText = new Map();
+function saveOriginal(){document.querySelectorAll("[data-lang]").forEach(el=>{if(!originalText.has(el))originalText.set(el,el.innerHTML.trim());});}
+
+const translateEN={
+"Layanan Kami":"Our Services",
+"Solusi Rekayasa Air & Limbah Berbasis Teknologi Berkelanjutan.":"Water & Waste Engineering Solutions Using Sustainable Technology.",
+"Instalasi WTP, STP, WWTP":"WTP, STP, WWTP Installation",
+"Instalasi sistem pengolahan air bersih dan limbah cair untuk area industri, pemukiman, komersial, hingga fasilitas publik.":"Installation of clean water & wastewater systems for industrial, residential, commercial, and public facilities.",
+"Sistem IPAL Industri":"Industrial WWTP System",
+"Menyediakan sistem IPAL berstandar tinggi untuk industri, dengan proses filtrasi dan desinfeksi sesuai peraturan lingkungan.":"Providing high-standard WWTP systems for industries with filtration and disinfection processes according to environmental regulations.",
+"Maintenance & Service":"Maintenance & Service",
+"Perawatan rutin, perbaikan, analisis kualitas, serta pengoptimalan kinerja mesin dan instalasi.":"Routine maintenance, repairs, quality analysis, and optimization of equipment & system performance.",
+"Peralatan Reverse Osmosis":"Reverse Osmosis Equipment",
+"Menyediakan mesin RO berkualitas tinggi untuk air payau, laut, hingga air minum skala industri.":"Providing high-quality RO machines for brackish, seawater, and industrial-scale drinking water.",
+"Perizinan":"Licensing",
+" Kami Juga Dapat Memprovide Perizinan yang berlaku di indonesia ":" We Also Provide Licensing Services in accordance with regulations in Indonesia ",
+"Izin Penggunaan Air payau (sungai/Tanah) untuk kebutuhan Industrial (boiler)":"License for Brackish/River/Groundwater Use for Industrial Boiler",
+"Izin penggunaan air laut untuk Kebutuhan Industrial (boiler)":"License for Seawater Use for Industrial Boiler",
+"Persetujuan Teknis /Surat Kelayakan Operasional IPAL/Waste Water treatment Plant":"Technical Approval / Operational Eligibility for WWTP",
+"Beranda":"Home","Tentang Kami":"About Us","Manajemen":"Management","Tim Ahli":"Expert Team",
+"Portofolio":"Portfolio","Blog & Artikel":"Blog & Articles","Hubungi Kami":"Contact Us",
+"Tautan Cepat":"Quick Links","Layanan":"Services",
+"Instalasi WTP, STP,WWTP":"WTP, STP, WWTP Installation",
+"Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.":"Water & Waste Engineering Solutions With Sustainable Technology.",
+"Bandung, Indonesia":"Bandung, Indonesia",
+"© 2025 PT. Octa Tirta Investment • All Rights Reserved":"© 2025 PT. Octa Tirta Investment • All Rights Reserved"
+};
+
+function applyTranslate(lang){
+document.querySelectorAll("[data-lang]").forEach(el=>{
+let text=originalText.get(el);
+if(lang==="en"&&translateEN[text]) el.innerHTML=translateEN[text]; else el.innerHTML=text;
+});
+localStorage.setItem("lang",lang);
+}
+document.addEventListener("DOMContentLoaded",()=>{saveOriginal();applyTranslate(localStorage.getItem("lang")||"id");});
+function setLanguage(lang){applyTranslate(lang);}
+</script>
+
+<!-- ==================== MENU SCRIPT ==================== -->
+<script>
+const btnMobile=document.getElementById("btn-mobile");
+const menuMobile=document.getElementById("menu-mobile");
+const iconOpen=document.getElementById("icon-open");
+const iconClose=document.getElementById("icon-close");
+btnMobile.addEventListener("click",()=>{const open=menuMobile.style.maxHeight!=="0px";menuMobile.style.maxHeight=open?"0px":menuMobile.scrollHeight+"px";iconOpen.classList.toggle("hidden");iconClose.classList.toggle("hidden");});
+const btnManaMobile=document.getElementById("btn-mana-mobile");
+const subManaMobile=document.getElementById("sub-mana-mobile");
+const iconMana=document.getElementById("icon-mana");
+btnManaMobile.addEventListener("click",()=>{const open=subManaMobile.style.maxHeight!=="0px";subManaMobile.style.maxHeight=open?"0px":subManaMobile.scrollHeight+"px";iconMana.style.transform=open?"rotate(0deg)":"rotate(180deg)";});
+</script>
+
+<script>
+// ===================== PERSIST MUSIK ANTAR HALAMAN =====================
+const bgMusic = document.getElementById("bg-music");
+const MUSIC_TIME_KEY = "octa_bg_music_time";
+const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
+
+if (bgMusic) {
+  bgMusic.volume = 0.5;
+
+  const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
+  const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
+
+  if (!isNaN(savedTime) && savedTime > 0) {
+    bgMusic.currentTime = savedTime;
+  }
+
+  function startPlay() {
+    if (!wasPaused) {
+      bgMusic.play().catch(()=>{});
+    }
+    document.body.removeEventListener("click", startPlay);
+  }
+
+  if (!wasPaused) {
+    bgMusic.play().catch(()=>{
+      document.body.addEventListener("click", startPlay, { once:true });
+    });
+  }
+
+  bgMusic.addEventListener("timeupdate", () => {
+    localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
+  });
+
+  function savePausedState() {
+    localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
+  }
+  bgMusic.addEventListener("pause", savePausedState);
+  bgMusic.addEventListener("play", savePausedState);
+}
+</script>
+
+</body>
+</html>

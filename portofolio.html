@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", highlightLang);
         </div>
 
         <a href="portofolio.html" class="nav-i text-[var(--sage-border)] font-semibold">Portofolio</a>
+        <a href="layanan.html" class="nav-i font-semibold text-[var(--sage-border)]" data-lang>Layanan</a>
         <a href="blog.html" class="nav-i hover:text-[var(--sage-border)]">Blog & Artikel</a>
         <a href="hubungi.html" class="nav-i hover:text-[var(--sage-border)]">Hubungi Kami</a>
 
@@ -149,6 +150,7 @@ document.addEventListener("DOMContentLoaded", highlightLang);
       </div>
 
       <a href="portofolio.html" class="mobile-nav-i text-[var(--sage-border)] font-semibold">Portofolio</a>
+      <a href="layanan.html" class="mobile-nav-i text-[var(--sage-border)] font-semibold" data-lang>Layanan</a>
       <a href="blog.html" class="mobile-nav-i">Blog & Artikel</a>
       <a href="hubungi.html" class="mobile-nav-i">Hubungi Kami</a>
 
@@ -245,6 +247,10 @@ document.addEventListener("DOMContentLoaded", highlightLang);
 
 <div class="rounded-xl overflow-hidden border border-[var(--sage-border)]">
   <img src="Images/porto2 mesin.jpeg" class="img-uniform">
+</div>
+
+<div class="rounded-xl overflow-hidden border border-[var(--sage-border)]">
+  <img src="Images/WASTE WATER TREATMENT PLANT.png" class="img-uniform">
 </div>
 
 
@@ -386,111 +392,6 @@ document.addEventListener("DOMContentLoaded", highlightLang);
 
 <audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
 
-<!-- ==================== TRANSLATE PORTOFOLIO (FULL) ==================== -->
-<script>
-// === Ambil teks asli halaman ===
-const originalText = new Map();
-
-function saveOriginal() {
-  document.querySelectorAll("[data-lang]").forEach(el => {
-    if (!originalText.has(el)) originalText.set(el, el.innerHTML.trim());
-  });
-}
-
-// === TERJEMAHAN BAHASA INGGRIS ===
-const translateEN = {
-
-  /* --- NAV --- */
-  "Beranda": "Home",
-  "Tentang Kami": "About Us",
-  "Manajemen": "Management",
-  "Tim Ahli": "Experts Team",
-  "Portofolio": "Portfolio",
-  "Blog & Artikel": "Blog & Articles",
-  "Hubungi Kami": "Contact Us",
-
-  /* --- PORTOFOLIO CONTENT --- */
-  "Mesin": "Machine",
-  "Instalasi SWRO ": "SWRO Installation",
-  "Keuntungan Instalasi SWRO": "Advantages of SWRO Installation",
-  "Process": "Process",
-
-  "Untuk Air Payau (sungai/Air Tanah), proses sama tinggal sistem RO nya menggunakan BWRO":
-  "For brackish water (river/groundwater), the same process applies but using BWRO membranes.",
-
-  /* TABLE */
-  "Aspek Teknologi": "Technological Aspect",
-  "Teknologi Membran": "Membrane Technology",
-  "Tipe Membran": "Membrane Type",
-  "Sea Water Membranes": "Sea Water Membranes",
-  "Brackish Water Membranes": "Brackish Water Membranes",
-  "Removal Garam": "Salt Removal",
-  "Sangat tinggi (> 99.7%)": "Very High (> 99.7%)",
-  "Tinggi (> 98%)": "High (> 98%)",
-  "Toleransi Tekanan": "Pressure Tolerance",
-  "Hingga 1.200 psi": "Up to 1,200 psi",
-  "Hingga 450 psi": "Up to 450 psi",
-  "Fluks Air Produk": "Product Water Flux",
-  "Relatif lebih rendah": "Relatively lower",
-  "Relatif lebih tinggi": "Relatively higher",
-
-  "Teknologi Tekanan & Pompa": "Pressure & Pump Technology",
-  "Pompa Tekan Tinggi": "High Pressure Pump",
-  "Wajib (55–85 bar)": "Required (55–85 bar)",
-  "Diperlukan (10–20 bar)": "Required (10–20 bar)",
-
-  "Teknologi Pra-Perlakuan": "Pretreatment Technology",
-  "Tujuan Utama": "Main Purpose",
-  "Mencegah fouling & scaling": "Prevent fouling & scaling",
-  "Fokus scaling & suspended solids": "Focus on scaling & suspended solids",
-  "Teknologi Khas": "Typical Technology",
-  "Dual Media, UF, antiscalant & biocide": "Dual Media, UF, antiscalant & biocide",
-  "Multimedia, Cartridge Filter, antiscalant": "Multimedia, Cartridge Filter, antiscalant",
-
-  /* FOOTER */
-  "Tautan Cepat": "Quick Links",
-  "Layanan": "Services",
-  "Instalasi WTP, STP,WWTP": "WTP, STP, WWTP Installation",
-  "Sistem IPAL Industri": "Industrial Wastewater System",
-  "Maintenance & Service": "Maintenance & Service",
-  "Peralatan Reverse Osmosis": "Reverse Osmosis Equipment",
-  "Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.":
-  "Water & Waste Engineering Solutions With Sustainable Technology.",
-  "Bandung, Indonesia": "Bandung, Indonesia",
-  "All Rights Reserved": "All Rights Reserved"
-};
-
-
-// === FUNGSI GANTI BAHASA ===
-function applyTranslate(lang) {
-  if (lang === "en") {
-    document.querySelectorAll("[data-lang]").forEach(el => {
-      let text = originalText.get(el);
-      if (translateEN[text]) el.innerHTML = translateEN[text];
-    });
-  } else {
-    document.querySelectorAll("[data-lang]").forEach(el => {
-      el.innerHTML = originalText.get(el);
-    });
-  }
-  localStorage.setItem("lang", lang);
-  highlightLang();
-}
-
-// === LOAD AWAL ===
-document.addEventListener("DOMContentLoaded", () => {
-  saveOriginal();
-  applyTranslate(localStorage.getItem("lang") || "id");
-});
-
-// === KLIK TOMBOL ===
-document.querySelectorAll("#lang-id-btn, #lang-en-btn, #lang-id-btn-m, #lang-en-btn-m")
-  .forEach(btn => {
-    btn.addEventListener("click", () => {
-      applyTranslate(btn.textContent.toLowerCase());
-    });
-  });
-</script>
 
 
 <!-- ==================== SCRIPT ==================== -->
