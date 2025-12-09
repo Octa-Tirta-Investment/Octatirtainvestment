@@ -6,178 +6,163 @@
 <title>Portofolio • PT. Octa Tirta Investment</title>
 
 <!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- TAILWIND -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-  :root {
-    --sage-dark: #082A20;
-    --sage-mid:  #115740;
-    --sage-line: #46775A;
-    --sage-mint: #9DD4B0;
-    --sage-bg:   #e9f8f5;
-  }
-  body { font-family: "Inter", sans-serif; }
+* { font-family: 'Poppins', sans-serif !important; }
+
+:root {
+  --sage-dark: #082A20;
+  --sage-border: #9DD4B0;
+  --sage-text: #C8E3D1;
+  --sage-light: #E9F5EB;
+  --forest: #1E4B33;
+}
+
+html { scroll-behavior: smooth; }
+
+/* CARD HOVER */
+.card-hover:hover { transform:scale(1.045); transition:.3s ease; box-shadow:0 6px 15px rgba(0,0,0,0.20); }
 </style>
 </head>
 
-<body class="bg-white text-slate-800">
+<body class="bg-[var(--sage-light)] text-slate-800">
 
-<!-- ============ NAVBAR ============ -->
-<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] text-white shadow-md border-b border-[var(--sage-mint)]">
+<!-- ==================== NAVBAR ==================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-[60px]">
+    <div class="flex items-center justify-between h-[60px] text-white">
 
-      <!-- LOGO -->
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2">
-        <img src="Images/Logo.png" class="h-9 object-contain brightness-110">
+        <img src="Images/Logo.png" class="h-9 w-auto object-contain brightness-110">
         <div class="leading-tight">
-          <p class="font-semibold text-[var(--sage-mint)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-          <p class="text-[11px] text-[var(--sage-mint)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
+          <p class="font-semibold text-[var(--sage-border)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+          <p class="text-[11px] text-[var(--sage-border)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
         </div>
       </a>
 
-      <!-- DESKTOP MENU -->
-      <nav class="hidden md:flex items-center gap-6 text-[13px] font-medium">
-        <a href="index.html" class="hover:text-[var(--sage-mint)]">Beranda</a>
-        <a href="tentang.html" class="hover:text-[var(--sage-mint)]">Tentang Kami</a>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
+        <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-        <!-- DROPDOWN DESKTOP -->
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:text-[var(--sage-mint)]">
+        <!-- Dropdown -->
+        <div class="group relative">
+          <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
             Manajemen
             <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-
-          <div class="absolute top-full left-0 w-48 bg-[var(--sage-mid)] border border-[var(--sage-line)] rounded-md shadow-sm invisible opacity-0
-                      group-hover:visible group-hover:opacity-100">
-            <a href="Manajemen.html" class="block px-4 py-2 hover:bg-[var(--sage-dark)] text-sm">Manajemen</a>
-            <a href="tim_ahli.html" class="block px-4 py-2 hover:bg-[var(--sage-dark)] text-sm">Tim Ahli</a>
+          <div class="invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52
+                  bg-white/10 border border-white/20 rounded-lg shadow-md backdrop-blur text-white transition-all">
+            <ul class="py-2 text-[13px]">
+              <li><a href="Manajemen.html" class="block px-4 py-1.5 hover:bg-white/10">Manajemen</a></li>
+              <li><a href="tim_ahli.html" class="block px-4 py-1.5 hover:bg-white/10">Tim Ahli</a></li>
+            </ul>
           </div>
         </div>
 
-        <a href="portofolio.html" class="text-[var(--sage-mint)] font-semibold">Portofolio</a>
-        <a href="index.html#berita" class="hover:text-[var(--sage-mint)]">Artikel</a>
-        <a href="index.html#hubungi-kami" class="hover:text-[var(--sage-mint)]">Hubungi Kami</a>
+        <a href="portofolio.html" class="text-[var(--sage-border)] font-semibold">Portofolio</a>
+        <a href="blog.html" class="hover:text-[var(--sage-border)]">Artikel</a>
+        <a href="index.html#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
       </nav>
 
-      <!-- CTA + MOBILE -->
-      <div class="flex items-center gap-3">
-        <a href="index.html#hubungi-kami"
-           class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-[var(--sage-mint)] text-[var(--sage-dark)]
-           text-xs sm:text-sm font-semibold shadow-sm hover:bg-white">
-          Konsultasi Gratis
-        </a>
-
-        <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
-          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
+      <!-- Mobile Button -->
+      <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+        <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
 
     </div>
   </div>
 
-  <!-- MOBILE NAV -->
-  <nav id="menu-mobile" class="hidden flex-col bg-[var(--sage-dark)]/95 text-white border-t border-[var(--sage-line)] px-4 py-4 text-sm">
-    <a href="index.html" class="py-2">Beranda</a>
-    <a href="tentang.html" class="py-2">Tentang Kami</a>
+  <!-- Mobile Menu -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+    <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
+      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
+      <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-    <details class="text-white">
-      <summary class="py-2 border-b border-[var(--sage-line)]/40 cursor-pointer">Manajemen</summary>
-      <div class="pl-3 pt-2 pb-1 space-y-1">
-        <a href="Manajemen.html" class="block hover:text-[var(--sage-mint)]">Manajemen</a>
-        <a href="tim_ahli.html" class="block hover:text-[var(--sage-mint)]">Tim Ahli</a>
+      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
+        Manajemen
+        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
+        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
       </div>
-    </details>
 
-    <a href="portofolio.html" class="py-2 text-[var(--sage-mint)] font-semibold">Portofolio</a>
-    <a href="index.html#berita" class="py-2">Artikel</a>
-    <a href="index.html#hubungi-kami" class="py-2">Hubungi Kami</a>
-  </nav>
+      <a href="portofolio.html" class="py-2 text-[var(--sage-border)] font-semibold">Portofolio</a>
+      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
+      <a href="index.html#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
+    </nav>
+  </div>
 </header>
 
 <div class="h-[60px]"></div>
 
-<!-- ============ HERO ============ -->
-<section class="bg-[var(--sage-bg)] pt-16 pb-14 text-center">
-  <h2 class="text-sm font-semibold tracking-[0.25em] text-[var(--sage-dark)]">PORTOFOLIO</h2>
-  <h1 class="text-3xl sm:text-4xl font-bold text-[var(--sage-dark)] mt-2">
-    Proyek & Sistem Pengolahan Air
+<!-- ==================== HERO ==================== -->
+<section class="bg-[var(--sage-light)] pt-16 pb-14 text-center">
+  <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">PORTOFOLIO</p>
+  <h1 class="text-3xl sm:text-4xl font-bold text-[var(--forest)]">
+    Proyek Pengolahan Air & Lingkungan
   </h1>
   <p class="max-w-2xl mx-auto mt-4 text-sm text-slate-600">
-    Berikut beberapa hasil implementasi sistem pengolahan air bersih, limbah, dan teknologi lingkungan yang telah kami kerjakan.
+    Implementasi teknologi pengolahan air, limbah, serta sistem lingkungan berkelanjutan.
   </p>
 </section>
 
-<!-- ============ LIST PORTOFOLIO ============ -->
+<!-- ==================== LIST PORTOFOLIO ==================== -->
 <section class="max-w-6xl mx-auto px-6 py-16">
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
     <!-- CARD -->
-    <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+    <div class="bg-white rounded-xl shadow-md border border-[var(--sage-border)] card-hover overflow-hidden">
       <img src="Images/porto1.jpg" class="h-48 w-full object-cover">
       <div class="p-4">
-        <p class="text-xs font-semibold text-[var(--sage-mint)]">INDUSTRI</p>
+        <p class="text-xs font-semibold text-[var(--forest)]">INDUSTRI</p>
         <h3 class="font-semibold text-lg mt-1">Instalasi RO 5000 L/H</h3>
-        <p class="text-sm text-slate-600 mt-2 line-clamp-2">
-          Sistem reverse osmosis kapasitas 5000 liter per jam dengan automasi panel SCADA.
-        </p>
-        <a href="#" class="inline-block mt-4 text-[var(--sage-dark)] text-sm font-semibold hover:underline">
-          Selengkapnya →
-        </a>
+        <p class="text-sm text-slate-600 mt-2 line-clamp-2">Sistem reverse osmosis kapasitas 5000 liter/jam dengan automasi panel SCADA.</p>
       </div>
     </div>
 
-    <!-- CARD -->
-    <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+    <div class="bg-white rounded-xl shadow-md border border-[var(--sage-border)] card-hover overflow-hidden">
       <img src="Images/porto2.jpg" class="h-48 w-full object-cover">
       <div class="p-4">
-        <p class="text-xs font-semibold text-[var(--sage-mint)]">PERKOTAAN</p>
+        <p class="text-xs font-semibold text-[var(--forest)]">PERMUKIMAN</p>
         <h3 class="font-semibold text-lg mt-1">IPAL Komunal Perumahan</h3>
-        <p class="text-sm text-slate-600 mt-2 line-clamp-2">
-          Pengolahan limbah domestik dengan teknologi MBBR ramah biaya pemeliharaan.
-        </p>
-        <a href="#" class="inline-block mt-4 text-[var(--sage-dark)] text-sm font-semibold hover:underline">
-          Selengkapnya →
-        </a>
+        <p class="text-sm text-slate-600 mt-2 line-clamp-2">Pengolahan limbah domestik teknologi MBBR ramah biaya pemeliharaan.</p>
       </div>
     </div>
 
-    <!-- CARD -->
-    <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+    <div class="bg-white rounded-xl shadow-md border border-[var(--sage-border)] card-hover overflow-hidden">
       <img src="Images/porto3.jpg" class="h-48 w-full object-cover">
       <div class="p-4">
-        <p class="text-xs font-semibold text-[var(--sage-mint)]">PABRIK</p>
+        <p class="text-xs font-semibold text-[var(--forest)]">PABRIK</p>
         <h3 class="font-semibold text-lg mt-1">Desalinasi Air Laut 10m³/h</h3>
-        <p class="text-sm text-slate-600 mt-2 line-clamp-2">
-          Teknologi seawater RO untuk kebutuhan industri pesisir dengan efisiensi energi tinggi.
-        </p>
-        <a href="#" class="inline-block mt-4 text-[var(--sage-dark)] text-sm font-semibold hover:underline">
-          Selengkapnya →
-        </a>
+        <p class="text-sm text-slate-600 mt-2 line-clamp-2">Teknologi seawater RO untuk industri pesisir efisiensi energi tinggi.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-mint)]">
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
 
     <div>
-      <img src="Images/Logo.png" class="w-28 mb-4 opacity-90">
-      <p class="text-[13px] text-gray-300 leading-relaxed">
-        Solusi rekayasa air, pengolahan limbah & lingkungan, teknologi presisi berkelanjutan.
+      <img src="Images/Logo.png" class="w-28 mb-4 brightness-110">
+      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
+        Solusi rekayasa air & lingkungan dengan teknologi presisi dan berkelanjutan.
       </p>
     </div>
 
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-mint)]">Tautan Cepat</h3>
-      <ul class="space-y-2 text-sm text-gray-300">
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
         <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
         <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
         <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
@@ -186,18 +171,18 @@
     </div>
 
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-mint)]">Layanan</h3>
-      <ul class="space-y-2 text-sm text-gray-300">
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan & Solusi</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
         <li>Instalasi WTP & WWTP</li>
         <li>Sistem IPAL Industri</li>
-        <li>Reverse Osmosis</li>
-        <li>Maintenance</li>
+        <li>Maintenance & Service</li>
+        <li>Peralatan Reverse Osmosis</li>
       </ul>
     </div>
 
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-mint)]">Hubungi Kami</h3>
-      <ul class="space-y-2 text-sm text-gray-300">
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
         <li>Bandung, Indonesia</li>
         <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
         <li><a href="https://wa.me/6281234567890" class="hover:text-white">+62 812-3456-7890</a></li>
@@ -206,23 +191,34 @@
 
   </div>
 
-  <div class="mt-10 text-center text-[11px] text-gray-400 border-t border-white/10 pt-3">
+  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
     © 2025 PT. Octa Tirta Investment • All Rights Reserved
   </div>
 </footer>
 
-<!-- ============ SCRIPT NAVBAR ============ -->
+<!-- ==================== SCRIPT ==================== -->
 <script>
-  const btnMobile = document.getElementById("btn-mobile");
-  const menuMobile = document.getElementById("menu-mobile");
-  const openIcon = document.getElementById("icon-open");
-  const closeIcon = document.getElementById("icon-close");
+const btnMobile = document.getElementById("btn-mobile");
+const menuMobile = document.getElementById("menu-mobile");
+const iconOpen = document.getElementById("icon-open");
+const iconClose = document.getElementById("icon-close");
 
-  btnMobile.addEventListener("click", () => {
-    menuMobile.classList.toggle("hidden");
-    openIcon.classList.toggle("hidden");
-    closeIcon.classList.toggle("hidden");
-  });
+btnMobile.addEventListener("click", () => {
+  const open = menuMobile.style.maxHeight !== "0px";
+  menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
+  iconOpen.classList.toggle("hidden");
+  iconClose.classList.toggle("hidden");
+});
+
+// Dropdown Mobile
+const btnManaMobile = document.getElementById("btn-mana-mobile");
+const subManaMobile = document.getElementById("sub-mana-mobile");
+const iconMana = document.getElementById("icon-mana");
+btnManaMobile.addEventListener("click", () => {
+  const open = subManaMobile.style.maxHeight !== "0px";
+  subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
+  iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+});
 </script>
 
 </body>

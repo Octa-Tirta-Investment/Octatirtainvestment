@@ -7,7 +7,7 @@
 <meta name="description" content="Struktur manajemen PT. Octa Tirta Investment.">
 
 <!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- AOS ANIMATION -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
@@ -16,18 +16,16 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+* { font-family: 'Poppins', sans-serif !important; }
+html { scroll-behavior: smooth; }
+
 :root {
-  --green-forest: #335833;
-  --green-deep:   #2A4729;
-  --green-mint:   #EAF5E1;
-  --green-border: #8EBB75;
-  --green-pastel: #A7D08C;
+  --sage-dark: #082A20;
+  --sage-border: #9DD4B0;
+  --sage-text: #C8E3D1;
+  --sage-light: #E9F5EB;
+  --forest: #1E4B33;
 }
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--green-mint);
-}
-header a, header p { font-weight: 500; }
 
 /* Hover Foto */
 .team-card img { transition: transform .35s ease; }
@@ -35,38 +33,35 @@ header a, header p { font-weight: 500; }
 </style>
 </head>
 
-<body class="text-slate-800">
+<body class="bg-[var(--sage-light)] text-slate-800">
 
-<!-- ==================================================
-     🌿 NAVBAR UTAMA (=== SAMA SEPERTI HALAMAN TENTANG ===)
-=================================================== -->
-<header class="fixed top-0 inset-x-0 bg-white shadow-sm z-50 border-b border-[var(--green-border)]">
+<!-- ==================== NAVBAR ==================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+    <div class="flex items-center justify-between h-[60px] text-white">
 
-      <!-- LOGO -->
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2">
-        <img src="Images/Logo.png" class="w-10 h-10 object-contain">
+        <img src="Images/Logo.png" class="h-9 w-auto object-contain brightness-110">
         <div class="leading-tight">
-          <p class="font-semibold text-[var(--green-forest)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-          <p class="text-xs text-[var(--green-forest)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
+          <p class="font-semibold text-[var(--sage-border)] text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+          <p class="text-[11px] text-[var(--sage-border)]/70 hidden sm:block">Water Engineering & Environmental Solution</p>
         </div>
       </a>
 
-      <!-- MENU DESKTOP -->
+      <!-- Menu Desktop -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
+        <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-        <a href="index.html" class="hover:text-[var(--green-forest)] text-slate-700 font-medium">Beranda</a>
-        <a href="tentang.html" class="hover:text-[var(--green-forest)] text-slate-700 font-medium">Tentang Kami</a>
-
-        <!-- DROPDOWN MANAJEMEN -->
+        <!-- Dropdown -->
         <div class="group relative">
-          <button class="flex items-center gap-1 text-[var(--green-forest)] font-semibold">
+          <button class="flex items-center gap-1 text-[var(--sage-border)] font-semibold">
             Manajemen
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <div class="invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52
-                      bg-[rgba(2,40,31,0.92)] border border-white/10 rounded-lg shadow-lg backdrop-blur-sm text-white transition-all">
+                      bg-white/10 border border-white/20 rounded-lg shadow-md backdrop-blur text-white transition-all">
             <ul class="py-2 text-[13px]">
               <li><a href="Manajemen.html" class="block px-4 py-1.5 hover:bg-white/10">Manajemen</a></li>
               <li><a href="tim_ahli.html" class="block px-4 py-1.5 hover:bg-white/10">Tim Ahli</a></li>
@@ -74,95 +69,91 @@ header a, header p { font-weight: 500; }
           </div>
         </div>
 
-        <a href="index.html#portofolio" class="hover:text-[var(--green-forest)] text-slate-700 font-medium">Portofolio</a>
-        <a href="index.html#berita" class="hover:text-[var(--green-forest)] text-slate-700 font-medium">Blog & Artikel</a>
-        <a href="index.html#hubungi-kami" class="hover:text-[var(--green-forest)] text-slate-700 font-medium">Hubungi Kami</a>
+        <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
+        <a href="blog.html" class="hover:text-[var(--sage-border)]">Artikel</a>
+        <a href="index.html#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
       </nav>
 
-      <!-- MOBILE BUTTON -->
-      <button id="btn-mobile" class="md:hidden p-2 border border-[var(--green-border)] rounded-lg">
-        <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      <!-- Mobile Button -->
+      <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+        <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
     </div>
   </div>
 
-  <!-- MENU MOBILE (SAMA ISINYA) -->
-  <div id="menu-mobile" class="max-h-0 overflow-hidden transition-all duration-300 bg-white border-t border-[var(--green-border)]">
-    <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-[var(--green-forest)]">
+  <!-- Mobile Menu -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+    <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
+      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
+      <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-      <a href="index.html" class="py-1">Beranda</a>
-      <a href="tentang.html" class="py-1">Tentang Kami</a>
+      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
+        Manajemen
+        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
 
-      <!-- SUBMENU MANAJEMEN MOBILE -->
-      <div>
-        <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-1">
-          Manajemen
-          <svg id="icon-mana" class="h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M6 9l6 6 6-6"/>
-          </svg>
-        </button>
-        <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 ml-3 text-sm">
-          <a href="Manajemen.html" class="block py-1">Manajemen</a>
-          <a href="tim_ahli.html" class="block py-1">Tim Ahli</a>
-        </div>
+      <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
+        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
       </div>
 
-      <a href="index.html#portofolio" class="py-1">Portofolio</a>
-      <a href="index.html#berita" class="py-1">Blog & Artikel</a>
-      <a href="index.html#hubungi-kami" class="py-1">Hubungi Kami</a>
+      <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]">Portofolio</a>
+      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Artikel</a>
+      <a href="index.html#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
     </nav>
   </div>
 </header>
 
-<div class="h-16"></div>
+<!-- Spacer -->
+<div class="h-[60px]"></div>
 
 <!-- ========================= SECTION MANAJEMEN ========================= -->
 <section id="manajemen" class="pt-24 pb-28 bg-white text-slate-700">
   <div class="max-w-6xl mx-auto px-4 text-center">
 
-    <p class="text-xs font-semibold tracking-[0.30em] uppercase mb-1 text-[var(--green-forest)]" data-aos="fade-down">MANAJEMEN</p>
-    <h2 class="text-2xl sm:text-3xl font-bold text-[var(--green-deep)] mb-16" data-aos="fade-up">FOUNDER & CO-FOUNDER</h2>
+    <p class="text-xs font-semibold tracking-[0.30em] uppercase mb-1 text-[var(--forest)]" data-aos="fade-down">MANAJEMEN</p>
+    <h2 class="text-2xl sm:text-3xl font-bold text-[var(--forest)] mb-16" data-aos="fade-up">FOUNDER & CO-FOUNDER</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
 
       <!-- Founder -->
       <div class="team-card text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--green-border)] shadow-md">
+        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--sage-border)] shadow-md">
           <img src="Images/a1.png" class="w-full h-full object-cover">
         </div>
-        <p class="mt-5 font-semibold text-xl text-[var(--green-forest)]">Muhammad Khaliq Mantiri</p>
+        <p class="mt-5 font-semibold text-xl text-[var(--forest)]">Muhammad Khaliq Mantiri</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Founder</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Board of Commissioners</p>
       </div>
 
       <!-- Co-Founder -->
       <div class="team-card text-center" data-aos="fade-up" data-aos-delay="200">
-        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--green-border)] shadow-md">
+        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--sage-border)] shadow-md">
           <img src="Images/wisnu.jpeg" class="w-full h-full object-cover">
         </div>
-        <p class="mt-5 font-semibold text-xl text-[var(--green-forest)]">Ir. Wisnu Salman ST.,IPM.,ACPE.,ASEAN Eng., C EIA</p>
+        <p class="mt-5 font-semibold text-xl text-[var(--forest)]">Ir. Wisnu Salman ST.,IPM.,ACPE.,ASEAN Eng., C EIA</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Co-Founder</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Commissioners</p>
       </div>
 
       <!-- Co-Founder -->
       <div class="team-card text-center" data-aos="fade-up" data-aos-delay="300">
-        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--green-border)] shadow-md">
+        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--sage-border)] shadow-md">
           <img src="Images/darma.jpeg" class="w-full h-full object-cover">
         </div>
-        <p class="mt-5 font-semibold text-xl text-[var(--green-forest)]">Darma Putra Purba</p>
+        <p class="mt-5 font-semibold text-xl text-[var(--forest)]">Darma Putra Purba</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Co-Founder</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Board of Director</p>
       </div>
 
       <!-- Co-Founder -->
       <div class="team-card text-center" data-aos="fade-up" data-aos-delay="400">
-        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--green-border)] shadow-md">
+        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-2 ring-[var(--sage-border)] shadow-md">
           <img src="Images/9.PNG" class="w-full h-full object-cover">
         </div>
-        <p class="mt-5 font-semibold text-xl text-[var(--green-forest)]">Andi Indah Sari</p>
+        <p class="mt-5 font-semibold text-xl text-[var(--forest)]">Andi Indah Sari</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Co-Founder</p>
         <p class="text-[13px] uppercase mt-1 text-slate-500">Commissioners</p>
       </div>
@@ -172,8 +163,50 @@ header a, header p { font-weight: 500; }
 </section>
 
 <!-- ========================= FOOTER ========================= -->
-<footer class="bg-white border-t border-[var(--green-border)] py-6 text-center text-sm text-[var(--green-forest)]/80" data-aos="fade-up">
-  © 2025 PT. Octa Tirta Investment · Water Engineering & Environmental Solution
+<footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+
+    <div>
+      <img src="Images/Logo.png" class="w-28 mb-4 brightness-110">
+      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
+        Solusi rekayasa air & lingkungan dengan teknologi presisi dan berkelanjutan.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
+        <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
+        <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
+        <li><a href="index.html#portofolio" class="hover:text-white">Portofolio</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li>Instalasi WTP & WWTP</li>
+        <li>Sistem IPAL Industri</li>
+        <li>Maintenance & Service</li>
+        <li>Peralatan Reverse Osmosis</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
+      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+        <li>Bandung, Indonesia</li>
+        <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
+        <li><a href="https://wa.me/6281234567890" class="hover:text-white">+62 812-3456-7890</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
+    © 2025 PT. Octa Tirta Investment • All Rights Reserved
+  </div>
 </footer>
 
 <!-- ========================= SCRIPT ========================= -->
@@ -188,16 +221,10 @@ const iconOpen = document.getElementById("icon-open");
 const iconClose = document.getElementById("icon-close");
 
 btnMobile.addEventListener("click", () => {
-  const isOpen = menuMobile.style.maxHeight && menuMobile.style.maxHeight !== "0px";
-  if (isOpen) {
-    menuMobile.style.maxHeight = "0px";
-    iconOpen.classList.remove("hidden");
-    iconClose.classList.add("hidden");
-  } else {
-    menuMobile.style.maxHeight = menuMobile.scrollHeight + "px";
-    iconOpen.classList.add("hidden");
-    iconClose.classList.remove("hidden");
-  }
+  const open = menuMobile.style.maxHeight !== "0px";
+  menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
+  iconOpen.classList.toggle("hidden");
+  iconClose.classList.toggle("hidden");
 });
 
 /* DROPDOWN MOBILE */
@@ -206,14 +233,9 @@ const subManaMobile = document.getElementById("sub-mana-mobile");
 const iconMana = document.getElementById("icon-mana");
 
 btnManaMobile.addEventListener("click", () => {
-  const isOpen = subManaMobile.style.maxHeight && subManaMobile.style.maxHeight !== "0px";
-  if (isOpen) {
-    subManaMobile.style.maxHeight = "0px";
-    iconMana.style.transform = "rotate(0deg)";
-  } else {
-    subManaMobile.style.maxHeight = subManaMobile.scrollHeight + "px";
-    iconMana.style.transform = "rotate(180deg)";
-  }
+  const open = subManaMobile.style.maxHeight !== "0px";
+  subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
+  iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
 });
 </script>
 
