@@ -23,6 +23,36 @@
     --forest: #1E4B33;           /* Dark Green Title */
   }
 
+  /* --- Dropdown Desktop Normal Elegan --- */
+.nav-dropdown {
+  background: #ffffff;
+  color: #0b281d;
+  border: 1px solid #c9dfd1;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  border-radius: 10px;
+  backdrop-filter: blur(0px);
+}
+
+.nav-dropdown a {
+  color: #0b281d;
+}
+
+.nav-dropdown a:hover {
+  background: #f2f9f5;
+  color: #0b281d;
+}
+
+/* --- Dropdown Mobile perjelas --- */
+#sub-mana-mobile a {
+  color: #d9fff1;
+}
+
+#sub-mana-mobile a:hover {
+  color: var(--sage-border);
+}
+
+
+
   /* HERO SLIDER */
   .hero-slider { position: relative; overflow: hidden; height: 480px; }
   .hero-slide { position: absolute; inset: 0;
@@ -68,20 +98,19 @@
         <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
         <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-        <!-- Dropdown Desktop -->
         <div class="group relative">
-          <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
-            Manajemen
-            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52
-                      bg-white/10 border border-white/20 rounded-lg shadow-md backdrop-blur text-white transition-all">
-            <ul class="py-2 text-[13px]">
-              <li><a href="Manajemen.html" class="block px-4 py-1.5 hover:bg-white/10">Manajemen</a></li>
-              <li><a href="tim_ahli.html" class="block px-4 py-1.5 hover:bg-white/10">Tim Ahli</a></li>
-            </ul>
-          </div>
-        </div>
+  <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
+    Manajemen
+    <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+    <ul class="py-2 text-[13px]">
+      <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
+      <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
+    </ul>
+  </div>
+</div>
+
 
         <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
         <a href="blog.html" class="hover:text-[var(--sage-border)]">Blog & Artikel</a>
@@ -178,7 +207,7 @@
 <!-- ==================== DEWAN TEKNIS ==================== -->
 <section class="py-16 bg-white">
   <div class="max-w-6xl mx-auto px-6 text-center mb-12">
-    <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">DEWAN TEKNIS & KONSULTAN</p>
+    <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">CARD SERTIFIKAT</p>
     <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Profesional Bersertifikasi & Berpengalaman</h3>
   </div>
 
@@ -198,7 +227,7 @@
          onclick="openModal('Images/Card/wisnu.jpeg')">
       <img src="Images/Card/wisnu.jpeg" class="w-full h-40 object-cover rounded-xl mb-3">
       <p class="text-[14px] font-semibold text-center">Ir. Wisnu Salman</p>
-      <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">Konsultan Lingkungan</p>
+      <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">CO-FOUNDER</p>
     </div>
 
     <!-- CARD 3 (2 gambar) -->
@@ -351,10 +380,6 @@ const slides=document.querySelectorAll('.hero-slide');let currentSlide=0;
 function showSlide(i){slides.forEach((s,index)=>{s.classList.toggle('active',index===i);});}
 setInterval(()=>{currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide);},7000);
 
-// Music Fix
-const bgMusic=document.getElementById("bg-music");
-window.addEventListener("load",()=>{bgMusic.volume=0.5;
-bgMusic.play().catch(()=>document.body.addEventListener("click",()=>bgMusic.play(),{once:true}));});
 </script>
 <script>
 // ===================== Image Modal Fix & Multi/Single Image Mode =====================
@@ -397,6 +422,51 @@ function showImg(no) {
 }
 </script>
 
+<script>
+// ===================== PERSIST MUSIK ANTAR HALAMAN =====================
+const bgMusic = document.getElementById("bg-music");
+const MUSIC_TIME_KEY = "octa_bg_music_time";
+const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
+
+if (bgMusic) {
+  bgMusic.volume = 0.5;
+
+  // Ambil posisi terakhir & status pause dari localStorage
+  const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
+  const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
+
+  if (!isNaN(savedTime) && savedTime > 0) {
+    // Set posisi lagu ke tempat terakhir
+    bgMusic.currentTime = savedTime;
+  }
+
+  function startPlay() {
+    if (!wasPaused) {
+      bgMusic.play().catch(()=>{ /* autoplay blocked */ });
+    }
+    document.body.removeEventListener("click", startPlay);
+  }
+
+  // Coba autoplay, kalau gagal tunggu klik user
+  if (!wasPaused) {
+    bgMusic.play().catch(()=>{
+      document.body.addEventListener("click", startPlay, { once:true });
+    });
+  }
+
+  // Simpan posisi lagu tiap kali waktu berubah
+  bgMusic.addEventListener("timeupdate", () => {
+    localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
+  });
+
+  // Simpan status pause / play
+  function savePausedState() {
+    localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
+  }
+  bgMusic.addEventListener("pause", savePausedState);
+  bgMusic.addEventListener("play", savePausedState);
+}
+</script>
 
 </body>
 </html>

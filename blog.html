@@ -22,6 +22,25 @@
   --forest: #1E4B33;
 }
 
+/* --- Dropdown Desktop Normal Elegan --- */
+.nav-dropdown {
+  background: #ffffff;
+  color: #0b281d;
+  border: 1px solid #c9dfd1;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  border-radius: 10px;
+  backdrop-filter: blur(0px);
+}
+
+.nav-dropdown a {
+  color: #0b281d;
+}
+
+.nav-dropdown a:hover {
+  background: #f2f9f5;
+  color: #0b281d;
+}
+
 html { scroll-behavior: smooth; }
 
 /* CARD HOVER */
@@ -52,18 +71,17 @@ html { scroll-behavior: smooth; }
 
         <!-- Dropdown -->
         <div class="group relative">
-          <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
-            Manajemen
-            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52
-                  bg-white/10 border border-white/20 rounded-lg shadow-md backdrop-blur text-white transition-all">
-            <ul class="py-2 text-[13px]">
-              <li><a href="Manajemen.html" class="block px-4 py-1.5 hover:bg-white/10">Manajemen</a></li>
-              <li><a href="tim_ahli.html" class="block px-4 py-1.5 hover:bg-white/10">Tim Ahli</a></li>
-            </ul>
-          </div>
-        </div>
+  <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
+    Manajemen
+    <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+    <ul class="py-2 text-[13px]">
+      <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
+      <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
+    </ul>
+  </div>
+</div>
 
         <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
         <a href="blog.html" class="text-[var(--sage-border)] font-semibold">Blog & Artikel</a>
@@ -195,6 +213,7 @@ html { scroll-behavior: smooth; }
     © 2025 PT. Octa Tirta Investment • All Rights Reserved
   </div>
 </footer>
+<audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
 
 <!-- ==================== SCRIPT ==================== -->
 <script>
@@ -219,6 +238,53 @@ btnManaMobile.addEventListener("click", () => {
   iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
 });
 </script>
+
+<script>
+// ===================== PERSIST MUSIK ANTAR HALAMAN =====================
+const bgMusic = document.getElementById("bg-music");
+const MUSIC_TIME_KEY = "octa_bg_music_time";
+const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
+
+if (bgMusic) {
+  bgMusic.volume = 0.5;
+
+  // Ambil posisi terakhir & status pause dari localStorage
+  const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
+  const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
+
+  if (!isNaN(savedTime) && savedTime > 0) {
+    // Set posisi lagu ke tempat terakhir
+    bgMusic.currentTime = savedTime;
+  }
+
+  function startPlay() {
+    if (!wasPaused) {
+      bgMusic.play().catch(()=>{ /* autoplay blocked */ });
+    }
+    document.body.removeEventListener("click", startPlay);
+  }
+
+  // Coba autoplay, kalau gagal tunggu klik user
+  if (!wasPaused) {
+    bgMusic.play().catch(()=>{
+      document.body.addEventListener("click", startPlay, { once:true });
+    });
+  }
+
+  // Simpan posisi lagu tiap kali waktu berubah
+  bgMusic.addEventListener("timeupdate", () => {
+    localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
+  });
+
+  // Simpan status pause / play
+  function savePausedState() {
+    localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
+  }
+  bgMusic.addEventListener("pause", savePausedState);
+  bgMusic.addEventListener("play", savePausedState);
+}
+</script>
+
 
 </body>
 </html>
