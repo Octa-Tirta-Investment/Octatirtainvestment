@@ -57,6 +57,25 @@ html { scroll-behavior: smooth; }
 .card-hover:hover { transform:scale(1.045); transition:.3s ease; box-shadow:0 6px 15px rgba(0,0,0,0.20); }
 </style>
 </head>
+<script>
+function highlightLang() {
+  const lang = localStorage.getItem("lang") || "id";
+
+  document.getElementById("lang-id-btn").style.opacity = lang === "id" ? "1" : "0.5";
+  document.getElementById("lang-en-btn").style.opacity = lang === "en" ? "1" : "0.5";
+
+  document.getElementById("lang-id-btn-m").style.opacity = lang === "id" ? "1" : "0.5";
+  document.getElementById("lang-en-btn-m").style.opacity = lang === "en" ? "1" : "0.5";
+}
+
+function setLanguage(lang) {
+  localStorage.setItem("lang", lang);
+  highlightLang();
+}
+
+document.addEventListener("DOMContentLoaded", highlightLang);
+</script>
+
 
 <body class="bg-[var(--sage-light)] text-slate-800">
 
@@ -69,32 +88,39 @@ html { scroll-behavior: smooth; }
       <a href="index.html" class="flex items-center gap-2">
         <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
         <div class="leading-tight">
-<p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+          <p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
         </div>
       </a>
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
-        <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
+        <a href="index.html" class="nav-i hover:text-[var(--sage-border)]">Beranda</a>
+        <a href="tentang.html" class="nav-i hover:text-[var(--sage-border)]">Tentang Kami</a>
 
         <!-- Dropdown -->
         <div class="group relative">
-  <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
-    Manajemen
-    <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
-  </button>
-  <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
-    <ul class="py-2 text-[13px]">
-      <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
-      <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
-    </ul>
-  </div>
-</div>
+          <button class="flex items-center gap-1 nav-i hover:text-[var(--sage-border)]">
+            Manajemen
+            <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+            <ul class="py-2 text-[13px]">
+              <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
+              <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
+            </ul>
+          </div>
+        </div>
 
-        <a href="portofolio.html" class="text-[var(--sage-border)] font-semibold">Portofolio</a>
-        <a href="blog.html" class="hover:text-[var(--sage-border)]">Artikel</a>
-        <a href="index.html#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
+        <a href="portofolio.html" class="nav-i text-[var(--sage-border)] font-semibold">Portofolio</a>
+        <a href="blog.html" class="nav-i hover:text-[var(--sage-border)]">Blog & Artikel</a>
+        <a href="hubungi.html" class="nav-i hover:text-[var(--sage-border)]">Hubungi Kami</a>
+
+        <!-- Language -->
+        <div class="flex items-center gap-1 text-sm">
+          <button onclick="setLanguage('id')" id="lang-id-btn" class="nav-i">ID</button>
+          <span>|</span>
+          <button onclick="setLanguage('en')" id="lang-en-btn" class="nav-i">EN</button>
+        </div>
       </nav>
 
       <!-- Mobile Button -->
@@ -106,27 +132,39 @@ html { scroll-behavior: smooth; }
     </div>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- ==================== MOBILE MENU ==================== -->
   <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
     <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
-      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
-      <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
+      <a href="index.html" class="mobile-nav-i">Beranda</a>
+      <a href="tentang.html" class="mobile-nav-i">Tentang Kami</a>
 
-      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
+      <!-- Dropdown -->
+      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 mobile-nav-i">
         Manajemen
         <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
-        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
-        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
+        <a href="Manajemen.html" class="block py-2 text-white/80">Manajemen</a>
+        <a href="tim_ahli.html" class="block py-2 text-white/80">Tim Ahli</a>
       </div>
 
-      <a href="portofolio.html" class="py-2 text-[var(--sage-border)] font-semibold">Portofolio</a>
-      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
-      <a href="index.html#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
+      <a href="portofolio.html" class="mobile-nav-i text-[var(--sage-border)] font-semibold">Portofolio</a>
+      <a href="blog.html" class="mobile-nav-i">Blog & Artikel</a>
+      <a href="hubungi.html" class="mobile-nav-i">Hubungi Kami</a>
+
+      <hr class="border-white/20 my-2">
+
+      <!-- Language Mobile -->
+      <div class="flex gap-2 text-sm text-white/90 px-2">
+        <button onclick="setLanguage('id')" id="lang-id-btn-m" class="mobile-nav-i">ID</button>
+        <span>|</span>
+        <button onclick="setLanguage('en')" id="lang-en-btn-m" class="mobile-nav-i">EN</button>
+      </div>
+
     </nav>
   </div>
 </header>
+
 
 <div class="h-[60px]"></div>
 
@@ -335,7 +373,7 @@ html { scroll-behavior: smooth; }
       <ul class="space-y-2 text-[var(--sage-text)] text-sm">
         <li>Bandung, Indonesia</li>
         <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
-        <li><a href="https://wa.me/6281234567890" class="hover:text-white">+62 812-3456-7890</a></li>
+        <li><a href="https://wa.me/62" class="hover:text-white">+62XXXX</a></li>
       </ul>
     </div>
 
@@ -347,6 +385,113 @@ html { scroll-behavior: smooth; }
 </footer>
 
 <audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
+
+<!-- ==================== TRANSLATE PORTOFOLIO (FULL) ==================== -->
+<script>
+// === Ambil teks asli halaman ===
+const originalText = new Map();
+
+function saveOriginal() {
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    if (!originalText.has(el)) originalText.set(el, el.innerHTML.trim());
+  });
+}
+
+// === TERJEMAHAN BAHASA INGGRIS ===
+const translateEN = {
+
+  /* --- NAV --- */
+  "Beranda": "Home",
+  "Tentang Kami": "About Us",
+  "Manajemen": "Management",
+  "Tim Ahli": "Experts Team",
+  "Portofolio": "Portfolio",
+  "Blog & Artikel": "Blog & Articles",
+  "Hubungi Kami": "Contact Us",
+
+  /* --- PORTOFOLIO CONTENT --- */
+  "Mesin": "Machine",
+  "Instalasi SWRO ": "SWRO Installation",
+  "Keuntungan Instalasi SWRO": "Advantages of SWRO Installation",
+  "Process": "Process",
+
+  "Untuk Air Payau (sungai/Air Tanah), proses sama tinggal sistem RO nya menggunakan BWRO":
+  "For brackish water (river/groundwater), the same process applies but using BWRO membranes.",
+
+  /* TABLE */
+  "Aspek Teknologi": "Technological Aspect",
+  "Teknologi Membran": "Membrane Technology",
+  "Tipe Membran": "Membrane Type",
+  "Sea Water Membranes": "Sea Water Membranes",
+  "Brackish Water Membranes": "Brackish Water Membranes",
+  "Removal Garam": "Salt Removal",
+  "Sangat tinggi (> 99.7%)": "Very High (> 99.7%)",
+  "Tinggi (> 98%)": "High (> 98%)",
+  "Toleransi Tekanan": "Pressure Tolerance",
+  "Hingga 1.200 psi": "Up to 1,200 psi",
+  "Hingga 450 psi": "Up to 450 psi",
+  "Fluks Air Produk": "Product Water Flux",
+  "Relatif lebih rendah": "Relatively lower",
+  "Relatif lebih tinggi": "Relatively higher",
+
+  "Teknologi Tekanan & Pompa": "Pressure & Pump Technology",
+  "Pompa Tekan Tinggi": "High Pressure Pump",
+  "Wajib (55–85 bar)": "Required (55–85 bar)",
+  "Diperlukan (10–20 bar)": "Required (10–20 bar)",
+
+  "Teknologi Pra-Perlakuan": "Pretreatment Technology",
+  "Tujuan Utama": "Main Purpose",
+  "Mencegah fouling & scaling": "Prevent fouling & scaling",
+  "Fokus scaling & suspended solids": "Focus on scaling & suspended solids",
+  "Teknologi Khas": "Typical Technology",
+  "Dual Media, UF, antiscalant & biocide": "Dual Media, UF, antiscalant & biocide",
+  "Multimedia, Cartridge Filter, antiscalant": "Multimedia, Cartridge Filter, antiscalant",
+
+  /* FOOTER */
+  "Tautan Cepat": "Quick Links",
+  "Layanan": "Services",
+  "Instalasi WTP, STP,WWTP": "WTP, STP, WWTP Installation",
+  "Sistem IPAL Industri": "Industrial Wastewater System",
+  "Maintenance & Service": "Maintenance & Service",
+  "Peralatan Reverse Osmosis": "Reverse Osmosis Equipment",
+  "Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.":
+  "Water & Waste Engineering Solutions With Sustainable Technology.",
+  "Bandung, Indonesia": "Bandung, Indonesia",
+  "All Rights Reserved": "All Rights Reserved"
+};
+
+
+// === FUNGSI GANTI BAHASA ===
+function applyTranslate(lang) {
+  if (lang === "en") {
+    document.querySelectorAll("[data-lang]").forEach(el => {
+      let text = originalText.get(el);
+      if (translateEN[text]) el.innerHTML = translateEN[text];
+    });
+  } else {
+    document.querySelectorAll("[data-lang]").forEach(el => {
+      el.innerHTML = originalText.get(el);
+    });
+  }
+  localStorage.setItem("lang", lang);
+  highlightLang();
+}
+
+// === LOAD AWAL ===
+document.addEventListener("DOMContentLoaded", () => {
+  saveOriginal();
+  applyTranslate(localStorage.getItem("lang") || "id");
+});
+
+// === KLIK TOMBOL ===
+document.querySelectorAll("#lang-id-btn, #lang-en-btn, #lang-id-btn-m, #lang-en-btn-m")
+  .forEach(btn => {
+    btn.addEventListener("click", () => {
+      applyTranslate(btn.textContent.toLowerCase());
+    });
+  });
+</script>
+
 
 <!-- ==================== SCRIPT ==================== -->
 <script>

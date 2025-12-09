@@ -12,47 +12,73 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-* { font-family: 'Poppins', sans-serif !important; }
-
-:root {
-  --sage-dark: #7CA377;
-  --sage-border: #edf1ef;
-  --sage-light: #E9F5EB;
-  --forest: #1E4B33;
+*{font-family:'Poppins',sans-serif!important;}
+:root{
+ --sage-dark:#7CA377;
+ --sage-border:#edf1ef;
+ --sage-light:#E9F5EB;
+ --forest:#1E4B33;
+ --sage-text:#ffffff;
 }
-
-/* HOVER CARD */
-.hover-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  transition: .3s;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
+.hover-card:hover{transform:translateY(-4px) scale(1.02);transition:.3s;box-shadow:0 6px 16px rgba(0,0,0,0.15);}
+.lang-toggle button.active{font-weight:600;text-decoration:underline;}
 </style>
 </head>
 
 <body class="bg-[var(--sage-light)] text-slate-800">
 
-<!-- ==================== NAVBAR (copy dari index) ==================== -->
+<!-- ==================== NAVBAR ==================== -->
 <header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto px-4">
     <div class="flex items-center justify-between h-[60px] text-white">
 
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2">
-        <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
-        <div class="leading-tight">
-          <p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-        </div>
+        <img src="Images/logo white.png" class="h-9">
+        <p class="font-semibold text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
       </a>
 
+      <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
-        <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
-        <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
-        <a href="blog.html" class="hover:text-[var(--sage-border)]">Artikel</a>
-        <a href="hubungi-kami.html" class="text-[var(--sage-border)] font-semibold">Hubungi Kami</a>
+        <a data-lang="nav-home" href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
+        <a data-lang="nav-about" href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
+        <a data-lang="nav-porto" href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
+        <a data-lang="nav-artikel" href="blog.html" class="hover:text-[var(--sage-border)]">Blog & Artikel</a>
+        <a data-lang="nav-contact" href="hubungi-kami.html" class="text-[var(--sage-border)] font-semibold">Hubungi Kami</a>
+
+        <!-- Toggle Translate -->
+        <div class="lang-toggle flex items-center gap-1 ml-2 text-xs">
+          <button id="btn-id">ID</button>
+          <span>|</span>
+          <button id="btn-en">EN</button>
+        </div>
       </nav>
 
+      <!-- Mobile -->
+      <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
+        <svg id="icon-open" class="h-5 w-5"><path stroke="currentColor" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="h-5 w-5 hidden"><path stroke="currentColor" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
     </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+    <nav class="px-4 py-4 flex flex-col gap-2 text-sm text-white/90">
+      <a data-lang="nav-home" href="index.html">Beranda</a>
+      <a data-lang="nav-about" href="tentang.html">Tentang Kami</a>
+      <a data-lang="nav-porto" href="portofolio.html">Portofolio</a>
+      <a data-lang="nav-artikel" href="blog.html">Blog & Artikel</a>
+      <a data-lang="nav-contact" href="hubungi-kami.html" class="font-semibold">Hubungi Kami</a>
+
+      <div class="mt-3 flex items-center gap-1 text-xs">
+        <span data-lang="lbl-lang">Bahasa:</span>
+        <button id="btn-id-m" class="underline">ID</button>
+        <span>|</span>
+        <button id="btn-en-m">EN</button>
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -61,27 +87,24 @@
 <!-- ==================== HUBUNGI KAMI ==================== -->
 <section class="max-w-5xl mx-auto px-6 py-16">
 
-  <h2 class="text-center text-[var(--forest)] font-bold text-2xl mb-12">Hubungi Kami</h2>
+  <h2 data-lang="sec-title" class="text-center text-[var(--forest)] font-bold text-2xl mb-12">Hubungi Kami</h2>
 
   <div class="grid sm:grid-cols-3 gap-8">
 
-    <!-- YOUTUBE -->
     <a href="https://youtube.com" target="_blank" class="bg-white hover-card border border-[var(--sage-border)] rounded-2xl p-6 flex flex-col items-center text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-14 mb-3 opacity-90">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-14 mb-3">
       <p class="font-semibold text-[var(--forest)] text-lg">YouTube</p>
-      <p class="text-gray-600 text-sm mt-1">Kunjungi Channel</p>
+      <p data-lang="lbl-youtube" class="text-gray-600 text-sm mt-1">Kunjungi Channel</p>
     </a>
 
-    <!-- WHATSAPP -->
     <a href="https://wa.me/62" target="_blank" class="bg-white hover-card border border-[var(--sage-border)] rounded-2xl p-6 flex flex-col items-center text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="w-14 mb-3 opacity-90">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="w-14 mb-3">
       <p class="font-semibold text-[var(--forest)] text-lg">WhatsApp</p>
       <p class="text-gray-600 text-sm mt-1">+62 XXXX</p>
     </a>
 
-    <!-- EMAIL -->
     <a href="mailto:info@octatirta.co.id" class="bg-white hover-card border border-[var(--sage-border)] rounded-2xl p-6 flex flex-col items-center text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-14 mb-3 opacity-90">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-14 mb-3">
       <p class="font-semibold text-[var(--forest)] text-lg">Email</p>
       <p class="text-gray-600 text-sm mt-1">info@octatirta.co.id</p>
     </a>
@@ -90,30 +113,28 @@
 
 </section>
 
-<!-- ==================== FOOTER (copy dari index) ==================== -->
+<!-- ==================== FOOTER ==================== -->
 <footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
 
     <div>
-      <img src="Images/logo white.png" class="w-28 mb-4 brightness-110">
-      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
-        Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.
-      </p>
+      <img src="Images/logo white.png" class="w-28 mb-4">
+      <p data-lang="footer-text" class="text-[13px] leading-relaxed">Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.</p>
     </div>
 
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
-      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-        <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
+      <h3 data-lang="footer-link" class="font-semibold mb-3">Tautan Cepat</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a data-lang="nav-about" href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
         <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
         <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
-        <li><a href="portofolio.html" class="hover:text-white">Portofolio</a></li>
+        <li><a data-lang="nav-porto" href="portofolio.html" class="hover:text-white">Portofolio</a></li>
       </ul>
     </div>
 
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan</h3>
-      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+      <h3 data-lang="footer-services" class="font-semibold mb-3">Layanan</h3>
+      <ul class="space-y-2 text-sm">
         <li>Instalasi WTP, STP, WWTP</li>
         <li>Sistem IPAL Industri</li>
         <li>Maintenance & Service</li>
@@ -122,20 +143,72 @@
     </div>
 
     <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
-      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+      <h3 data-lang="footer-contact" class="font-semibold mb-3">Hubungi Kami</h3>
+      <ul class="space-y-2 text-sm">
         <li>Bandung, Indonesia</li>
         <li><a href="mailto:info@octatirta.co.id" class="hover:text-white">info@octatirta.co.id</a></li>
         <li><a href="https://wa.me/62" class="hover:text-white">+62 XXXX</a></li>
       </ul>
     </div>
-
   </div>
 
-  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
+  <div class="mt-10 text-center text-[11px] border-t border-white/10 pt-3">
     © 2025 PT. Octa Tirta Investment • All Rights Reserved
   </div>
 </footer>
+
+<!-- ==================== SCRIPT MULTILANGUAGE ==================== -->
+<script>
+    // EVENT TOMBOL TRANSLATE (DESKTOP + MOBILE)
+document.getElementById("btn-id")?.addEventListener("click", ()=>setLang("id"));
+document.getElementById("btn-en")?.addEventListener("click", ()=>setLang("en"));
+document.getElementById("btn-id-m")?.addEventListener("click", ()=>setLang("id"));
+document.getElementById("btn-en-m")?.addEventListener("click", ()=>setLang("en"));
+
+const langData={
+  "nav-home":{id:"Beranda",en:"Home"},
+  "nav-about":{id:"Tentang Kami",en:"About Us"},
+  "nav-porto":{id:"Portofolio",en:"Portfolio"},
+  "nav-artikel":{id:"Artikel",en:"Articles"},
+  "nav-contact":{id:"Hubungi Kami",en:"Contact Us"},
+  "lbl-lang":{id:"Bahasa:",en:"Language:"},
+  "sec-title":{id:"Hubungi Kami",en:"Contact Us"},
+  "lbl-youtube":{id:"Kunjungi Channel",en:"Visit Channel"},
+  "footer-text":{id:"Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.",en:"Water & Wastewater Engineering Solutions with Sustainable Technology."},
+  "footer-link":{id:"Tautan Cepat",en:"Quick Links"},
+  "footer-services":{id:"Layanan",en:"Services"},
+  "footer-contact":{id:"Hubungi Kami",en:"Contact Us"},
+};
+
+function applyLang(l){
+ document.querySelectorAll("[data-lang]").forEach(el=>{
+   const key=el.getAttribute("data-lang");
+   if(langData[key]) el.textContent=langData[key][l];
+ });
+ localStorage.setItem("lang",l);
+ ["btn-id","btn-en","btn-id-m","btn-en-m"].forEach(id=>{
+   const btn=document.getElementById(id);
+   if(btn){ btn.classList.toggle("active",btn.id.includes(l)); }
+ });
+}
+
+function setLang(l){ applyLang(l); }
+
+applyLang(localStorage.getItem("lang")||"id");
+
+// MOBILE MENU SCRIPT
+const btnMobile=document.getElementById("btn-mobile");
+const menuMobile=document.getElementById("menu-mobile");
+const iconOpen=document.getElementById("icon-open");
+const iconClose=document.getElementById("icon-close");
+
+btnMobile.addEventListener("click",()=>{
+ const open=menuMobile.style.maxHeight!=="0px";
+ menuMobile.style.maxHeight=open?"0px":menuMobile.scrollHeight+"px";
+ iconOpen.classList.toggle("hidden");
+ iconClose.classList.toggle("hidden");
+});
+</script>
 
 </body>
 </html>
