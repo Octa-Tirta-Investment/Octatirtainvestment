@@ -1,459 +1,541 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PT. Octa Tirta Investment | Water Engineering & Environmental Solution</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <!-- FONT PREMIUM -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-  * { font-family: 'Poppins', sans-serif !important; }
-  html { scroll-behavior: smooth; }
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif !important;
+    }
 
-  :root {
-    --sage-dark: #7CA377;        /* Navbar + Footer */
-    --sage-border: #edf1ef;      /* Accent Border & CTA Button */
-    --sage-text: #ffffff;        /* Footer Soft Text */
-    --sage-light: #E9F5EB;       /* Mint Soft Background */
-    --forest: #1E4B33;           /* Dark Green Title */
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* --- Dropdown Desktop Normal Elegan --- */
-.nav-dropdown {
-  background: #ffffff;
-  color: #0b281d;
-  border: 1px solid #c9dfd1;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  border-radius: 10px;
-  backdrop-filter: blur(0px);
-}
+    :root {
+      --sage-dark: #7CA377;
+      /* Navbar + Footer */
+      --sage-border: #edf1ef;
+      /* Accent Border & CTA Button */
+      --sage-text: #ffffff;
+      /* Footer Soft Text */
+      --sage-light: #E9F5EB;
+      /* Mint Soft Background */
+      --forest: #1E4B33;
+      /* Dark Green Title */
+    }
 
-.nav-dropdown a {
-  color: #0b281d;
-}
+    /* --- Dropdown Desktop Normal Elegan --- */
+    .nav-dropdown {
+      background: #ffffff;
+      color: #0b281d;
+      border: 1px solid #c9dfd1;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+      border-radius: 10px;
+      backdrop-filter: blur(0px);
+    }
 
-.nav-dropdown a:hover {
-  background: #f2f9f5;
-  color: #0b281d;
-}
+    .nav-dropdown a {
+      color: #0b281d;
+    }
 
-/* --- Dropdown Mobile perjelas --- */
-#sub-mana-mobile a {
-  color: #d9fff1;
-}
+    .nav-dropdown a:hover {
+      background: #f2f9f5;
+      color: #0b281d;
+    }
 
-#sub-mana-mobile a:hover {
-  color: var(--sage-border);
-}
+    /* --- Dropdown Mobile perjelas --- */
+    #sub-mana-mobile a {
+      color: #d9fff1;
+    }
+
+    #sub-mana-mobile a:hover {
+      color: var(--sage-border);
+    }
 
 
 
-  /* HERO SLIDER */
-  .hero-slider { position: relative; overflow: hidden; height: 480px; }
-  .hero-slide { position: absolute; inset: 0;
-                background-size: cover; background-position: center;
-                opacity: 0; transition: opacity 1s ease-in-out; }
-  .hero-slide.active { opacity: 1; }
-  .hero-slide::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+    /* HERO SLIDER */
+    .hero-slider {
+      position: relative;
+      overflow: hidden;
+      height: 480px;
+    }
 
-  /* PARALLAX */
-  .parallax-section {
-    background-attachment: fixed; background-size: cover; background-position:center;
-  }
-  .parallax-overlay { position:absolute; inset:0;
-    background:linear-gradient(to right, rgba(30,75,51,0.93), rgba(30,75,51,0.6)); }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
 
-  /* CARD HOVER */
-  .card-hover:hover { transform:scale(1.045); transition:.3s ease; box-shadow:0 6px 15px rgba(0,0,0,0.20); }
+    .hero-slide.active {
+      opacity: 1;
+    }
 
-  /* LOGO MITRA */
-  .mitra-logo img { height:65px; transition:.3s; opacity:.95; }
-  .mitra-logo img:hover { transform:scale(1.07); opacity:1; }
-</style>
+    /* Overlay hanya untuk slide gambar, tidak untuk video */
+    .hero-slide:not(.video-slide)::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    /* Video slide styling */
+    .hero-slide.video-slide video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-slide.video-slide .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.40);
+      z-index: 1;
+    }
+
+    /* PARALLAX */
+    .parallax-section {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .parallax-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(30, 75, 51, 0.93), rgba(30, 75, 51, 0.6));
+    }
+
+    /* CARD HOVER */
+    .card-hover:hover {
+      transform: scale(1.045);
+      transition: .3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.20);
+    }
+
+    /* LOGO MITRA */
+    .mitra-logo img {
+      height: 65px;
+      transition: .3s;
+      opacity: .95;
+    }
+
+    .mitra-logo img:hover {
+      transform: scale(1.07);
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body class="bg-[var(--sage-light)] text-slate-800">
 
-<!-- ==================== NAVBAR ==================== -->
-<header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-[60px] text-white">
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-[var(--sage-dark)] shadow-md border-b border-[var(--sage-border)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-[60px] text-white">
 
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-2">
-        <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
-        <div class="leading-tight">
-<p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
-        </div>
-      </a>
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="Images/logo white.png" class="h-9 w-auto object-contain brightness-110">
+          <div class="leading-tight">
+            <p class="font-semibold text-white text-sm sm:text-base">PT. OCTA TIRTA INVESTMENT</p>
+          </div>
+        </a>
 
-      <!-- Menu Desktop -->
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
-        <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
+        <!-- Menu Desktop -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="hover:text-[var(--sage-border)]">Beranda</a>
+          <a href="tentang.html" class="hover:text-[var(--sage-border)]">Tentang Kami</a>
 
-        <div class="group relative">
-  <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
-    Manajemen
-    <svg class="w-3 h-3" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
-  </button>
-  <div class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
-    <ul class="py-2 text-[13px]">
-      <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
-      <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
-    </ul>
-  </div>
-</div>
+          <div class="group relative">
+            <button class="flex items-center gap-1 hover:text-[var(--sage-border)]">
+              Manajemen
+              <svg class="w-3 h-3" fill="none" stroke="currentColor">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              class="nav-dropdown invisible opacity-0 group-hover:opacity-100 group-hover:visible absolute top-full w-52 transition-all">
+              <ul class="py-2 text-[13px]">
+                <li><a href="Manajemen.html" class="block px-4 py-1.5">Manajemen</a></li>
+                <li><a href="tim_ahli.html" class="block px-4 py-1.5">Tim Ahli</a></li>
+              </ul>
+            </div>
+          </div>
 
 
-        <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
-        <a href="blog.html" class="hover:text-[var(--sage-border)]">Blog & Artikel</a>
-        <a href="#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
-      </nav>
+          <a href="portofolio.html" class="hover:text-[var(--sage-border)]">Portofolio</a>
+          <a href="blog.html" class="hover:text-[var(--sage-border)]">Blog & Artikel</a>
+          <a href="#hubungi-kami" class="hover:text-[var(--sage-border)]">Hubungi Kami</a>
+        </nav>
 
         <button id="btn-mobile" class="md:hidden p-2 border border-white/20 rounded-lg">
-          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="h-5 w-5 hidden" fill="none" stroke="currentColor">
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
     </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="menu-mobile" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
-    <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
-      <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
-      <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
-
-      <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
-        Manajemen
-        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
-        <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
-        <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
-      </div>
-
-      <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]">Portofolio</a>
-      <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
-      <a href="#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Spacer -->
-<div class="h-[60px]"></div>
-
-<!-- ==================== HERO SLIDER ==================== -->
-<section id="beranda" class="relative">
-  <div class="hero-slider">
-
-    <!-- Slide 1 (Gambar) -->
-    <div class="hero-slide active" style="background-image:url('Images/bg1.jpeg');"></div>
-
-    <!-- Slide 2 (Gambar) -->
-    <div class="hero-slide" style="background-image:url('Images/bg2.jpg');"></div>
-
-    <!-- Slide 3 (VIDEO 1) -->
-    <div class="hero-slide relative overflow-hidden">
-      <video class="absolute inset-0 w-full h-full object-cover"
-        src="Images/bg.mp4.mp4"
-        autoplay muted loop playsinline></video>
-      <div class="absolute inset-0 bg-black/40"></div>
     </div>
 
-    <!-- ===== TEXT CONTENT ===== -->
-    <div class="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center text-white">
-      <div class="max-w-xl">
-        <p class="uppercase tracking-[0.25em] text-xs mb-3 text-white/90">SOLUSI AIR & LIMBAH TERPADU</p>
-        <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-4">
-          Cakrawala Masa Depan Solusi Air & Limbah Berkelanjutan
-        </h1>
-        <p class="text-gray-200 mb-6">
-          WTP, STP, WWTP, IPAL, Rekayasa Sistem, Instalasi, & Maintenance untuk Industri dan Fasilitas Publik.
+    <!-- Mobile Menu -->
+    <div id="menu-mobile"
+      class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--sage-dark)]/95 border-t border-[var(--sage-border)]">
+      <nav class="px-4 py-3 flex flex-col gap-2 text-sm text-white/90">
+        <a href="index.html" class="py-2 hover:text-[var(--sage-border)]">Beranda</a>
+        <a href="tentang.html" class="py-2 hover:text-[var(--sage-border)]">Tentang Kami</a>
+
+        <button id="btn-mana-mobile"
+          class="w-full flex justify-between items-center py-2 hover:text-[var(--sage-border)]">
+          Manajemen
+          <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+        <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
+          <a href="Manajemen.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Manajemen</a>
+          <a href="tim_ahli.html" class="block py-2 text-white/80 hover:text-[var(--sage-border)]">Tim Ahli</a>
+        </div>
+
+        <a href="portofolio.html" class="py-2 hover:text-[var(--sage-border)]">Portofolio</a>
+        <a href="blog.html" class="py-2 hover:text-[var(--sage-border)]">Blog & Artikel</a>
+        <a href="#hubungi-kami" class="py-2 hover:text-[var(--sage-border)]">Hubungi Kami</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer -->
+  <div class="h-[60px]"></div>
+
+  <!-- ==================== HERO SLIDER ==================== -->
+  <section id="beranda" class="relative">
+    <div class="hero-slider">
+
+      <!-- Slide 1 (Gambar) -->
+      <div class="hero-slide active" style="background-image:url('Images/bg1.jpeg');"></div>
+
+      <!-- Slide 2 (Gambar) -->
+      <div class="hero-slide" style="background-image:url('Images/bg2.jpg');"></div>
+
+      <!-- Slide 3 (VIDEO 1) -->
+      <div class="hero-slide video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="Images/bg.mp4.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <!-- ===== TEXT CONTENT ===== -->
+      <div class="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center text-white">
+        <div class="max-w-xl">
+          <p class="uppercase tracking-[0.25em] text-xs mb-3 text-white/90">SOLUSI AIR & LIMBAH TERPADU</p>
+          <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-4">
+            Cakrawala Masa Depan Solusi Air & Limbah Berkelanjutan
+          </h1>
+          <p class="text-gray-200 mb-6">
+            WTP, STP, WWTP, IPAL, Rekayasa Sistem, Instalasi, & Maintenance untuk Industri dan Fasilitas Publik.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DEWAN TEKNIS ==================== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center mb-12">
+      <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">CARD SERTIFIKAT</p>
+      <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Profesional Bersertifikasi & Berpengalaman
+      </h3>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center mx-auto max-w-3xl">
+
+      <!-- CARD 1 -->
+      <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
+     card-hover cursor-pointer" onclick="openModal('Images/Card/t3.png')">
+        <img src="Images/Card/t3.png" class="w-full h-40 object-cover rounded-xl mb-3">
+        <p class="text-[14px] font-semibold text-center">Muhammad Khaliq Mantiri</p>
+        <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">FOUNDER</p>
+      </div>
+
+
+      <!-- CARD 2 -->
+      <div
+        class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] card-hover cursor-pointer"
+        onclick="openModal('Images/Card/wisnu.jpeg')">
+        <img src="Images/Card/wisnu.jpeg" class="w-full h-40 object-cover rounded-xl mb-3">
+        <p class="text-[14px] font-semibold text-center">Ir. Wisnu Salman</p>
+        <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">CO-FOUNDER</p>
+      </div>
+
+      <!-- CARD 3 (2 gambar) -->
+      <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
+         card-hover cursor-pointer" onclick="openModal('Images/Card/1.jpeg','Images/Card/2.jpeg')">
+
+        <div class="space-y-2">
+          <img src="Images/Card/1.jpeg" class="w-full h-32 object-cover rounded-lg">
+          <img src="Images/Card/2.jpeg" class="w-full h-32 object-cover rounded-lg">
+        </div>
+
+        <p class="font-semibold text-center mt-3 text-sm">SERTIFIKAT KOMPETENSI</p>
+        <p class="text-xs text-center text-[var(--forest)]">PPPA</p>
+      </div>
+
+      <!-- CARD 4 (2 gambar) -->
+      <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
+         card-hover cursor-pointer" onclick="openModal('Images/Card/3.jpeg','Images/Card/4.jpeg')">
+
+        <div class="space-y-2">
+          <img src="Images/Card/3.jpeg" class="w-full h-32 object-cover rounded-lg">
+          <img src="Images/Card/4.jpeg" class="w-full h-32 object-cover rounded-lg">
+        </div>
+
+        <p class="font-semibold text-center mt-3 text-sm">SERTIFIKAT KOMPETENSI</p>
+        <p class="text-xs text-center text-[var(--forest)]">AMDAL</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ MODAL IMAGE PREVIEW ============ -->
+  <!-- MODAL IMAGE PREVIEW -->
+  <div id="imageModal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999] p-4">
+    <div class="p-4 max-w-xl w-full bg-white rounded-lg relative">
+
+      <button onclick="closeModal()"
+        class="absolute -top-3 -right-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold hover:bg-red-600">×</button>
+
+      <img id="modalImage1" class="w-full max-h-[70vh] object-contain rounded-lg">
+      <img id="modalImage2" class="w-full max-h-[70vh] object-contain rounded-lg mt-3 hidden">
+
+      <div class="flex justify-center gap-4 mt-4">
+        <button id="btn-img1" onclick="showImg(1)"
+          class="px-4 py-1 rounded bg-[var(--sage-dark)] text-white text-xs hidden">Gambar 1</button>
+        <button id="btn-img2" onclick="showImg(2)"
+          class="px-4 py-1 rounded bg-[var(--sage-border)] text-[var(--sage-dark)] text-xs hidden">Gambar 2</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- ==================== MITRA KAMI ==================== -->
+  <section id="mitra" class="py-14 lg:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">MITRA KAMI</p>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Perusahaan yang Bekerja Sama</h2>
+        <p class="text-sm text-[var(--forest)]/70 mt-2 max-w-xl mx-auto">
+          Kami dipercaya oleh berbagai mitra strategis dari sektor industri, pemerintah, hingga fasilitas publik.
         </p>
       </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center mitra-logo">
+        <img src="Images/mitra/bca.png">
+        <img src="Images/mitra/al.png">
+        <img src="Images/mitra/iacpi-removebg-preview.png">
+        <img src="Images/mitra/image__4_-removebg-preview.png">
+        <img src="Images/mitra/itb.png">
+        <img src="Images/mitra/mandiri.png">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ==================== DEWAN TEKNIS ==================== -->
-<section class="py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-6 text-center mb-12">
-    <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">CARD SERTIFIKAT</p>
-    <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Profesional Bersertifikasi & Berpengalaman</h3>
-  </div>
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center mx-auto max-w-3xl">
-
-    <!-- CARD 1 -->
-    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
-     card-hover cursor-pointer" onclick="openModal('Images/Card/t3.png')">
-  <img src="Images/Card/t3.png" class="w-full h-40 object-cover rounded-xl mb-3">
-  <p class="text-[14px] font-semibold text-center">Muhammad Khaliq Mantiri</p>
-  <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">FOUNDER</p>
-</div>
-
-
-    <!-- CARD 2 -->
-    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] card-hover cursor-pointer"
-         onclick="openModal('Images/Card/wisnu.jpeg')">
-      <img src="Images/Card/wisnu.jpeg" class="w-full h-40 object-cover rounded-xl mb-3">
-      <p class="text-[14px] font-semibold text-center">Ir. Wisnu Salman</p>
-      <p class="text-[12px] text-center text-[var(--forest)] font-medium mt-1">CO-FOUNDER</p>
-    </div>
-
-    <!-- CARD 3 (2 gambar) -->
-    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
-         card-hover cursor-pointer"
-         onclick="openModal('Images/Card/1.jpeg','Images/Card/2.jpeg')">
-
-      <div class="space-y-2">
-        <img src="Images/Card/1.jpeg" class="w-full h-32 object-cover rounded-lg">
-        <img src="Images/Card/2.jpeg" class="w-full h-32 object-cover rounded-lg">
+      <!-- Logo -->
+      <div>
+        <img src="Images/logo white.png" class="w-28 mb-4 brightness-110">
+        <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
+          Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.
+        </p>
       </div>
 
-      <p class="font-semibold text-center mt-3 text-sm">SERTIFIKAT KOMPETENSI</p>
-      <p class="text-xs text-center text-[var(--forest)]">PPPA</p>
-    </div>
-
-    <!-- CARD 4 (2 gambar) -->
-    <div class="bg-white rounded-2xl shadow-md border border-[var(--sage-border)] p-4 w-full max-w-[260px] 
-         card-hover cursor-pointer"
-         onclick="openModal('Images/Card/3.jpeg','Images/Card/4.jpeg')">
-
-      <div class="space-y-2">
-        <img src="Images/Card/3.jpeg" class="w-full h-32 object-cover rounded-lg">
-        <img src="Images/Card/4.jpeg" class="w-full h-32 object-cover rounded-lg">
+      <!-- Tautan -->
+      <div>
+        <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
+        <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+          <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
+          <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
+          <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
+          <li><a href="#portofolio" class="hover:text-white">Portofolio</a></li>
+        </ul>
       </div>
 
-      <p class="font-semibold text-center mt-3 text-sm">SERTIFIKAT KOMPETENSI</p>
-      <p class="text-xs text-center text-[var(--forest)]">AMDAL</p>
+      <div>
+        <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan</h3>
+        <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+          <li>Instalasi WTP & WWTP</li>
+          <li>Sistem IPAL Industri</li>
+          <li>Maintenance & Service</li>
+          <li>Peralatan Reverse Osmosis</li>
+          <li>Instalasi WTP, STP, WWTP</li>
+        </ul>
+      </div>
+
+      <!-- Kontak -->
+      <div>
+        <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
+        <ul class="space-y-2 text-[var(--sage-text)] text-sm">
+          <li>Bandung, Indonesia</li>
+          <li><a href="mailto:office@octatirta8.com" class="hover:text-white">office@octatirta8.com</a></li>
+          <li><a href="https://wa.me/62" class="hover:text-white">+62 XXXX</a></li>
+        </ul>
+      </div>
+
     </div>
 
-  </div>
-</section>
-
-<!-- ============ MODAL IMAGE PREVIEW ============ -->
-<!-- MODAL IMAGE PREVIEW -->
-<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[999] p-4">
-  <div class="p-4 max-w-xl w-full bg-white rounded-lg relative">
-
-    <button onclick="closeModal()" 
-      class="absolute -top-3 -right-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold hover:bg-red-600">×</button>
-
-    <img id="modalImage1" class="w-full max-h-[70vh] object-contain rounded-lg">
-    <img id="modalImage2" class="w-full max-h-[70vh] object-contain rounded-lg mt-3 hidden">
-
-    <div class="flex justify-center gap-4 mt-4">
-      <button id="btn-img1" onclick="showImg(1)" class="px-4 py-1 rounded bg-[var(--sage-dark)] text-white text-xs hidden">Gambar 1</button>
-      <button id="btn-img2" onclick="showImg(2)" class="px-4 py-1 rounded bg-[var(--sage-border)] text-[var(--sage-dark)] text-xs hidden">Gambar 2</button>
+    <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
+      © 2025 PT. Octa Tirta Investment • All Rights Reserved
     </div>
+  </footer>
 
-  </div>
-</div>
+  <!-- MUSIC BACKGROUND -->
+  <audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
 
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    // Toggle mobile menu
+    const btnMobile = document.getElementById("btn-mobile");
+    const menuMobile = document.getElementById("menu-mobile");
+    const iconOpen = document.getElementById("icon-open");
+    const iconClose = document.getElementById("icon-close");
 
-
-<!-- ==================== MITRA KAMI ==================== -->
-<section id="mitra" class="py-14 lg:py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-10">
-      <p class="text-xs font-semibold tracking-[0.25em] text-[var(--forest)] uppercase mb-2">MITRA KAMI</p>
-      <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--forest)]">Perusahaan yang Bekerja Sama</h2>
-      <p class="text-sm text-[var(--forest)]/70 mt-2 max-w-xl mx-auto">
-        Kami dipercaya oleh berbagai mitra strategis dari sektor industri, pemerintah, hingga fasilitas publik.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center mitra-logo">
-      <img src="Images/mitra/bca.png">
-      <img src="Images/mitra/al.png">
-      <img src="Images/mitra/iacpi-removebg-preview.png">
-      <img src="Images/mitra/image__4_-removebg-preview.png">
-      <img src="Images/mitra/itb.png">
-      <img src="Images/mitra/mandiri.png">
-    </div>
-  </div>
-</section>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="bg-[var(--sage-dark)] text-white pt-16 pb-8 border-t-2 border-[var(--sage-border)]">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12">
-
-    <!-- Logo -->
-    <div>
-      <img src="Images/logo white.png" class="w-28 mb-4 brightness-110">
-      <p class="text-[13px] text-[var(--sage-text)] leading-relaxed">
-        Solusi Rekayasa Air & Limbah Dengan Teknologi Berkelanjutan.
-      </p>
-    </div>
-
-    <!-- Tautan -->
-    <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Tautan Cepat</h3>
-      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-        <li><a href="tentang.html" class="hover:text-white">Tentang Kami</a></li>
-        <li><a href="Manajemen.html" class="hover:text-white">Manajemen</a></li>
-        <li><a href="tim_ahli.html" class="hover:text-white">Tim Ahli</a></li>
-        <li><a href="#portofolio" class="hover:text-white">Portofolio</a></li>
-      </ul>
-    </div>
-
-   <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Layanan</h3>
-      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-        <li>Instalasi WTP & WWTP</li>
-        <li>Sistem IPAL Industri</li>
-        <li>Maintenance & Service</li>
-        <li>Peralatan Reverse Osmosis</li>
-        <li>Instalasi WTP, STP, WWTP</li>
-      </ul>
-    </div>
-
-    <!-- Kontak -->
-    <div>
-      <h3 class="font-semibold mb-3 text-[var(--sage-border)]">Hubungi Kami</h3>
-      <ul class="space-y-2 text-[var(--sage-text)] text-sm">
-        <li>Bandung, Indonesia</li>
-        <li><a href="mailto:office@octatirta8.com" class="hover:text-white">office@octatirta8.com</a></li>
-        <li><a href="https://wa.me/62" class="hover:text-white">+62 XXXX</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="mt-10 text-center text-[11px] text-[var(--sage-text)] border-t border-white/10 pt-3">
-    © 2025 PT. Octa Tirta Investment • All Rights Reserved
-  </div>
-</footer>
-
-<!-- MUSIC BACKGROUND -->
-<audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
-
-<!-- ==================== SCRIPT ==================== -->
-<script>
-// Toggle mobile menu
-const btnMobile = document.getElementById("btn-mobile");
-const menuMobile = document.getElementById("menu-mobile");
-const iconOpen = document.getElementById("icon-open");
-const iconClose = document.getElementById("icon-close");
-
-btnMobile.addEventListener("click", () => {
-  const open = menuMobile.style.maxHeight !== "0px";
-  menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
-  iconOpen.classList.toggle("hidden");
-  iconClose.classList.toggle("hidden");
-});
-
-// Dropdown Mobile
-const btnManaMobile = document.getElementById("btn-mana-mobile");
-const subManaMobile = document.getElementById("sub-mana-mobile");
-const iconMana = document.getElementById("icon-mana");
-
-btnManaMobile.addEventListener("click", () => {
-  const open = subManaMobile.style.maxHeight !== "0px";
-  subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
-  iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
-});
-
-// Hero Slider
-const slides=document.querySelectorAll('.hero-slide');let currentSlide=0;
-function showSlide(i){slides.forEach((s,index)=>{s.classList.toggle('active',index===i);});}
-setInterval(()=>{currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide);},7000);
-
-</script>
-<script>
-// ===================== Image Modal Fix & Multi/Single Image Mode =====================
-function openModal(img1, img2 = null) {
-  document.getElementById("imageModal").classList.remove("hidden");
-  const modal1 = document.getElementById("modalImage1");
-  const modal2 = document.getElementById("modalImage2");
-  const btn1 = document.getElementById("btn-img1");
-  const btn2 = document.getElementById("btn-img2");
-
-  modal1.src = img1;
-  modal2.src = img2;
-
-  if (img2 === null) {
-    modal2.classList.add("hidden");
-    btn1.classList.add("hidden");
-    btn2.classList.add("hidden");
-  } else {
-    modal2.classList.add("hidden");
-    btn1.classList.remove("hidden");
-    btn2.classList.remove("hidden");
-  }
-}
-
-function closeModal() {
-  document.getElementById("imageModal").classList.add("hidden");
-}
-
-function showImg(no) {
-  const modal1 = document.getElementById("modalImage1");
-  const modal2 = document.getElementById("modalImage2");
-
-  if (no === 1) {
-    modal1.classList.remove("hidden");
-    modal2.classList.add("hidden");
-  } else {
-    modal1.classList.add("hidden");
-    modal2.classList.remove("hidden");
-  }
-}
-</script>
-
-<script>
-// ===================== PERSIST MUSIK ANTAR HALAMAN =====================
-const bgMusic = document.getElementById("bg-music");
-const MUSIC_TIME_KEY = "octa_bg_music_time";
-const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
-
-if (bgMusic) {
-  bgMusic.volume = 0.5;
-
-  // Ambil posisi terakhir & status pause dari localStorage
-  const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
-  const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
-
-  if (!isNaN(savedTime) && savedTime > 0) {
-    // Set posisi lagu ke tempat terakhir
-    bgMusic.currentTime = savedTime;
-  }
-
-  function startPlay() {
-    if (!wasPaused) {
-      bgMusic.play().catch(()=>{ /* autoplay blocked */ });
-    }
-    document.body.removeEventListener("click", startPlay);
-  }
-
-  // Coba autoplay, kalau gagal tunggu klik user
-  if (!wasPaused) {
-    bgMusic.play().catch(()=>{
-      document.body.addEventListener("click", startPlay, { once:true });
+    btnMobile.addEventListener("click", () => {
+      const open = menuMobile.style.maxHeight !== "0px";
+      menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
+      iconOpen.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
     });
-  }
 
-  // Simpan posisi lagu tiap kali waktu berubah
-  bgMusic.addEventListener("timeupdate", () => {
-    localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
-  });
+    // Dropdown Mobile
+    const btnManaMobile = document.getElementById("btn-mana-mobile");
+    const subManaMobile = document.getElementById("sub-mana-mobile");
+    const iconMana = document.getElementById("icon-mana");
 
-  // Simpan status pause / play
-  function savePausedState() {
-    localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
-  }
-  bgMusic.addEventListener("pause", savePausedState);
-  bgMusic.addEventListener("play", savePausedState);
-}
-</script>
+    btnManaMobile.addEventListener("click", () => {
+      const open = subManaMobile.style.maxHeight !== "0px";
+      subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
+      iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+    });
+
+    // Hero Slider
+    const slides = document.querySelectorAll('.hero-slide'); let currentSlide = 0;
+    function showSlide(i) { slides.forEach((s, index) => { s.classList.toggle('active', index === i); }); }
+    setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }, 7000);
+
+  </script>
+  <script>
+    // ===================== Image Modal Fix & Multi/Single Image Mode =====================
+    function openModal(img1, img2 = null) {
+      document.getElementById("imageModal").classList.remove("hidden");
+      const modal1 = document.getElementById("modalImage1");
+      const modal2 = document.getElementById("modalImage2");
+      const btn1 = document.getElementById("btn-img1");
+      const btn2 = document.getElementById("btn-img2");
+
+      modal1.src = img1;
+      modal2.src = img2;
+
+      if (img2 === null) {
+        modal2.classList.add("hidden");
+        btn1.classList.add("hidden");
+        btn2.classList.add("hidden");
+      } else {
+        modal2.classList.add("hidden");
+        btn1.classList.remove("hidden");
+        btn2.classList.remove("hidden");
+      }
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").classList.add("hidden");
+    }
+
+    function showImg(no) {
+      const modal1 = document.getElementById("modalImage1");
+      const modal2 = document.getElementById("modalImage2");
+
+      if (no === 1) {
+        modal1.classList.remove("hidden");
+        modal2.classList.add("hidden");
+      } else {
+        modal1.classList.add("hidden");
+        modal2.classList.remove("hidden");
+      }
+    }
+  </script>
+
+  <script>
+    // ===================== PERSIST MUSIK ANTAR HALAMAN =====================
+    const bgMusic = document.getElementById("bg-music");
+    const MUSIC_TIME_KEY = "octa_bg_music_time";
+    const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
+
+    if (bgMusic) {
+      bgMusic.volume = 0.5;
+
+      // Ambil posisi terakhir & status pause dari localStorage
+      const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
+      const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
+
+      if (!isNaN(savedTime) && savedTime > 0) {
+        // Set posisi lagu ke tempat terakhir
+        bgMusic.currentTime = savedTime;
+      }
+
+      function startPlay() {
+        if (!wasPaused) {
+          bgMusic.play().catch(() => { /* autoplay blocked */ });
+        }
+        document.body.removeEventListener("click", startPlay);
+      }
+
+      // Coba autoplay, kalau gagal tunggu klik user
+      if (!wasPaused) {
+        bgMusic.play().catch(() => {
+          document.body.addEventListener("click", startPlay, { once: true });
+        });
+      }
+
+      // Simpan posisi lagu tiap kali waktu berubah
+      bgMusic.addEventListener("timeupdate", () => {
+        localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
+      });
+
+      // Simpan status pause / play
+      function savePausedState() {
+        localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
+      }
+      bgMusic.addEventListener("pause", savePausedState);
+      bgMusic.addEventListener("play", savePausedState);
+    }
+  </script>
 
 </body>
+
 </html>
