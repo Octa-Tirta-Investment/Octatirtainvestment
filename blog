@@ -35,3 +35,6 @@
 
         <a href="layanan.html" class="nav-i font-semibold text-[var(--sage-border)]" data-lang>Layanan</a>
       <a href="layanan.html" class="mobile-nav-i text-[var(--sage-border)] font-semibold" data-lang>Layanan</a>
+
+
+              <li><a href="mailto:office@octatirta8.com" class="hover:text-white">office@octatirta8.com</a></li>
