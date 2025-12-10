@@ -239,28 +239,66 @@ html { scroll-behavior: smooth; }
 <script>AOS.init({ duration: 900, once: true, easing: "ease-in-out" });</script>
 
 <script>
-// MOBILE MENU
-const btnMobile = document.getElementById("btn-mobile");
-const menuMobile = document.getElementById("menu-mobile");
-const iconOpen = document.getElementById("icon-open");
-const iconClose = document.getElementById("icon-close");
-btnMobile.addEventListener("click", () => {
-  const open = menuMobile.style.maxHeight !== "0px";
-  menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
-  iconOpen.classList.toggle("hidden");
-  iconClose.classList.toggle("hidden");
-});
+  // ============== MOBILE MENU TOGGLE (Fix 1x klik) ==============
+  const btnMobile = document.getElementById("btn-mobile");
+  const menuMobile = document.getElementById("menu-mobile");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
 
-// DROPDOWN MOBILE
-const btnManaMobile = document.getElementById("btn-mana-mobile");
-const subManaMobile = document.getElementById("sub-mana-mobile");
-const iconMana = document.getElementById("icon-mana");
-btnManaMobile.addEventListener("click", () => {
-  const open = subManaMobile.style.maxHeight !== "0px";
-  subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
-  iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
-});
+  // Set default height
+  menuMobile.style.maxHeight = "0px";
+
+  btnMobile.addEventListener("click", () => {
+    const isOpen = menuMobile.classList.toggle("open");
+
+    if (isOpen) {
+      menuMobile.style.maxHeight = menuMobile.scrollHeight + "px";
+    } else {
+      menuMobile.style.maxHeight = "0px";
+    }
+
+    // Toggle Icon
+    iconOpen.classList.toggle("hidden");
+    iconClose.classList.toggle("hidden");
+  });
+
+
+  // ============== DROPDOWN "MANAJEMEN" MOBILE (Tanpa icon panah) ==============
+  const btnManaMobile = document.getElementById("btn-mana-mobile");
+  const subManaMobile = document.getElementById("sub-mana-mobile");
+
+  // Set default height
+  subManaMobile.style.maxHeight = "0px";
+
+  btnManaMobile.addEventListener("click", () => {
+    const isOpen = subManaMobile.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      subManaMobile.style.maxHeight = "0px";
+    } else {
+      subManaMobile.style.maxHeight = subManaMobile.scrollHeight + "px";
+    }
+  });
+
+
+  // ============== HERO SLIDER AUTO ==============
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+
+  function showSlide(i) {
+    slides.forEach((s, index) => {
+      s.classList.toggle('active', index === i);
+    });
+  }
+
+  if (slides.length > 0) {
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 7000);
+  }
 </script>
+
 
 <!-- ===================== MUSIC PERSIST ===================== -->
 <script>

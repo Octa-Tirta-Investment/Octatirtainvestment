@@ -228,7 +228,7 @@
       <!-- Dropdown Mobile -->
       <button id="btn-mana-mobile" class="w-full flex justify-between items-center py-2 mobile-nav-i" data-lang="nav-manage">
         Manajemen
-        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        <svg id="icon-mana" class="h-4 transition-transform" fill="none" stroke="currentColor"></svg>
       </button>
       <div id="sub-mana-mobile" class="max-h-0 overflow-hidden transition-all duration-300 pl-3">
         <a href="Manajemen.html" class="block py-2 text-white/80" data-lang="nav-mana">Manajemen</a>
@@ -554,36 +554,66 @@ window.addEventListener("DOMContentLoaded", () => {
 
   <!-- ==================== SCRIPT ==================== -->
   <script>
-    // Toggle mobile menu
-    const btnMobile = document.getElementById("btn-mobile");
-    const menuMobile = document.getElementById("menu-mobile");
-    const iconOpen = document.getElementById("icon-open");
-    const iconClose = document.getElementById("icon-close");
+  // ============== MOBILE MENU TOGGLE (Fix 1x klik) ==============
+  const btnMobile = document.getElementById("btn-mobile");
+  const menuMobile = document.getElementById("menu-mobile");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
 
-    btnMobile.addEventListener("click", () => {
-      const open = menuMobile.style.maxHeight !== "0px";
-      menuMobile.style.maxHeight = open ? "0px" : menuMobile.scrollHeight + "px";
-      iconOpen.classList.toggle("hidden");
-      iconClose.classList.toggle("hidden");
+  // Set default height
+  menuMobile.style.maxHeight = "0px";
+
+  btnMobile.addEventListener("click", () => {
+    const isOpen = menuMobile.classList.toggle("open");
+
+    if (isOpen) {
+      menuMobile.style.maxHeight = menuMobile.scrollHeight + "px";
+    } else {
+      menuMobile.style.maxHeight = "0px";
+    }
+
+    // Toggle Icon
+    iconOpen.classList.toggle("hidden");
+    iconClose.classList.toggle("hidden");
+  });
+
+
+  // ============== DROPDOWN "MANAJEMEN" MOBILE (Tanpa icon panah) ==============
+  const btnManaMobile = document.getElementById("btn-mana-mobile");
+  const subManaMobile = document.getElementById("sub-mana-mobile");
+
+  // Set default height
+  subManaMobile.style.maxHeight = "0px";
+
+  btnManaMobile.addEventListener("click", () => {
+    const isOpen = subManaMobile.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      subManaMobile.style.maxHeight = "0px";
+    } else {
+      subManaMobile.style.maxHeight = subManaMobile.scrollHeight + "px";
+    }
+  });
+
+
+  // ============== HERO SLIDER AUTO ==============
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+
+  function showSlide(i) {
+    slides.forEach((s, index) => {
+      s.classList.toggle('active', index === i);
     });
+  }
 
-    // Dropdown Mobile
-    const btnManaMobile = document.getElementById("btn-mana-mobile");
-    const subManaMobile = document.getElementById("sub-mana-mobile");
-    const iconMana = document.getElementById("icon-mana");
+  if (slides.length > 0) {
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 7000);
+  }
+</script>
 
-    btnManaMobile.addEventListener("click", () => {
-      const open = subManaMobile.style.maxHeight !== "0px";
-      subManaMobile.style.maxHeight = open ? "0px" : subManaMobile.scrollHeight + "px";
-      iconMana.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
-    });
-
-    // Hero Slider
-    const slides = document.querySelectorAll('.hero-slide'); let currentSlide = 0;
-    function showSlide(i) { slides.forEach((s, index) => { s.classList.toggle('active', index === i); }); }
-    setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }, 7000);
-
-  </script>
   <script>
     // ===================== Image Modal Fix & Multi/Single Image Mode =====================
     function openModal(img1, img2 = null) {
