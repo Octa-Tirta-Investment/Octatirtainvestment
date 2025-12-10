@@ -12,6 +12,23 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+
+  /* ——— FIX JUSTIFY RAPI HP & DESKTOP ——— */
+.blog-text {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  word-spacing: -1px;
+  line-height: 1.6;
+}
+
+/* Desktop kembalikan normal spacing */
+@media (min-width: 768px) {
+  .blog-text {
+    word-spacing: 0px;
+  }
+}
+
 * { font-family: 'Poppins', sans-serif !important; }
 
 :root {
@@ -137,16 +154,7 @@ html { scroll-behavior: smooth; }
 <!-- ==================== LIST ARTIKEL ==================== -->
 <section class="max-w-6xl mx-auto px-6 py-16 space-y-20">
 
-  <!-- === BLOG 1 (FULL ORIGINAL TEXT) === -->
-<article class="bg-white rounded-xl shadow-lg border border-[var(--sage-border)] p-6 md:p-10 card-hover">
-
-  <img src="https://i.postimg.cc/Sx6Q5QVL/WHO-Traditional-Medicine.png" alt="WHO Traditional Medicine Holistic Congress Beijing 2008" class="rounded-lg shadow-md w-full md:w-3/4 mx-auto mb-6">
-
-  <h2 class="text-2xl font-bold text-[var(--forest)] mb-3">
-    Pengobatan Holistik Mendunia: Dukungan WHO & Sistem Kesehatan Internasional
-  </h2>
-
-  <p class="text-gray-700 leading-relaxed text-justify">
+  <p class="blog-text text-gray-700 leading-relaxed">
     Pengobatan Holistik di dunia Internasional, perkembangan pelayanan Kesehatan Alternatif juga mendapat perhatian dari berbagai negara. Dari hasil kesepakatan pada pertemuan WHO Congress on Traditional Medicine di Beijing pada November 2008 disebutkan bahwa pelayanan kesehatan alternatif yang aman dan bermanfaat dapat diintegrasikan ke dalam sistem pelayanan kesehatan.<br><br>
 
     Pengobatan holistik telah dikenalkan sejak peradapan Babilonia di Mesipotamia sekitar 2600 tahun sebelum Masehi. pada saat itu tulisan mengenai pengobatan dituliskan pada lembaran tanah liat mengenai gejala penyakit dan cara pembuatan obatnya serta doa yang dipanjatkan kepada TUHAN. Metode ini dikenal dengan menggabungkan praktik farmasi,kedokteran dan perawatan secara spiritual dalam pengobatan suatu penyakit. penyembuhan holistik sebenarnya sudah ada jauh pada zaman kuno kira-kira 5000 tahun yang lalu. Sejarawan belum bisa memastikan dari bangsa manakah pertama kali ia di peraktekkan, Kebanyakan sejarawan percaya bahwa penyembuhan holistic dimulai di peradaban India dan Cina.<br><br>
@@ -166,9 +174,8 @@ html { scroll-behavior: smooth; }
     Hidroterapi di sisi lain memberikan solusi sehat alternatif sebagai pendekatan holistik terhadap kesehatan.<br><br>
 
     Hidroterapi telah diabaikan oleh pengobatan era modern saat ini. Paradigma holistik menempatkan air sebagai Solusi kesehatan secara keseluruhan . Lebih dari 70% tubuh manusia terbuat dari air. Semua aktivitas metabolisme memerlukan keberadaan air.  Air adalah peran penting dalam dunia kesehatan, termasuk transportasi nutrisi, oksigen otak, hormon, antibodi, sisa metabolisme, transmisi sinyal saraf, pengatur suhu dan banyak lainnya.
-  </p>
+</p>
 
-</article>
 
 
   <!-- === BLOG 2 (FULL ORIGINAL TEXT) === -->
@@ -180,7 +187,7 @@ html { scroll-behavior: smooth; }
     Bahaya Timbal & Klorin dalam Air terhadap Kesehatan
   </h2>
 
-  <p class="text-gray-700 leading-relaxed text-justify">
+  <p class="blog-text text-gray-700 leading-relaxed">
     Timbal  merupakan neurotoksin kuat yang memiliki efek signifikan terhadap kesehatan dan perkembangan anak. Menurut Pusat Pengendalian dan Pencegahan Penyakit, paparan timbal dapat mempengaruhi hampir setiap sistem dalam tubuh anak, sehingga menghambat perkembangan kemampuan fisik dan mental.<br><br>
 
     American   Academy of Pediatrics  menyatakan bahwa tidak ada perawatan medis yang efektif untuk keracunan timbal dan diperlukan pencegahan paparan.<br><br>
@@ -210,7 +217,7 @@ html { scroll-behavior: smooth; }
         Ir. Wisnu Salman
       </h2>
 
-      <p class="text-gray-700 text-justify leading-relaxed">
+      <p class="blog-text text-gray-700 leading-relaxed">
         Air bersih adalah hak dasar bagi setiap makhluk hidup di Bumi.<br><br>
         Air tercemar akan merusak ekosistem air, mengancam keberlanjutan sumber daya alam,<br><br>
         Air tercemar bisa menimbulkan gangguan kesehatan kronis. Air yang terpapar bahan kimia berbahaya bisa meningkatkan risiko terjadinya penyakit seperti kanker, gangguan hormonal, dan kerusakan organ.<br><br>
@@ -222,7 +229,6 @@ html { scroll-behavior: smooth; }
   </div>
 </section>
 
-<!-- ============ CO-FOUNDER 2 ============ -->
 <!-- ============ CO-FOUNDER 2 (FIXED ORDER) ============ -->
 <section class="max-w-6xl mx-auto px-6 pb-14">
   <div class="bg-white p-8 rounded-2xl shadow-lg border border-[var(--sage-border)] grid md:grid-cols-3 gap-8 items-center">
@@ -241,7 +247,7 @@ html { scroll-behavior: smooth; }
         Andi Indah Sari
       </h2>
 
-      <p class="text-gray-700 text-justify leading-relaxed">
+      <p class="blog-text text-gray-700 leading-relaxed">
         Minum Air Bikin Kulit Lembab: FAKTA<br><br>
         Jika ingin mempunyai kulit wajah yang sehat dan lembap, minum air adalah salah satu kuncinya. Kurang minum air putih bisa menjadikan kulit jadi kering dan kasar. Air putih juga bisa membantu menutrisi sel-sel kulit.<br><br>
         Setiap manusia mempunyai kandungan air di dalam tubuhnya hampir 60%. Bahkan, bayi mempunyai kandungan air dalam tubuh mencapai 75 persen. Oleh sebab itu, air merupakan hal yang sangat vital bagi kesehatan manusia.
