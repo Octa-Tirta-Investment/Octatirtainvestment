@@ -159,6 +159,49 @@
   </div>
 </footer>
 
+<audio id="bg-music" src="Images/WhatsApp Audio 2025-12-08 at 20.32.09.mpeg" autoplay loop></audio>
+
+<script>
+// ===================== PERSIST MUSIK ANTAR HALAMAN =====================
+const bgMusic = document.getElementById("bg-music");
+const MUSIC_TIME_KEY = "octa_bg_music_time";
+const MUSIC_PAUSED_KEY = "octa_bg_music_paused";
+
+if (bgMusic) {
+  bgMusic.volume = 0.5;
+
+  const savedTime = parseFloat(localStorage.getItem(MUSIC_TIME_KEY) || "0");
+  const wasPaused = localStorage.getItem(MUSIC_PAUSED_KEY) === "true";
+
+  if (!isNaN(savedTime) && savedTime > 0) {
+    bgMusic.currentTime = savedTime;
+  }
+
+  function startPlay() {
+    if (!wasPaused) {
+      bgMusic.play().catch(()=>{});
+    }
+    document.body.removeEventListener("click", startPlay);
+  }
+
+  if (!wasPaused) {
+    bgMusic.play().catch(()=>{
+      document.body.addEventListener("click", startPlay, { once:true });
+    });
+  }
+
+  bgMusic.addEventListener("timeupdate", () => {
+    localStorage.setItem(MUSIC_TIME_KEY, bgMusic.currentTime.toString());
+  });
+
+  function savePausedState() {
+    localStorage.setItem(MUSIC_PAUSED_KEY, bgMusic.paused ? "true" : "false");
+  }
+  bgMusic.addEventListener("pause", savePausedState);
+  bgMusic.addEventListener("play", savePausedState);
+}
+</script>
+
 <!-- ==================== SCRIPT MULTILANGUAGE ==================== -->
 <script>
     // EVENT TOMBOL TRANSLATE (DESKTOP + MOBILE)
