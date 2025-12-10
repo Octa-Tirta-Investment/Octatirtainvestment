@@ -13,6 +13,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+
+  /* AGAR JUSTIFY RAPAT & RAPI DI HP */
+  #portofolio p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-spacing: -1px;
+  }
+
+  /* AGAR TIDAK TERLALU MELEBAR DI DESKTOP */
+  @media (min-width: 768px) {
+    #portofolio p {
+      word-spacing: normal;
+    }
+  }
+
     * {
       font-family: 'Poppins', sans-serif !important;
     }
